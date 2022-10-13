@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic");
 @import url("fontawesome-all.min.css");
 
+@font-face {
+    font-family: "typewriter";
+    src: url("american_typewriter.woff");
+}
+
 /*
 	Astral by HTML5 UP
 	html5up.net | @ajlkn
@@ -1325,7 +1330,8 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: 'Source Sans Pro', sans-serif;
+		/*font-family: 'Source Sans Pro', sans-serif;*/
+        font-family: "typewriter";
 		font-weight: 300;
 		color: #777777;
 		font-size: 20pt;
@@ -1819,7 +1825,7 @@ input, select, textarea {
 			#nav a span {
 				display: block;
 				position: absolute;
-				background: #222222;
+				background: #282828;
 				color: #fbf1c7;
 				top: -2.75em;
 				font-size: 0.3em;
@@ -1842,7 +1848,7 @@ input, select, textarea {
 					bottom: -0.4em;
 					left: 50%;
 					margin-left: -0.6em;
-					border-top: solid 0.6em #222222;
+					border-top: solid 0.6em #282828;
 					border-left: solid 0.6em transparent;
 					border-right: solid 0.6em transparent;
 				}
@@ -2106,7 +2112,60 @@ input, select, textarea {
 						font-size: 1.25em;
 						margin: 0.25em 0 0 0;
 					}
-				@media screen and (max-width: 980px) {
+
+                    #main > .panel.intro header p a span {
+                        text-align: center;
+                        display: block;
+                        position: absolute;
+                        background: #282828;
+                        color: #fbf1c7;
+                        top: 3.75em;
+                        font-size: 0.4em;
+                        height: 2.25em;
+                        line-height: 2.25em;
+                        left: 50%;
+                        opacity: 0;
+                        -moz-transition: opacity .25s ease-in-out;
+                        -webkit-transition: opacity .25s ease-in-out;
+                        -ms-transition: opacity .25s ease-in-out;
+                        transition: opacity .25s ease-in-out;
+                        width: 5.5em;
+                        margin-left: -2.75em;
+                    }
+                    #main > .panel.intro header p a span:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        bottom: 2.2em;
+                        left: 50%;
+                        margin-left: -0.6em;
+                        border-bottom: solid 0.6em #282828;
+                        border-left: solid 0.6em transparent;
+                        border-right: solid 0.6em transparent;
+                    }
+                        #main > .panel.intro header p a:hover {
+                            opacity: 1.0;
+                        }
+
+                            #main > .panel.intro header p a:hover span {
+                                opacity: 1.0;
+                            }
+
+                        #main > .panel.intro header p a.active {
+                            opacity: 1.0;
+                        }
+
+                            #main > .panel.intro header p a.active:after {
+                                border-bottom-width: 0.5em;
+                            }
+
+                    @media screen and (max-width: 980px) {
+
+                        #main > .panel.intro a span {
+                            display: none;
+                        }
+
+
 
 					#main > .panel.intro {
 						-moz-flex-direction: column;
@@ -2144,6 +2203,16 @@ input, select, textarea {
 						}
 
 				}
+
+
+
+/* Projects */
+
+#projects .panel a p{
+    color: #504549;
+    display: block;
+}
+
 
 /* Footer */
 
