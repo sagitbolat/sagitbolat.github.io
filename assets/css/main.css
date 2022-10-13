@@ -2208,12 +2208,42 @@ input, select, textarea {
 
 /* Projects */
 
-#projects .panel a p{
+#projects a:link {
+    text-decoration: none;
     color: #504549;
-    display: block;
 }
-
-
+#projects a:visited {
+    text-decoration: none;
+    color: #504549;
+}
+#projects a:hover {
+    text-decoration: none;
+    color: #504549;
+}
+#projects a:active {
+    text-decoration: none;
+    color: #504549;
+}
+    #projects .project-item {
+        position: relative;
+        text-align: center;
+        width: 100%;
+        color: #282828
+        object-fit: cover;
+    }
+        #projects .project-item img {
+            opacity: 1;
+            width: 100%%;
+            height: 10em;
+        }
+        #projects .project-item span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #282828;
+            color: #fbf1c7;
+        }
 /* Footer */
 
 	#footer {
