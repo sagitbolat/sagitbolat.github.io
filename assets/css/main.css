@@ -1539,7 +1539,6 @@ input, select, textarea {
 
 		header > p {
 			margin: 0.5em 0 0 0;
-			color: #d65d0e;
 		}
 
 		@media screen and (max-width: 736px) {
@@ -2116,7 +2115,7 @@ input, select, textarea {
                         text-align: center;
                         display: block;
                         position: absolute;
-                        background: #504945;
+                        background: #d65d0e;
                         color: #fbf1c7;
                         top: 3.75em;
                         font-size: 0.4em;
@@ -2138,7 +2137,7 @@ input, select, textarea {
                         bottom: 2.2em;
                         left: 50%;
                         margin-left: -0.6em;
-                        border-bottom: solid 0.6em #504945;
+                        border-bottom: solid 0.6em #d65d0e;
                         border-left: solid 0.6em transparent;
                         border-right: solid 0.6em transparent;
                     }
@@ -2257,6 +2256,23 @@ input, select, textarea {
 		#projects .project-item:hover span {
             background: transparent;
         }
+
+/* utils and highlights */
+#highlighted-span {
+	color: #d65d0e;
+}
+#main #home header p a {
+	color: #504945;
+	-moz-transition: color .25s ease-in-out;
+	-webkit-transition: color .25s ease-in-out;
+	-ms-transition: color .25s ease-in-out;
+	transition: color .25s ease-in-out;
+}
+#main #home header p a:hover{
+	color: #d65d0e;
+}
+
+
 /* Footer */
 
 	#footer {
