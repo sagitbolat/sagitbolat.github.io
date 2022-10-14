@@ -12,21 +12,49 @@
 }
 
 @font-face {
+    font-family: "1942_typewriter";
+    src: url(1942.woff);
+}
+
+@font-face {
     font-family: "Consolas";
     src: url("Consolas.woff");
 }
+
+@font-face {
+    font-family: "impact";
+    src: url("impact.woff");
+}
+
+
+/* Gruvbox colors accent colors:
+    Reds:
+#cc241d
+#fb4934
+    Greens:
+#98971a
+#b8bb26
+    Yellows:
+#d79921
+#fabd2f
+    Blue:
+#458588
+#83a598
+    Purple:
+#b16286
+#d3869b
+    Aqua:
+#689d6a
+#8ec07c
+*/
+
 :root {
     --background_color_dark: #282828;
     --background_color_light: #504945;
-    --accent_color: #fe8019;
-    --background_color_dark: #282828;
+    --accent_color_1: #fe8019; /* for light background colors */
+    --accent_color_2: #d65d0e; /* for dark background colors */
 }
 
-/*
-	Astral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -1346,7 +1374,7 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: 'Buero', 'Consolas', 'Source Sans Pro', sans-serif;
+		font-family: /*'Buero', 'Consolas',*/ 'Source Sans Pro', sans-serif;
 		font-weight: 300;
 		color: #504945;
 		font-size: 20pt;
@@ -1798,7 +1826,7 @@ input, select, textarea {
 		#nav a {
 			position: relative;
 			display: inline-block;
-			color: var(--accent_color);
+			color: var(--accent_color_2);
 			width: 1em;
 			height: 1em;
 			line-height: 0.9em;
@@ -1839,7 +1867,7 @@ input, select, textarea {
 			#nav a span {
 				display: block;
 				position: absolute;
-				background: var(--accent_color);
+				background: var(--accent_color_2);
 				color: #fbf1c7;
 				top: -2.75em;
 				font-size: 0.3em;
@@ -1862,7 +1890,7 @@ input, select, textarea {
 					bottom: -0.4em;
 					left: 50%;
 					margin-left: -0.6em;
-					border-top: solid 0.6em var(--accent_color);
+					border-top: solid 0.6em var(--accent_color_2);
 					border-left: solid 0.6em transparent;
 					border-right: solid 0.6em transparent;
 				}
@@ -2131,7 +2159,7 @@ input, select, textarea {
                         text-align: center;
                         display: block;
                         position: absolute;
-                        background: var(--accent_color);
+                        background: var(--accent_color_1);
                         color: #fbf1c7;
                         top: 3.75em;
                         font-size: 0.4em;
@@ -2153,7 +2181,7 @@ input, select, textarea {
                         bottom: 2.2em;
                         left: 50%;
                         margin-left: -0.6em;
-                        border-bottom: solid 0.6em var(--accent_color);
+                        border-bottom: solid 0.6em var(--accent_color_1);
                         border-left: solid 0.6em transparent;
                         border-right: solid 0.6em transparent;
                     }
@@ -2239,7 +2267,7 @@ input, select, textarea {
         text-align: center;
         width: 100%;
 		height: 10em;
-		background-color:  var(--accent_color);
+		background-color:  var(--accent_color_1);
 		margin-bottom: 1em;
     }
         #projects .project-item img {
@@ -2247,6 +2275,7 @@ input, select, textarea {
             width: 100%;
             height: 100%;		
 			object-fit: cover;
+            border: 0.2em solid var(--background_color_dark);
 			-moz-transition: opacity .25s ease-in-out;
 			-webkit-transition: opacity .25s ease-in-out;
 			-ms-transition: opacity .25s ease-in-out;
@@ -2261,9 +2290,9 @@ input, select, textarea {
             top: 50%;
             left: 50%;
 			font-weight: 800;
-            font-size: xx-large;
+            font-size: 1.2em;
             transform: translate(-50%, -50%);
-			background: var(--accent_color);
+			background: var(--accent_color_1);
             color: #fbf1c7;
 			-moz-transition: background .25s ease-in-out;
 			-webkit-transition: background .25s ease-in-out;
@@ -2274,19 +2303,51 @@ input, select, textarea {
             background: transparent;
         }
 
+/* for project pages */
+#banner {
+    position: relative;
+    width: 100%;
+    height: 4em;
+    margin-bottom: 1em;
+	background-color:  var(--background_color_dark);
+}
+    #banner img {
+        opacity: 0.3;
+        width: 100%;
+        height: 100%;		
+        object-fit: cover;
+        border: 0.2em solid var(--background_color_dark);
+    }
+    #banner h1 {
+        position: absolute;
+        top: 50%;
+        transform: translate(10%, -50%);
+        color: #fbf1c7;
+    }
+    #banner h1:before {
+        content: "\00a0";
+    }
+    #banner h1:after {
+        content: "\00a0";
+    }
+
+
 /* utils and highlights */
 #highlighted-span {
-	color: var(--accent_color);
+	color: var(--accent_color_1);
+}
+#hl {
+	color: var(--accent_color_1);
 }
 #main #home header p a {
-	color: #504945;
+	color: var(--background_color_light);
 	-moz-transition: color .25s ease-in-out;
 	-webkit-transition: color .25s ease-in-out;
 	-ms-transition: color .25s ease-in-out;
 	transition: color .25s ease-in-out;
 }
 #main #home header p a:hover{
-	color: var(--accent_color);
+	color: var(--accent_color_1);
 }
 
 

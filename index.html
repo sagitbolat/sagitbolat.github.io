@@ -22,7 +22,7 @@
 						<a href="#" class="icon solid fa-home"><span>Home</span></a>
 						<a href="#projects" class="icon solid fa-code"><span>Projects</span></a>
 						<a href="#devlogs" class="icon solid fa-archive"><span>Devlogs</span></a>
-						<a href="#contacts" class="icon solid fa-envelope"><span>Contact Me</span></a>
+						<a href="#contacts" class="icon solid fa-envelope"><span>Contact</span></a>
 					</nav>
 
 				<!-- Main -->
@@ -46,7 +46,7 @@
 						<!-- projects -->
 							<article id="projects" class="panel">
 								<header>
-									<h1><span id="highlighted-span"">Pro</span>jects</h1>
+									<h1><span id="highlighted-span">Pro</span>jects</h1>
 								</header>
 								<!--p>
 									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
@@ -56,7 +56,7 @@
                                 <a href="#project1">
                                     <div class="project-item">
                                         <img src="images/R.jfif" alt="">
-                                        <span class="project-caption">[C++] Game Engine</span>
+                                        <span class="project-caption">[C/C++] Game Engine</span>
                                     </div>
 								</a>
 								<a href="#project2">
@@ -75,20 +75,64 @@
 
 
 							<article id="project1" class="panel">
-								<header>
-									<h2><span id="highlighted-span"">[C++]</span> Game Engine</h2>
+								<header id="banner">
+                                    <img src="images/R.jfif">
+                                    <h1><span id="highlighted-span">[C/C++]</span> Game Engine</h1>
 								</header>
-								
+	                            <body id="project-article">
+                                    <h3>Abstraction Layers:</h3>
+                                    <p><ol>
+                                            <li><b id="hl">The Platform Layer:</b> 
+                                                responsible for interfacing with the OS. Uses <b>SDL2</b> 
+                                                for cross-platform compatibility.</li>
+                                            <li><b id='hl'>The Engine Layer:</b>
+                                                responsible for providing helpful systems to the user. Also initializes the main game-loop.</li>
+                                            <li><b id = "hl">The User Layer:</b> used by the user to create the game on top of the engine layer. The interface is modeled after
+                                            the Unity Game Engine script interface.</li>
+                                        </ol></p>
+                                    <h3>The Engine Layer:</h3>
+                                    <p><b>The engine layer consistes of the following systems:</b>
+                                        <ol> 
+                                            <li>
+                                                <b id='hl'>The Input System:</b>
+                                                <ul> 
+                                                    <li>Uses the platform layer to query the window's keypress event queue. 
+                                                        Then passes the state of the keys into a buffer, which is sent to the User Layer.
+                                                    </li>
+                                                    <li>The buffer is stored in the form of a bitfield.</li>
+                                                    <li>A buffer of previously queried state is kept as well, so the user is able to distingush between keys that are 
+                                                        single-pressed and keys that are held down (by comparing the two).
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <b id='hl'>The Rendering System:</b>
+                                                <ul> 
+                                                    <li>A graphical buffer stores pixel information in a 24-bit data format (RGB).                                                    </li>
+                                                    <li>
+                                                        Modifying the buffer by the user can be done using one of the following functions:
+                                                        <ol>
+                                                            <li><b id='hl'>DrawPixle():</b> ... </li>
+                                                        </ol>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                           
+                                        </ol>
+                                    </p>
+                                </body>
+                                
+
 							</article>
 							<article id="project2" class="panel">
 								<header>
-									<h2><span id="highlighted-span"">[Python]</span> Language Interpreter</h2>
+									<h2><span id="highlighted-span">[Python]</span> Language Interpreter</h2>
 								</header>
 								
 							</article>
 							<article id="project3" class="panel">
 								<header>
-									<h2><span id="highlighted-span"">[C#]</span> Automatic Sudoku Solver</h2>
+									<h2><span id="highlighted-span">[C#]</span> Automatic Sudoku Solver</h2>
 								</header>
 								
 							</article>
@@ -96,7 +140,7 @@
 						<!-- devlogs -->
 							<article id="devlogs" class="panel">
 								<header>
-									<h2><span id="highlighted-span"">Latest</span> Post</h2>
+									<h2><span id="highlighted-span">Latest</span> Post</h2>
 								</header>
                                 <section>
 
@@ -104,7 +148,7 @@
 
 
                                 <header>
-                                    <h2><span id="highlighted-span"">Previous</span> Posts</h2>
+                                    <h2><span id="highlighted-span">Previous</span> Posts</h2>
                                 </header>
 
 								<section>
@@ -154,7 +198,7 @@
                         <!-- Contact -->
 							<article id="contacts" class="panel">
 								<header>
-									<h2><span id="highlighted-span"">Contact</span> Me</h2>
+									<h2><span id="highlighted-span">Contact</span> Me</h2>
 								</header>
 								<ul>
 									<li><span id="highlighted-span"">E-mail: </span>sagitbolat@gmail.com</li>
