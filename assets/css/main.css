@@ -1333,7 +1333,7 @@ input, select, textarea {
 		/*font-family: 'Source Sans Pro', sans-serif;*/
         font-family: "typewriter";
 		font-weight: 300;
-		color: #777777;
+		color: #504945;
 		font-size: 20pt;
 		line-height: 1.75em;
 	}
@@ -1371,8 +1371,8 @@ input, select, textarea {
 		}
 
 	strong, b, h1, h2, h3, h4, h5, h6 {
-		font-weight: 400;
-		color: #363636;
+		font-weight: 600;
+		color: #504945;
 	}
 
 	h1 {
@@ -1472,7 +1472,7 @@ input, select, textarea {
 	form label {
 		display: block;
 		font-weight: 400;
-		color: #363636;
+		color: #504945;
 		margin: 0 0 1em 0;
 	}
 
@@ -1539,7 +1539,7 @@ input, select, textarea {
 
 		header > p {
 			margin: 0.5em 0 0 0;
-			color: #aaa;
+			color: #d65d0e;
 		}
 
 		@media screen and (max-width: 736px) {
@@ -1784,7 +1784,7 @@ input, select, textarea {
 		#nav a {
 			position: relative;
 			display: inline-block;
-			color: #fbf1c7;
+			color: #fe8019;
 			width: 1em;
 			height: 1em;
 			line-height: 0.9em;
@@ -1825,7 +1825,7 @@ input, select, textarea {
 			#nav a span {
 				display: block;
 				position: absolute;
-				background: #282828;
+				background: #d65d0e;
 				color: #fbf1c7;
 				top: -2.75em;
 				font-size: 0.3em;
@@ -1848,7 +1848,7 @@ input, select, textarea {
 					bottom: -0.4em;
 					left: 50%;
 					margin-left: -0.6em;
-					border-top: solid 0.6em #282828;
+					border-top: solid 0.6em #d65d0e;
 					border-left: solid 0.6em transparent;
 					border-right: solid 0.6em transparent;
 				}
@@ -2053,7 +2053,6 @@ input, select, textarea {
 						margin-top: -1.375em;
 						width: 2.75em;
 						height: 2.75em;
-						background: #000;
 						background: #504945;
 						color: #fbf1c7;
 						text-align: center;
@@ -2117,7 +2116,7 @@ input, select, textarea {
                         text-align: center;
                         display: block;
                         position: absolute;
-                        background: #282828;
+                        background: #504945;
                         color: #fbf1c7;
                         top: 3.75em;
                         font-size: 0.4em;
@@ -2139,7 +2138,7 @@ input, select, textarea {
                         bottom: 2.2em;
                         left: 50%;
                         margin-left: -0.6em;
-                        border-bottom: solid 0.6em #282828;
+                        border-bottom: solid 0.6em #504945;
                         border-left: solid 0.6em transparent;
                         border-right: solid 0.6em transparent;
                     }
@@ -2210,52 +2209,65 @@ input, select, textarea {
 
 #projects a:link {
     text-decoration: none;
-    color: #504549;
 }
 #projects a:visited {
     text-decoration: none;
-    color: #504549;
 }
 #projects a:hover {
     text-decoration: none;
-    color: #504549;
 }
 #projects a:active {
     text-decoration: none;
-    color: #504549;
 }
     #projects .project-item {
         position: relative;
         text-align: center;
         width: 100%;
-        color: #282828
-        object-fit: cover;
+		height: 10em;
+		background-color:  #d65d0e;
+		margin-bottom: 1em;
     }
         #projects .project-item img {
-            opacity: 1;
-            width: 100%%;
-            height: 10em;
+            opacity: 0.9;
+            width: 100%;
+            height: 100%;		
+			object-fit: cover;
+			-moz-transition: opacity .25s ease-in-out;
+			-webkit-transition: opacity .25s ease-in-out;
+			-ms-transition: opacity .25s ease-in-out;
+			transition: opacity .25s ease-in-out;
+        }
+
+		#projects .project-item:hover img {
+            opacity: 0.2;
         }
         #projects .project-item span {
             position: absolute;
             top: 50%;
             left: 50%;
+			font-size: xx-large;
             transform: translate(-50%, -50%);
-            background: #282828;
+			background: #d65d0ec4;
             color: #fbf1c7;
+			-moz-transition: background .25s ease-in-out;
+			-webkit-transition: background .25s ease-in-out;
+			-ms-transition: background .25s ease-in-out;
+			transition: background .25s ease-in-out;
+        }
+		#projects .project-item:hover span {
+            background: transparent;
         }
 /* Footer */
 
 	#footer {
-		color: rgba(255, 255, 255, 0.45);
+		color: #fbf1c7;
 		text-align: center;
 		padding: 2em 0 0 0;
 		font-size: 0.75em;
 	}
 
 		#footer a {
-			color: #ddd;
-			color: rgba(255, 255, 255, 0.65);
+			color: #fbf1c7;
 			-moz-transition: color .25s ease-in-out;
 			-webkit-transition: color .25s ease-in-out;
 			-ms-transition: color .25s ease-in-out;
@@ -2263,7 +2275,7 @@ input, select, textarea {
 		}
 
 			#footer a:hover {
-				color: white;
+				color: #fbf1c7;;
 			}
 
 		#footer .copyright {
@@ -2275,7 +2287,7 @@ input, select, textarea {
 				display: inline-block;
 				padding-left: 1em;
 				margin-left: 1em;
-				border-left: solid 1px rgba(255, 255, 255, 0.25);
+				border-left: solid 1px #fbf1c7;
 				line-height: 1;
 			}
 
