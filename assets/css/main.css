@@ -6,6 +6,22 @@
     src: url("american_typewriter.woff");
 }
 
+@font-face {
+    font-family: "Buero";
+    src: url("Buero.woff");
+}
+
+@font-face {
+    font-family: "Consolas";
+    src: url("Consolas.woff");
+}
+:root {
+    --background_color_dark: #282828;
+    --background_color_light: #504945;
+    --accent_color: #fe8019;
+    --background_color_dark: #282828;
+}
+
 /*
 	Astral by HTML5 UP
 	html5up.net | @ajlkn
@@ -1311,7 +1327,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-image: url("images/overlay.png"), url("images/background_gruvbox_solid.png");
+		background-image: url("images/overlay.png"), url("images/background_gruvbox_solid_dark.png");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
@@ -1330,8 +1346,7 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		/*font-family: 'Source Sans Pro', sans-serif;*/
-        font-family: "typewriter";
+		font-family: 'Buero', 'Consolas', 'Source Sans Pro', sans-serif;
 		font-weight: 300;
 		color: #504945;
 		font-size: 20pt;
@@ -1783,7 +1798,7 @@ input, select, textarea {
 		#nav a {
 			position: relative;
 			display: inline-block;
-			color: #fe8019;
+			color: var(--accent_color);
 			width: 1em;
 			height: 1em;
 			line-height: 0.9em;
@@ -1824,7 +1839,7 @@ input, select, textarea {
 			#nav a span {
 				display: block;
 				position: absolute;
-				background: #d65d0e;
+				background: var(--accent_color);
 				color: #fbf1c7;
 				top: -2.75em;
 				font-size: 0.3em;
@@ -1847,7 +1862,7 @@ input, select, textarea {
 					bottom: -0.4em;
 					left: 50%;
 					margin-left: -0.6em;
-					border-top: solid 0.6em #d65d0e;
+					border-top: solid 0.6em var(--accent_color);
 					border-left: solid 0.6em transparent;
 					border-right: solid 0.6em transparent;
 				}
@@ -2052,7 +2067,8 @@ input, select, textarea {
 						margin-top: -1.375em;
 						width: 2.75em;
 						height: 2.75em;
-						background: #504945;
+						/*background: #504945;*/
+						background: #282828;
 						color: #fbf1c7;
 						text-align: center;
 						line-height: 2.75em;
@@ -2115,7 +2131,7 @@ input, select, textarea {
                         text-align: center;
                         display: block;
                         position: absolute;
-                        background: #d65d0e;
+                        background: var(--accent_color);
                         color: #fbf1c7;
                         top: 3.75em;
                         font-size: 0.4em;
@@ -2137,7 +2153,7 @@ input, select, textarea {
                         bottom: 2.2em;
                         left: 50%;
                         margin-left: -0.6em;
-                        border-bottom: solid 0.6em #d65d0e;
+                        border-bottom: solid 0.6em var(--accent_color);
                         border-left: solid 0.6em transparent;
                         border-right: solid 0.6em transparent;
                     }
@@ -2223,7 +2239,7 @@ input, select, textarea {
         text-align: center;
         width: 100%;
 		height: 10em;
-		background-color:  #d65d0e;
+		background-color:  var(--accent_color);
 		margin-bottom: 1em;
     }
         #projects .project-item img {
@@ -2244,9 +2260,10 @@ input, select, textarea {
             position: absolute;
             top: 50%;
             left: 50%;
-			font-size: xx-large;
+			font-weight: 800;
+            font-size: xx-large;
             transform: translate(-50%, -50%);
-			background: #d65d0ec4;
+			background: var(--accent_color);
             color: #fbf1c7;
 			-moz-transition: background .25s ease-in-out;
 			-webkit-transition: background .25s ease-in-out;
@@ -2259,7 +2276,7 @@ input, select, textarea {
 
 /* utils and highlights */
 #highlighted-span {
-	color: #d65d0e;
+	color: var(--accent_color);
 }
 #main #home header p a {
 	color: #504945;
@@ -2269,7 +2286,7 @@ input, select, textarea {
 	transition: color .25s ease-in-out;
 }
 #main #home header p a:hover{
-	color: #d65d0e;
+	color: var(--accent_color);
 }
 
 
