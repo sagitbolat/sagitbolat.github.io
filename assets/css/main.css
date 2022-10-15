@@ -1374,7 +1374,7 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: /*'Buero', 'Consolas',*/ 'Source Sans Pro', sans-serif;
+		font-family: /*'Buero',*/ 'Consolas', 'Source Sans Pro', sans-serif;
 		font-weight: 300;
 		color: #504945;
 		font-size: 20pt;
@@ -2318,19 +2318,23 @@ input, select, textarea {
         object-fit: cover;
         border: 0.2em solid var(--background_color_dark);
     }
-    #banner h1 {
+    #banner h1, h2 {
         position: absolute;
         top: 50%;
         transform: translate(10%, -50%);
         color: #fbf1c7;
     }
-    #banner h1:before {
+    #banner h1:before, h2:before {
         content: "\00a0";
     }
-    #banner h1:after {
+    #banner h1:after, h2:after {
         content: "\00a0";
     }
 
+.project-par {
+    line-height: 30px;
+    font-size: 18px;
+}
 
 /* utils and highlights */
 #highlighted-span {

@@ -31,8 +31,8 @@
 						<!-- Me -->
 							<article id="home" class="panel intro">
 								<header>
-									<h1><span id="highlighted-span"">Sagit</span> Bolat</h1>
-                                    <p>Software <span id="highlighted-span"">Developer</span></p>
+									<h1><span id="highlighted-span"">Sagit Bolat</span></h1>
+                                    <p>Software Developer<span id="highlighted-span""></span></p>
                                     <p>
                                         <a id="github-link" href="https://github.com/sagitbolat?tab=repositories" class="icon brands fa-github"><span>See Github</span></a>
                                     </p>
@@ -46,7 +46,7 @@
 						<!-- projects -->
 							<article id="projects" class="panel">
 								<header>
-									<h1><span id="highlighted-span">Pro</span>jects</h1>
+									<h1><span id="highlighted-span"></span>Projects</h1>
 								</header>
 								<!--p>
 									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
@@ -77,48 +77,83 @@
 							<article id="project1" class="panel">
 								<header id="banner">
                                     <img src="images/R.jfif">
-                                    <h1><span id="highlighted-span">[C/C++]</span> Game Engine</h1>
+                                    <h2><span id="highlighted-span">[C/C++]</span> Game Engine</h2>
 								</header>
 	                            <body id="project-article">
                                     <h3>Abstraction Layers:</h3>
-                                    <p><ol>
-                                            <li><b id="hl">The Platform Layer:</b> 
+                                    <p class="project-par"><b>The engine consists of three main abstraction layers:</b>
+                                        <ol>
+                                            <li class="project-par"><b id="hl">The Platform Layer:</b> 
                                                 responsible for interfacing with the OS. Uses <b>SDL2</b> 
                                                 for cross-platform compatibility.</li>
-                                            <li><b id='hl'>The Engine Layer:</b>
+                                            <li class="project-par"><b id='hl'>The Engine Layer:</b>
                                                 responsible for providing helpful systems to the user. Also initializes the main game-loop.</li>
-                                            <li><b id = "hl">The User Layer:</b> used by the user to create the game on top of the engine layer. The interface is modeled after
-                                            the Unity Game Engine script interface.</li>
-                                        </ol></p>
+                                            <li class="project-par"><b id = "hl">The User Layer:</b> used by the user to create the game on top of the engine layer. The interface is modeled after
+                                            the Unity Game Engine script interface.</li></ol></p>
                                     <h3>The Engine Layer:</h3>
-                                    <p><b>The engine layer consistes of the following systems:</b>
+                                    <p class="project-par"><b>The engine layer consistes of the following systems:</b>
                                         <ol> 
-                                            <li>
+                                            <li class="project-par">
                                                 <b id='hl'>The Input System:</b>
                                                 <ul> 
-                                                    <li>Uses the platform layer to query the window's keypress event queue. 
+                                                    <li class="project-par">Uses the platform layer to query the window's keypress event queue. 
                                                         Then passes the state of the keys into a buffer, which is sent to the User Layer.
                                                     </li>
-                                                    <li>The buffer is stored in the form of a bitfield.</li>
-                                                    <li>A buffer of previously queried state is kept as well, so the user is able to distingush between keys that are 
+                                                    <li class="project-par">The buffer is stored in the form of a bitfield.</li>
+                                                    <li class="project-par">A buffer of previously queried state is kept as well, so the user is able to distingush between keys that are 
                                                         single-pressed and keys that are held down (by comparing the two).
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li>
+                                            <li class="project-par">
                                                 <b id='hl'>The Rendering System:</b>
                                                 <ul> 
-                                                    <li>A graphical buffer stores pixel information in a 24-bit data format (RGB).                                                    </li>
-                                                    <li>
+                                                    <li class="project-par">A graphical buffer stores pixel information in a 24-bit data format (RGB).                                                    </li>
+                                                    <li class="project-par">
                                                         Modifying the buffer by the user can be done using one of the following functions:
                                                         <ol>
-                                                            <li><b id='hl'>DrawPixle():</b> ... </li>
+                                                            <li class="project-par"><b id='hl'>DrawPixel(color, coordinate):</b> draws a pixel to the graphics buffer at a specified location.</li>
+                                                            <li class="project-par"><b id='hl'>DrawLine(color, coordinate 1, coordinate 2):</b> draws a line between two locations of the graphics buffer using the 
+                                                                <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Bresenham's algorithm</a>.</li>
+                                                            <li class="project-par"><b id='hl'>DrawRectangle(color, coordinate, width, height):</b> draws a rectangle at a specified coordinate with specified width and height.</li>
+                                                            <li class="project-par"><b id='hl'>BlitBitmap(coordinate):</b> takes a bitmap as an argument and draws it to the graphics buffer.</li>
                                                         </ol>
                                                     </li>
                                                 </ul>
                                             </li>
-                                           
+                                            <li class="project-par">
+                                                <b id='hl'>The Memory System:</b>
+                                                <ul> 
+                                                    <li class="project-par">The user is provided with a set of memory arenas for ingame allocations. The arenas are pre-allocated
+                                                        during the start-up. This eliminated the need for using malloc for heap allocation, and significatly speeds up allocation
+                                                        and freeing time during runtime.</li>
+                                                    <li class="project-par">There are two allocators provided so far:
+                                                        <ol> 
+                                                            <li class="project-par"><b id='hl'>Linear allocator:</b> used mostly for asset allocation at the start of individual scenes
+                                                                or levels</li> 
+                                                            <li class="project-par"><b id='hl'>Free-list allocator:</b> used for any type of general-case allocation. Near-identical use
+                                                                case to malloc(), but faster to allocate and free during runtime due to the pre-allocated arena (no need for 
+                                                                context switching).</li> 
+                                                        </ol>
+                                                    </li>
+                                                </ul>
+                                            </li> 
                                         </ol>
+                                    </p>
+                                    <h3>Other Helpful Modules:</h3>
+                                    <p class="project-par"><b>These are the modules that work to enchance the capabilities of the engine layer, but are not necessary for compilation.</b> 
+                                        <ol> 
+                                            <li class="project-par"><b id='hl'>PRNG Algrorithms:</b>
+                                                <ul>
+                                                    <li class='project-par'>Linear Conguential Generator (LCG): Light-weight and fast, but has a relatively low period, 
+                                                        and poor uniformity of distribution. This is the default generator for many languages.</li> 
+                                                    <li class='project-par'>xorshift128+: Better distribution and period than LCG, but slightly slower. 
+                                                        This is the default generator in the Unity Game Engine</li>
+                                                    <li class='project-par'>Simplex Noise: Primarily for generating two-dimensional noise maps. Useful for procedural texture
+                                                        generation or for terrain.</li>
+                                                </ul>
+                                            </li>
+                                        </ol>   
                                     </p>
                                 </body>
                                 
