@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<!--
+	Astral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sagit's Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#" class="icon solid fa-home"><span>Home</span></a>
+						<a href="#projects" class="icon solid fa-code"><span>Projects</span></a>
+						<a href="#devlogs" class="icon solid fa-archive"><span>Devlogs</span></a>
+						<a href="#contacts" class="icon solid fa-envelope"><span>Contact</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Me -->
+							<article id="home" class="panel intro">
+								<header>
+									<h1><span id="highlighted-span"">Sagit Bolat</span></h1>
+                                    <p>Software Developer<span id="highlighted-span""></span></p>
+                                    <p>
+                                        <a id="github-link" href="https://github.com/sagitbolat?tab=repositories" class="icon brands fa-github"><span>See Github</span></a>
+                                    </p>
+                                </header>
+								<a href="#projects" class="jumplink pic">
+									<span class="arrow icon solid fa-chevron-right"><span>See projects</span></span>
+									<img src="images/gruvbox_pc.png" alt="" />
+								</a>
+							</article>
+
+						<!-- projects -->
+							<article id="projects" class="panel">
+								<header>
+									<h1><span id="highlighted-span"></span>Projects</h1>
+								</header>
+								<!--p>
+									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
+									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+									luctus elit eget interdum.
+								</p-->
+                                <a href="#project1">
+                                    <div class="project-item">
+                                        <img src="images/R.jfif" alt="">
+                                        <span class="project-caption">[C/C++] Game Engine</span>
+                                    </div>
+								</a>
+								<a href="#project2">
+									<div class="project-item">
+                                        <img src="images/piet.jpg" alt="">
+                                        <span class="project-caption">[Python] Programming Language Interpreter</span>
+                                    </div>
+								</a>
+								<a href="#project3">	
+									<div class="project-item">
+                                        <img src="images/sudoku.jpg" alt="">
+                                        <span class="project-caption">[C#] Automatic Sudoku Solver</span>
+                                    </div>
+                                </a>
+							</article>
+
+
+							<article id="project1" class="panel">
+								<header id="banner">
+                                    <img src="images/R.jfif">
+                                    <h2><span id="highlighted-span">[C/C++]</span> Game Engine</h2>
+								</header>
+	                            <body id="project-article">
+                                    <h3>Abstraction Layers:</h3>
+                                    <p class="project-par"><b>The engine consists of three main abstraction layers:</b>
+                                        <ol>
+                                            <li class="project-par"><b id="hl">The Platform Layer:</b> 
+                                                responsible for interfacing with the OS. Uses <b>SDL2</b> 
+                                                for cross-platform compatibility.</li>
+                                            <li class="project-par"><b id='hl'>The Engine Layer:</b>
+                                                responsible for providing helpful systems to the user. Also initializes the main game-loop.</li>
+                                            <li class="project-par"><b id = "hl">The User Layer:</b> used by the user to create the game on top of the engine layer. The interface is modeled after
+                                            the Unity Game Engine script interface.</li></ol></p>
+                                    <h3>The Engine Layer:</h3>
+                                    <p class="project-par"><b>The engine layer consistes of the following systems:</b>
+                                        <ol> 
+                                            <li class="project-par">
+                                                <b id='hl'>The Input System:</b>
+                                                <ul> 
+                                                    <li class="project-par">Uses the platform layer to query the window's keypress event queue. 
+                                                        Then passes the state of the keys into a buffer, which is sent to the User Layer.
+                                                    </li>
+                                                    <li class="project-par">The buffer is stored in the form of a bitfield.</li>
+                                                    <li class="project-par">A buffer of previously queried state is kept as well, so the user is able to distingush between keys that are 
+                                                        single-pressed and keys that are held down (by comparing the two).
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="project-par">
+                                                <b id='hl'>The Rendering System:</b>
+                                                <ul> 
+                                                    <li class="project-par">A graphical buffer stores pixel information in a 24-bit data format (RGB).                                                    </li>
+                                                    <li class="project-par">
+                                                        Modifying the buffer by the user can be done using one of the following functions:
+                                                        <ol>
+                                                            <li class="project-par"><b id='hl'>DrawPixel(color, coordinate):</b> draws a pixel to the graphics buffer at a specified location.</li>
+                                                            <li class="project-par"><b id='hl'>DrawLine(color, coordinate 1, coordinate 2):</b> draws a line between two locations of the graphics buffer using the 
+                                                                <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Bresenham's algorithm</a>.</li>
+                                                            <li class="project-par"><b id='hl'>DrawRectangle(color, coordinate, width, height):</b> draws a rectangle at a specified coordinate with specified width and height.</li>
+                                                            <li class="project-par"><b id='hl'>BlitBitmap(coordinate):</b> takes a bitmap as an argument and draws it to the graphics buffer.</li>
+                                                        </ol>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="project-par">
+                                                <b id='hl'>The Memory System:</b>
+                                                <ul> 
+                                                    <li class="project-par">The user is provided with a set of memory arenas for ingame allocations. The arenas are pre-allocated
+                                                        during the start-up. This eliminated the need for using malloc for heap allocation, and significatly speeds up allocation
+                                                        and freeing time during runtime.</li>
+                                                    <li class="project-par">There are two allocators provided so far:
+                                                        <ol> 
+                                                            <li class="project-par"><b id='hl'>Linear allocator:</b> used mostly for asset allocation at the start of individual scenes
+                                                                or levels</li> 
+                                                            <li class="project-par"><b id='hl'>Free-list allocator:</b> used for any type of general-case allocation. Near-identical use
+                                                                case to malloc(), but faster to allocate and free during runtime due to the pre-allocated arena (no need for 
+                                                                context switching).</li> 
+                                                        </ol>
+                                                    </li>
+                                                </ul>
+                                            </li> 
+                                        </ol>
+                                    </p>
+                                    <h3>Other Helpful Modules:</h3>
+                                    <p class="project-par"><b>These are the modules that work to enchance the capabilities of the engine layer, but are not necessary for compilation.</b> 
+                                        <ol> 
+                                            <li class="project-par"><b id='hl'>PRNG Algrorithms:</b>
+                                                <ul>
+                                                    <li class='project-par'>Linear Conguential Generator (LCG): Light-weight and fast, but has a relatively low period, 
+                                                        and poor uniformity of distribution. This is the default generator for many languages.</li> 
+                                                    <li class='project-par'>xorshift128+: Better distribution and period than LCG, but slightly slower. 
+                                                        This is the default generator in the Unity Game Engine</li>
+                                                    <li class='project-par'>Simplex Noise: Primarily for generating two-dimensional noise maps. Useful for procedural texture
+                                                        generation or for terrain.</li>
+                                                </ul>
+                                            </li>
+                                            <li class="project-par"><b id='hl'>Bitmap Image File (.bmp) encoding and decoding:</b>
+                                                <ul>
+                                                    <li class='project-par'>User can encode an image data buffer into a .bmp file.</li>
+                                                    <li class='project-par'>User can also import bitmap images in bmp format into an image data struct, and then 
+                                                        render it to the graphics buffer</li>
+                                                </ul>
+                                            </li>
+                                            <li class="project-par"><b id='hl'>TrueType Font (.ttf) decoding:</b>
+                                                <ul>
+                                                    <li class='project-par'>Uses the stb libarary to rasterize a .ttf file into bitmap format, and save it into a Font Data struct
+                                                    that the user can then render to the graphics buffer.</li>
+                                                </ul>
+                                            </li>
+                                            <li class="project-par"><b id='hl'>Math Module:</b>
+                                                <ul>
+                                                    <li class='project-par'>Implements all the atomic matrix transformations (rotations, scaling, translation) of 3D vectors.</li>
+                                                    <li class='project-par'>Also supports quaternion for rotation of 3D vector.</li>
+                                                    <li class='project-par'>This can be used by the user for bitmap rotations and/or general vector graphics manipulation.</li>
+                                                </ul>
+                                            </li>
+                                        </ol>   
+                                    </p>
+                                </body>
+                                
+
+							</article>
+							<article id="project2" class="panel">
+								<header id="banner">
+                                    <img src="images/piet.jpg">
+									<h2><span id="highlighted-span">[Python]</span> Language Interpreter</h2>
+								</header>	
+	                            <body id="project-article">
+                                    <h3> Piet - The Programming Language: </h3>
+                                </body>
+                            </article>
+							<article id="project3" class="panel">
+								<header>
+									<h2><span id="highlighted-span">[C#]</span> Automatic Sudoku Solver</h2>
+								</header>
+								
+							</article>
+
+						<!-- devlogs -->
+							<article id="devlogs" class="panel">
+								<header>
+									<h2><span id="highlighted-span">Latest</span> Post</h2>
+								</header>
+                                <section>
+
+                                </section>
+
+
+                                <header>
+                                    <h2><span id="highlighted-span">Previous</span> Posts</h2>
+                                </header>
+
+								<section>
+									<div class="row">
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
+										</div>
+									</div>
+								</section>
+							</article>
+						
+
+
+                        <!-- Contact -->
+							<article id="contacts" class="panel">
+								<header>
+									<h2><span id="highlighted-span">Contact</span> Me</h2>
+								</header>
+								<ul>
+									<li><span id="highlighted-span"">E-mail: </span>sagitbolat@gmail.com</li>
+									<li><span id="highlighted-span"">Phone: </span>(510) 345-8706</li>
+								</ul>
+								<!--form action="#" method="post">
+									<div>
+										<div class="row">
+											<div class="col-6 col-12-medium">
+												<input type="text" name="name" placeholder="Name" />
+											</div>
+											<div class="col-6 col-12-medium">
+												<input type="text" name="email" placeholder="Email" />
+											</div>
+											<div class="col-12">
+												<input type="text" name="subject" placeholder="Subject" />
+											</div>
+											<div class="col-12">
+												<textarea name="message" placeholder="Message" rows="6"></textarea>
+											</div>
+											<div class="col-12">
+												<input type="submit" value="Send Message" />
+											</div>
+										</div>
+									</div>
+								</form-->
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="copyright">
+							<li>E-mail: sagitbolat@gmail.com</li><li>Phone: (510)345-8706</li>
+						</ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
