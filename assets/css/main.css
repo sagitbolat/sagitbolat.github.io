@@ -2318,7 +2318,7 @@ input, select, textarea {
         object-fit: cover;
         border: 0.2em solid var(--background_color_dark);
     }
-    .banner h1, h2 {
+    .banner h1, .banner h2 {
         position: absolute;
         top: 50%;
         transform: translate(10%, -50%);
