@@ -2324,10 +2324,10 @@ input, select, textarea {
         transform: translate(10%, -50%);
         color: #fbf1c7;
     }
-    .banner h1:before, h2:before {
+    .banner h1:before, .banner h2:before {
         content: "\00a0";
     }
-    .banner h1:after, h2:after {
+    .banner h1:after, .banner h2:after {
         content: "\00a0";
     }
 
@@ -2354,6 +2354,82 @@ input, select, textarea {
 	color: var(--accent_color_1);
 }
 
+
+/*For blog index page*/
+
+.delim {
+    border-bottom: 3px solid var(--background_color_dark);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#devlogs .blog-item a:link {
+    text-decoration: none;
+}
+#devlogs .blog-item a:visited {
+    text-decoration: none;
+}
+#devlogs .blog-item a:hover {
+    text-decoration: none;
+}
+#devlogs .blog-item a:active {
+    text-decoration: none;
+}
+    .blog-item {
+        position: relative;
+        width: 100%;
+		margin-bottom: 0.5em;
+    }
+        .blog-item h4 {
+            position: relative;
+			font-weight: 800;
+            font-size: 20pt;
+            color: var(--background_color_dark);
+			-moz-transition: background .25s ease-in-out;
+			-webkit-transition: background .25s ease-in-out;
+			-ms-transition: background .25s ease-in-out;
+			transition: background .25s ease-in-out;
+        }
+        .blog-item .blog-date {
+            position: relative;
+            font-size: 12pt;
+            opacity: 0.5;
+        }
+        .blog-item p {
+            position: relative;
+            font-size: 14pt;
+            margin-bottom: 0.1em;
+            color: var(--background_color_dark);
+        }
+        .blog-item .blog-button {
+            text-align: center;
+            padding: 0.6em 0.9em 0.5em 0.9em;
+            color: #fbf1c7;
+            background-color: var(--accent_color_1);
+            height: 2em;
+            text-decoration: none;
+            font-size: 14pt; 
+            -moz-transition: background-color .25s ease-in-out;
+            -webkit-transition: background-color .25s ease-in-out;
+            -ms-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+            -webkit-appearance: none;
+        }
+        .blog-item .blog-button:hover {
+            background-color: var(--accent_color_2);
+        }
+
+        .blog-item .blog-link h4 {
+            color: var(--accent_color_1);
+            -moz-transition: color .25s ease-in-out;
+            -webkit-transition: color .25s ease-in-out;
+            -ms-transition: color .25s ease-in-out;
+            transition: color .25s ease-in-out;
+            -webkit-appearance: none;
+        }
+        .blog-item .blog-link h4:hover {
+            color: var(--accent_color_2);
+        }
 
 /* Footer */
 
