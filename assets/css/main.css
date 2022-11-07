@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic");
 @import url("fontawesome-all.min.css");
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 
 @font-face {
     font-family: "typewriter";
@@ -2270,7 +2271,7 @@ input, select, textarea {
         position: relative;
         text-align: center;
         width: 100%;
-		height: 10em;
+		height: 7em;
 		background-color:  var(--accent_color_1);
 		margin-bottom: 1em;
 		-moz-transition: background-color .25s ease-in-out;
@@ -2287,7 +2288,7 @@ input, select, textarea {
             height: 100%;		
 			object-fit: cover;
             filter: brightness(0.4);
-			margin:4px;
+			margin:8px;
 			-moz-transition:filter .25s ease-in-out, margin  .1s ease-in-out;
 			-webkit-transition: filter .25s ease-in-out, margin  .1s ease-in-out;
 			-ms-transition: filter .25s ease-in-out, margin  .1s ease-in-out;
@@ -2306,7 +2307,7 @@ input, select, textarea {
             font-size: 24pt;
             transform: translate(-50%, -50%);
             color: var(--accent_color_1);
-			margin: 0px;
+			margin: 2px;
 			-moz-transition: color .25s ease-in-out;
 			-webkit-transition: color .25s ease-in-out, margin .1s ease-in-out;
 			-ms-transition: color .25s ease-in-out, margin .1s ease-in-out;
@@ -2314,7 +2315,7 @@ input, select, textarea {
         }
 		#projects .project-item:hover .project-caption {
             color: var(--accent_color_2);
-			margin: -4px;
+			margin: -6px;
         }
 
 /* for project pages */
@@ -2330,20 +2331,16 @@ input, select, textarea {
         height: 100%;		
         object-fit: cover;
 		filter: brightness(0.4);
-		margin:4px;
+		margin:6px;
     }
     .banner h1, .banner h2 {
         position: absolute;
         top: 50%;
         transform: translate(10%, -50%);
         color: var(--foreground_color);
+		margin: 6px;
     }
-    .banner h1:before, .banner h2:before {
-        content: "\00a0";
-    }
-    .banner h1:after, .banner h2:after {
-        content: "\00a0";
-    }
+    
 
 .project-par {
     line-height: 30px;
@@ -2372,7 +2369,14 @@ input, select, textarea {
 	color: var(--accent_color_1);
 }
 
-
+.typewriter-name {
+	font-size: 40pt;
+	font-weight: bold;
+	color: var(--accent_color_1);
+	font-family: 'Anonymous Pro';
+	letter-spacing: 0.1em;
+	height: 1em;
+}
 /*For blog index page*/
 
 .delim {
@@ -2423,7 +2427,7 @@ input, select, textarea {
             height: 100%;
             filter:brightness(0.4);
             object-fit: cover;
-			margin:4px;
+			margin:6px;
 			-moz-transition:filter .25s ease-in-out, margin  .1s ease-in-out;
 			-webkit-transition: filter .25s ease-in-out, margin  .1s ease-in-out;
 			-ms-transition: filter .25s ease-in-out, margin  .1s ease-in-out;
@@ -2449,7 +2453,7 @@ input, select, textarea {
         }
 		.blog-banner:hover h4 {
 			color: var(--accent_color_2);
-			margin: -4px;
+			margin: -6px;
 		}
         .blog-banner .blog-date {
             position: absolute;
