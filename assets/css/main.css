@@ -53,6 +53,7 @@
     --background_color_light: #504945;
     --accent_color_1: #fe8019; /* for light background colors */
     --accent_color_2: #d65d0e; /* for dark background colors */
+	--foreground_color: #fbf1c7;
 }
 
 
@@ -1415,21 +1416,21 @@ input, select, textarea {
 
 	strong, b, h1, h2, h3, h4, h5, h6 {
 		font-weight: 600;
-		color: #504945;
+		color: var(--background_color_dark);
 	}
 
 	h1 {
-		font-size: 2.4em;
+		font-size: 40pt;
 		letter-spacing: -0.015em;
 	}
 
 	h2 {
-		font-size: 1.8em;
+		font-size: 30pt;
 		letter-spacing: -0.015em;
 	}
 
 	h3, h4, h5, h6 {
-		font-size: 1.25em;
+		font-size: 20pt;
 		letter-spacing: -0.015em;
 	}
 
@@ -1445,6 +1446,9 @@ input, select, textarea {
 
 		h3, h4, h5, h6 {
 			font-size: 1em;
+		}
+		p {
+			font-size:0.6em;
 		}
 
 	}
@@ -1643,7 +1647,7 @@ input, select, textarea {
 		-webkit-appearance: none;
 		display: inline-block;
 		background-color: #504945;
-		color: #fbf1c7;
+		color: var(--foreground_color);
 		border: 0;
 		cursor: pointer;
 		outline: 0;
@@ -1855,7 +1859,7 @@ input, select, textarea {
 				left: 50%;
 				bottom: -0.75em;
 				margin-left: -0.5em;
-				border-bottom: solid 0em #fbf1c7;
+				border-bottom: solid 0em var(--foreground_color);
 				border-left: solid 0.5em transparent;
 				border-right: solid 0.5em transparent;
 				-moz-transition: border-bottom-width .25s ease-in-out;
@@ -1868,7 +1872,7 @@ input, select, textarea {
 				display: block;
 				position: absolute;
 				background: var(--accent_color_2);
-				color: #fbf1c7;
+				color: var(--foreground_color);
 				top: -2.75em;
 				font-size: 0.3em;
 				height: 2.25em;
@@ -1995,7 +1999,7 @@ input, select, textarea {
 		position: relative;
 		overflow: hidden;
 		width: 100%;
-		background: #fbf1c7;
+		background: var(--foreground_color);
 		box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);
 		-moz-transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
 		-webkit-transition: min-height 0.5s ease-in-out, max-height 0.5s ease-in-out;
@@ -2097,7 +2101,7 @@ input, select, textarea {
 						height: 2.75em;
 						/*background: #504945;*/
 						background: #282828;
-						color: #fbf1c7;
+						color: var(--foreground_color);
 						text-align: center;
 						line-height: 2.75em;
 						font-size: 1.5em;
@@ -2160,7 +2164,7 @@ input, select, textarea {
                         display: block;
                         position: absolute;
                         background: var(--accent_color_1);
-                        color: #fbf1c7;
+                        color: var(--foreground_color);
                         top: 3.75em;
                         font-size: 0.4em;
                         height: 2.25em;
@@ -2269,38 +2273,48 @@ input, select, textarea {
 		height: 10em;
 		background-color:  var(--accent_color_1);
 		margin-bottom: 1em;
+		-moz-transition: background-color .25s ease-in-out;
+		-webkit-transition: background-color .25s ease-in-out;
+		-ms-transition: background-color .25s ease-in-out;
+		transition: background-color .25s ease-in-out;
     }
+	#projects .project-item:hover {
+		background-color: var(--background_color_dark);
+	}
         #projects .project-item img {
-            opacity: 0.9;
+            
             width: 100%;
             height: 100%;		
 			object-fit: cover;
-            border: 0.2em solid var(--background_color_dark);
-			-moz-transition: opacity .25s ease-in-out;
-			-webkit-transition: opacity .25s ease-in-out;
-			-ms-transition: opacity .25s ease-in-out;
-			transition: opacity .25s ease-in-out;
+            filter: brightness(0.4);
+			margin:4px;
+			-moz-transition:filter .25s ease-in-out, margin  .1s ease-in-out;
+			-webkit-transition: filter .25s ease-in-out, margin  .1s ease-in-out;
+			-ms-transition: filter .25s ease-in-out, margin  .1s ease-in-out;
+			transition: filter .25s ease-in-out, margin  .1s ease-in-out;
         }
 
 		#projects .project-item:hover img {
-            opacity: 0.2;
+            filter: brightness(0.4) blur(2px);
+			margin: 0px;
         }
-        #projects .project-item span {
+        #projects .project-item .project-caption {
             position: absolute;
             top: 50%;
             left: 50%;
 			font-weight: 800;
-            font-size: 1.2em;
+            font-size: 24pt;
             transform: translate(-50%, -50%);
-			background: var(--accent_color_1);
-            color: #fbf1c7;
-			-moz-transition: background .25s ease-in-out;
-			-webkit-transition: background .25s ease-in-out;
-			-ms-transition: background .25s ease-in-out;
-			transition: background .25s ease-in-out;
+            color: var(--accent_color_1);
+			margin: 0px;
+			-moz-transition: color .25s ease-in-out;
+			-webkit-transition: color .25s ease-in-out, margin .1s ease-in-out;
+			-ms-transition: color .25s ease-in-out, margin .1s ease-in-out;
+			transition: color .25s ease-in-out, margin .1s ease-in-out;
         }
-		#projects .project-item:hover span {
-            background: transparent;
+		#projects .project-item:hover .project-caption {
+            color: var(--accent_color_2);
+			margin: -4px;
         }
 
 /* for project pages */
@@ -2309,20 +2323,20 @@ input, select, textarea {
     width: 100%;
     height: 4em;
     margin-bottom: 1em;
-	background-color:  var(--background_color_dark);
+	background-color:  var(--accent_color_1);
 }
     .banner img {
-        opacity: 0.3;
         width: 100%;
         height: 100%;		
         object-fit: cover;
-        border: 0.2em solid var(--background_color_dark);
+		filter: brightness(0.4);
+		margin:4px;
     }
     .banner h1, .banner h2 {
         position: absolute;
         top: 50%;
         transform: translate(10%, -50%);
-        color: #fbf1c7;
+        color: var(--foreground_color);
     }
     .banner h1:before, .banner h2:before {
         content: "\00a0";
@@ -2335,6 +2349,10 @@ input, select, textarea {
     line-height: 30px;
     font-size: 18px;
 }
+.project-header {
+	font-size: 24px;
+	line-height: 40px;
+}
 
 /* utils and highlights */
 #highlighted-span {
@@ -2344,7 +2362,7 @@ input, select, textarea {
 	color: var(--accent_color_1);
 }
 #main #home header p a {
-	color: var(--background_color_light);
+	color: var(--background_color_dark);
 	-moz-transition: color .25s ease-in-out;
 	-webkit-transition: color .25s ease-in-out;
 	-ms-transition: color .25s ease-in-out;
@@ -2359,7 +2377,7 @@ input, select, textarea {
 
 .delim {
     width: 100%;
-    border-bottom: 3px solid var(--background_color_dark);
+    border-bottom: 4px solid var(--background_color_dark);
     margin-bottom: 35px;
     display: inline-block;
 }
@@ -2389,37 +2407,63 @@ input, select, textarea {
             position: relative;
             width: 100%;
             height: 4em;
-            background-color: var(--background_color_dark);
+            background-color: var(--accent_color_1);
             margin-bottom: 0em;
+			-moz-transition: background-color .25s ease-in-out;
+			-webkit-transition: background-color .25s ease-in-out;
+			-ms-transition: background-color .25s ease-in-out;
+			transition: background-color .25s ease-in-out;
         }
-        
+        .blog-item .blog-info .blog-link .blog-banner:hover {
+			background-color: var(--background_color_dark);
+		}
+		
         .blog-banner img {
             width: 100%;
             height: 100%;
-            opacity: 0.2;
+            filter:brightness(0.4);
             object-fit: cover;
-            border: 0.2em solid var(--background_color_dark);
+			margin:4px;
+			-moz-transition:filter .25s ease-in-out, margin  .1s ease-in-out;
+			-webkit-transition: filter .25s ease-in-out, margin  .1s ease-in-out;
+			-ms-transition: filter .25s ease-in-out, margin  .1s ease-in-out;
+			transition: filter .25s ease-in-out, margin  .1s ease-in-out;
         } 
+		.blog-banner:hover img {
+			filter: brightness(0.4) blur(2px);
+			margin: 0px;
+		}
+		
         .blog-banner h4 {
             position: absolute;
 			font-weight: 800;
-            font-size: 24pt;
+            font-size: 20pt;
             top: 55%;
             transform: translate(5%, -50%);
-            color: var(--accent_color_2);
+            color: var(--accent_color_1);
+			margin: 0px;
+			-moz-transition: color .25s ease-in-out;
+			-webkit-transition: color .25s ease-in-out, margin .1s ease-in-out;
+			-ms-transition: color .25s ease-in-out, margin .1s ease-in-out;
+			transition: color .25s ease-in-out, margin .1s ease-in-out;
         }
+		.blog-banner:hover h4 {
+			color: var(--accent_color_2);
+			margin: -4px;
+		}
         .blog-banner .blog-date {
             position: absolute;
             font-size: 12pt;
             top: 60%;
             transform: translate(10%, -50%);
-            color: #fbf1c7;
+            color: var(--foreground_color);
         }
         .blog-item .blog-date {
             position: relative;
             font-size: 12pt;
             color: var(--background_color_dark);
             opacity: 0.5;
+			margin-top: 1em;
             margin-bottom: 0em;
         }
         .blog-item .blog-summary {
@@ -2433,7 +2477,7 @@ input, select, textarea {
             .blog-item .blog-button a{
                 text-align: center;
                 padding: 0.6em 0.9em 0.5em 0.9em;
-                color: #fbf1c7;
+                color: var(--foreground_color);
                 background-color: var(--accent_color_1);
                 height: 2em;
                 text-decoration: none;
@@ -2451,14 +2495,14 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		color: #fbf1c7;
+		color: var(--foreground_color);
 		text-align: center;
 		padding: 2em 0 0 0;
 		font-size: 0.75em;
 	}
 
 		#footer a {
-			color: #fbf1c7;
+			color: var(--foreground_color);
 			-moz-transition: color .25s ease-in-out;
 			-webkit-transition: color .25s ease-in-out;
 			-ms-transition: color .25s ease-in-out;
@@ -2466,7 +2510,7 @@ input, select, textarea {
 		}
 
 			#footer a:hover {
-				color: #fbf1c7;;
+				color: var(--foreground_color);;
 			}
 
 		#footer .copyright {
@@ -2478,7 +2522,7 @@ input, select, textarea {
 				display: inline-block;
 				padding-left: 1em;
 				margin-left: 1em;
-				border-left: solid 1px #fbf1c7;
+				border-left: solid 1px var(--foreground_color);
 				line-height: 1;
 			}
 

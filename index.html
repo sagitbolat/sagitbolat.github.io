@@ -46,16 +46,17 @@
 						<!-- projects -->
 							<article id="projects" class="panel">
 								<header>
-									<h1><span id="highlighted-span"></span>Projects</h1>
+									<h2><span id="highlighted-span"></span>Projects</h2>
 								</header>
 								<!--p>
 									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
 									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 									luctus elit eget interdum.
 								</p-->
+                                <div class="delim"></div>
                                 <a href="#project1">
                                     <div class="project-item">
-                                        <img src="images/R.jfif" alt="">
+                                        <img src="images/engine.png" alt="">
                                         <span class="project-caption">[C/C++] Game Engine</span>
                                     </div>
 								</a>
@@ -76,10 +77,11 @@
 
 							<article id="project1" class="panel">
 								<header class="banner">
-                                    <img src="images/R.jfif">
+                                    <img src="images/engine.png">
                                     <h2><span id="highlighted-span">[C/C++]</span> Game Engine</h2>
 								</header>
-                                <h3>Abstraction Layers:</h3>
+                                <h3 class="project-header">Abstraction Layers:</h3>
+                                <div class="delim"></div>
                                 <p class="project-par"><b>The engine consists of three main abstraction layers:</b>
                                     <ol>
                                         <li class="project-par"><b id="hl">The Platform Layer:</b> 
@@ -89,8 +91,9 @@
                                             responsible for providing helpful systems to the user. Also initializes the main game-loop.</li>
                                         <li class="project-par"><b id = "hl">The User Layer:</b> used by the user to create the game on top of the engine layer. The interface is modeled after
                                         the Unity Game Engine script interface.</li></ol></p>
-                                <h3>The Engine Layer:</h3>
-                                <p class="project-par"><b>The engine layer consistes of the following systems:</b>
+                                <h3 class="project-header">The Engine Layer:</h3>
+                                <div class="delim"></div>
+                                <p class="project-par"><b>The engine layer consists of the following systems:</b>
                                     <ol> 
                                         <li class="project-par">
                                             <b id='hl'>The Input System:</b>
@@ -139,7 +142,8 @@
                                         </li> 
                                     </ol>
                                 </p>
-                                <h3>Other Helpful Modules:</h3>
+                                <h3 class="project-header">Other Helpful Modules:</h3>
+                                <div class="delim"></div>
                                 <p class="project-par"><b>These are the modules that work to enchance the capabilities of the engine layer, but are not necessary for compilation.</b> 
                                     <ol> 
                                         <li class="project-par"><b id='hl'>PRNG Algrorithms:</b>
@@ -180,12 +184,14 @@
                                     <img src="images/piet.jpg">
 									<h2><span id="highlighted-span">[Python]</span> Language Interpreter</h2>
 								</header>
-                                <h3><b id="hl">Piet</b> - The Programming Language: </h3>
+                                <h3 class="project-header"><b id="hl">Piet</b> - The Programming Language: </h3>
+                                <div class="delim"></div>
                                 <p class="project-par">Piet is a <b id="hl">visual programming language</b> 
                                 that is based on the artistic style of a famous Dutch painter - Piet Mondrian. In this language,
                                 color is used for representing instructions and amounts of pixels for representing data. A single stack is used for data storage.
                                 Example Piet programs can be seen <a href="https://www.dangermouse.net/esoteric/piet/samples.html">here</a>.</p>
-                                <h3>The <b id="hl">sPiet</b> Interpreter:</h3>
+                                <h3 class = "project-header">The <b id="hl">sPiet</b> Interpreter:</h3>
+                                <div class="delim"></div>
                                 <p class="project-par">The original Piet specification identifies a set of 18 colors to represent instructions. This project is an interpreter
                                 that allows the user to provide a custom color scheme to program with. This color scheme is provided in PNG format, with 18 pixels of different
                                 colors.</p>
@@ -210,11 +216,11 @@
                                     <img src="images/sudoku.webp">
 									<h2><span id="highlighted-span">[C#]</span> Sudoku Generator and Solver</h2>
 								</header>
-                                <h3>Piet - The Programming Language: </h3>
+                                <h3 class="project-header">The Sudoku Solver: </h3>
+                                <div class="delim"></div>
                                 <p class="project-par">The sudoku solver is written using the <b id="hl">.NET WPF</b> GUI framework. The application is a fully functioning GUI desktop application. 
                                 Below are two example screenshots. The one on the left is a fully generated sudoku puzzle. The one on the right is a sudoku puzzle in the process of being solved.</p>								
-                                <img src="images/sudoku_example1.png">
-                                <img src="images/sudoku_example.png">
+                                <img src="images/sudoku_example1.png"> <img src="images/sudoku_example.png">
                                 <p class="project-par">
                                     <b>The features of the application are as follows:</b>
                                     <ol>
@@ -251,8 +257,8 @@
                                         <div class="blog-info">
                                             <a href="#" class="blog-link">
                                                 <header class="blog-banner">
-                                                    <img src="images/engine.png"></img>
-                                                    <h4>Lorem ipsum dolor sit amet</h4>
+                                                    <img src="images/engine.png" class="child"></img>
+                                                    <h4 class="child">Lorem ipsum dolor sit amet</h4>
                                                 </header>
                                             </a>
                                             <p class="blog-date">Posted on Nov 5, 2022</p>
