@@ -2358,9 +2358,10 @@ input, select, textarea {
 /*For blog index page*/
 
 .delim {
+    width: 100%;
     border-bottom: 3px solid var(--background_color_dark);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
+    display: inline-block;
 }
 
 #devlogs .blog-item a:link {
@@ -2378,37 +2379,56 @@ input, select, textarea {
     .blog-item {
         position: relative;
         width: 100%;
-		margin-bottom: 0.5em;
+		margin-bottom: 1em;
     }
         .blog-item .blog-info {
             position: relative;
-            width: 100%;
             display: inline-block;
         }
-        .blog-item h4 {
+        .blog-item .blog-info .blog-link .blog-banner {
             position: relative;
+            width: 100%;
+            height: 4em;
+            background-color: var(--background_color_dark);
+            margin-bottom: 0em;
+        }
+        
+        .blog-banner img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            object-fit: cover;
+            border: 0.2em solid var(--background_color_dark);
+        } 
+        .blog-banner h4 {
+            position: absolute;
 			font-weight: 800;
-            font-size: 20pt;
-            color: var(--background_color_dark);
-			-moz-transition: background .25s ease-in-out;
-			-webkit-transition: background .25s ease-in-out;
-			-ms-transition: background .25s ease-in-out;
-			transition: background .25s ease-in-out;
+            font-size: 24pt;
+            top: 55%;
+            transform: translate(5%, -50%);
+            color: var(--accent_color_2);
+        }
+        .blog-banner .blog-date {
+            position: absolute;
+            font-size: 12pt;
+            top: 60%;
+            transform: translate(10%, -50%);
+            color: #fbf1c7;
         }
         .blog-item .blog-date {
             position: relative;
             font-size: 12pt;
+            color: var(--background_color_dark);
             opacity: 0.5;
+            margin-bottom: 0em;
         }
-        .blog-item p {
+        .blog-item .blog-summary {
             position: relative;
             font-size: 14pt;
-            margin-bottom: 0.1em;
+            margin-bottom: 0.2em;
             color: var(--background_color_dark);
         }
-
         .blog-item .blog-button {
-            width: 100%;
         }
             .blog-item .blog-button a{
                 text-align: center;
@@ -2427,18 +2447,6 @@ input, select, textarea {
             .blog-item .blog-button a:hover {
                 background-color: var(--accent_color_2);
             }
-
-        .blog-item .blog-link h4 {
-            color: var(--accent_color_1);
-            -moz-transition: color .25s ease-in-out;
-            -webkit-transition: color .25s ease-in-out;
-            -ms-transition: color .25s ease-in-out;
-            transition: color .25s ease-in-out;
-            -webkit-appearance: none;
-        }
-        .blog-item .blog-link h4:hover {
-            color: var(--accent_color_2);
-        }
 
 /* Footer */
 
