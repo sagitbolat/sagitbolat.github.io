@@ -263,14 +263,17 @@
                                             <a href="#post-2" class="blog-link">
                                                 <header class="blog-banner">
                                                     <img src="images/wp1_c.jpg" class="child"></img>
-                                                    <h4 class="child">Lorem ipsum dolor sit amet</h4>
+                                                    <h4 class="child">Writing a Game Engine Part I: Introduction</h4>
                                                 </header>
                                             </a>
-                                            <p class="blog-date">Posted on Nov 5, 2022</p>
+                                            <p class="blog-date">Posted on Nov 9, 2022</p>
                                             <p class="blog-summary">
-                                                Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-                                                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                                                luctus elit eget interdum...
+                                                I have been working on my engine for about 5 months now, and it is nowhere close to being finished. 
+                                                I've wrestled with myself on whether I should start logging about it. 5 months is a weird time to start
+                                                a devlog on a project. It's too late into the project to be a true "My Journey" type of devlog, but its not
+                                                far enough into the project to be an educational resource. That said, I don't think being 5 months into the 
+                                                project stops me from documenting my journey. I also don't think that just because I don't have 20 years of experience
+                                                building game engines, I cannot provide some edutcational value... <a href="#post-2"><b id="hl">Read more</b></a>
                                             </p>
                                         </div>
                                         <!--div class="blog-button"><a href="#">Read more</a></div-->
@@ -283,18 +286,82 @@
                                                     <h4> Kruger vs Impostor: Programming Mindsets</h4>
                                                 </header>
                                             </a>
-                                            <p class="blog-date">Posted on Nov 9, 2022</p>
+                                            <p class="blog-date">Posted on Nov 8, 2022</p>
                                             <p class="blog-summary">
                                                 I have long wanted to start some form of a devlog, whether it be in written or video form. 
                                                 At first I thought of video devlogs to be the perfect format. You simply talk into a microphone and 
-                                                show off whatever project you have been working on at the time. However <a href="#post-1"><b id="hl">...</b></a>
+                                                show off whatever project you have been working on at the time. However... <a href="#post-1"><b id="hl">Read more</b></a>
                                             </p>
                                         </div>
                                         <!--div class="blog-button"><a href="#">Read more</a></div-->
                                     </div>
 								</section>
 							</article>
-                            
+                            <article id="post-2" class="panel">
+                                <header class="banner">
+                                    <img src="images/wp1_c.jpg">
+									<h2>Writing a Game Engine Part I: Introduction</h2>
+								</header>
+                                <p class="blog-date">Posted on Nov 8, 2022</p>
+                                <div class="delim"></div>
+                                <h4>What this is about</h4>
+                                <p>
+                                    I have been working on my engine for about 5 months now, and it is nowhere close to being finished. 
+                                    I've wrestled with myself on whether I should start logging about it. 5 months is a weird time to start
+                                    a devlog on a project. It's too late into the project to be a true "My Journey" type of devlog, but its not
+                                    far enough into the project to be an educational resource. That said, I don't think being 5 months into the 
+                                    project stops me from documenting my journey. I also don't think that just because I don't have 20 years of experience
+                                    building game engines, I cannot provide some edutcational value to those who are earlier in their journey of making game
+                                    engines.
+                                </p>
+                                <p>
+                                    I should also note that this is NOT my first game engine. My first serious attempt at making an engine took place just
+                                    over a year ago. As is evident from the fact that I am now on my second attempt, the first one did not pan out to be very
+                                    successful. There were a myriad number of reasons for this. The biggest was lack of understanding the scope of the project.
+                                    A few months prior to starting that project, I had completed a college project that involved generating dungeons, and having
+                                    the user be able to explore them. Me and my partner for the project had implemented a few interactive elements to the dungeon,
+                                    including dynamic tile-based lighting. 
+                                </p>
+                                <p>
+                                    I had previously programmed a number of tilebased games in commercial engines such as Unity, and I enjoyed working on that 
+                                    school project immensely. This is, likely, where my drive to start working on games at a lower level began. I enjoyed having
+                                    more nuanced control over how the final version behaved. The API that we used for the project allowed us to draw tiles to the
+                                    screen in a similar way Unity's Tilemap lets the user create tile-based level, but the API allowed pixel perfect placement, such 
+                                    the screen felt more like a canvas that we got to draw onto, rather than an abstract idea with which one could ony interact 
+                                    indirectly (that's how Unity feels).
+                                </p>
+                                <p>
+                                    Unfortunately, I quickly realized that creating a full game engine from scratch (even with the help of a library to do most
+                                    heavy platform code for me) was a much deeper commitment than my college education led me to believe. And so, as I added more and
+                                    more to my first engine, the project grew more and more unweildy. Looking back, it was clear that my understading of what a game engine
+                                    is and what it is meant to do was very flawed.
+                                </p>
+                                <p>
+                                    My second attempt began after a 5 months-long break. In that time, I spent my time researching and trying to figure out what I did
+                                    wrong the first time around. Eventually I came back, and started the project over, this time using a more structured approach to 
+                                    writing the engine. I abandoned most things that made my first attempt unweildy (such as inheritence heirarchies) and focused on writing
+                                    more simple and elegant code. The resulting project was easier to get started on, and maintain.
+                                </p>
+                                <p>
+                                    I have learned alot while working on the second iteration of my engine, and I believe I can share some of the things I learned. When I was
+                                    first learning, I found that the resources I found were scarcely useful, either delving into advanced topics too fast, leaving me lost, or
+                                    staying in the shallow end of the information pool. With this and future posts, I hope to be able to provide a more structured approach to
+                                    people who were like me, who had no idea where to start, and were starved for good resources. In the meantime, if you would like to look
+                                    into what I found most helpful when learning to write engines, and the resources I still consult today, below is a list of helpful links to 
+                                    get beginners to this field started.
+                                </p>
+                                <div class="delim"></div>
+                                <h4><a href="https://guide.handmadehero.org/">1. The Handmade Hero Series</a>:</h4>
+                                <p>
+                                    A very good resource to get started. I followed the series
+                                    until about Day 15, and ended up with a working, stable platform layer in the Win32 API. I later rewrote it in SDL, as I do most of 
+                                    my work on Linux, and I would like to have cross-platform capabilities without having to rewrite the platform layer multiple times, but 
+                                    I still have the Win32 API version just in case. What I learned from this resource is worth far more than just a Platform Layer, however.
+                                    Watching episodes out of order to learn about specific topics is how I use it nowdays. (for example this excellent episode on 
+                                    <a href="https://guide.handmadehero.org/code/day122/">multithreading</a>).
+                                </p>
+                            </article>
+
                             <article id="post-1" class="panel">
                                 <header class="banner">
                                     <img src="images/R_c.jfif">
