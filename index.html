@@ -31,12 +31,12 @@
 						<!-- Me -->
 							<article id="home" class="panel intro">
 								<header>
-                                    <div class="typewriter-name">
+                                    <h1 id="highlighted-span">Sagit Bolat</h1>
+                                    <!--div class="typewriter-name">
                                         <div id="typedtext-name">
-                                            <!--h1 id="highlighted-span">Sagit Bolat</h1-->
                                         </div>
-                                    </div>
-                                    <p>Software Developer<span id="highlighted-span"></span></p>
+                                    </div-->
+                                    <p id="title">Software Developer<span id="highlighted-span"></span></p>
                                     <p>
                                         <a id="github-link" href="https://github.com/sagitbolat?tab=repositories" class="icon brands fa-github"><span>See Github</span></a>
                                     </p>
@@ -260,6 +260,23 @@
 								<section>
                                     <div class="blog-item">
                                         <div class="blog-info">
+                                            <a href="#post-3" class="blog-link">
+                                                <header class="blog-banner">
+                                                    <img src="images/A_c.jfif" class="child"></img>
+                                                    <h4 class="child">Writing a Game Engine Part II: Platform Layer</h4>
+                                                </header>
+                                            </a>
+                                            <p class="blog-date">Posted on Nov 10, 2022</p>
+                                            <p class="blog-summary">
+                                                As I mentioned in the <a href="#post-2">previous post</a>, I used <a href="https://guide.handmadehero.org/">Handmade Hero</a> as a starting point
+                                                for writing the platform layer for my engine. It is a really great resource that I cannot recommend more highly.
+                                                That said, I did have some problems... <a href="#post-3"><b id="hl">Read more</b></a>
+                                            </p>
+                                        </div>
+                                        <!--div class="blog-button"><a href="#">Read more</a></div-->
+                                    </div>
+                                    <div class="blog-item">
+                                        <div class="blog-info">
                                             <a href="#post-2" class="blog-link">
                                                 <header class="blog-banner">
                                                     <img src="images/wp1_c.jpg" class="child"></img>
@@ -297,12 +314,57 @@
                                     </div>
 								</section>
 							</article>
+
+                            <article id="post-3" class="panel">
+                                <header class="banner">
+                                    <img src="images/A_c.jfif">
+									<h2>Writing a Game Engine Part II: Platform Layer</h2>
+								</header>
+                                <p class="blog-date">Posted on Nov 10, 2022</p>
+                                <div class="delim"></div>
+                                <p>
+                                    As I mentioned in the <a href="#post-2">previous post</a>, I used <a href="https://guide.handmadehero.org/">Handmade Hero</a> as a starting point
+                                    for writing the platform layer for my engine. It is a really great resource that I cannot recommend more highly.
+                                    That said, I did have some problems with implementation in the series. I wasn't the biggest fan of using the Win32 API, because I wanted
+                                    to be able to work on Linux, and that meant writing two Platform Layers up-front, which is not something I intended on doing (perhaps in the
+                                    future I will write an optimized platform layer for all three major OS's, but not for a while). My solution was to use the SDL library to
+                                    do the cross-platform heavy lifting for me. I was able to isolate the SDL code from the rest of my codebase, so if I want to swap out SDL 
+                                    for Win32, for example, in the future, it will be as easy as writing a Win32 platform layer and replacing the file in the build path.
+                                </p>
+                                <p>
+                                    In this article I will walk through how the platform layer is structured.
+                                </p>
+                                <h4>Main</h4>
+
+                                <div class="delim-dark"></div>
+                                <div class="post-buttons">
+                                    <a href="#post-2" class="post-link">
+                                        <header class="post-footer">
+                                            <img src="images/R_c.jfif"></img>
+                                            <h4>Previous Post</h4>
+                                        </header>
+                                    </a>
+                                    <a href="#devlogs" class="post-link">
+                                        <header class="post-footer">
+                                            <img src="images/wp1_c.jpg"></img>
+                                            <h4>All Posts</h4>
+                                        </header>
+                                    </a>
+                                    <a href="#post-4" class="post-link">
+                                        <header class="post-footer">
+                                            <img src="images/wp1_c.jpg"></img>
+                                            <h4>Next Post</h4>
+                                        </header>
+                                    </a>
+                                </div>
+                            </article>
+
                             <article id="post-2" class="panel">
                                 <header class="banner">
                                     <img src="images/wp1_c.jpg">
 									<h2>Writing a Game Engine Part I: Introduction</h2>
 								</header>
-                                <p class="blog-date">Posted on Nov 8, 2022</p>
+                                <p class="blog-date">Posted on Nov 9, 2022</p>
                                 <div class="delim"></div>
                                 <h4>What this is about</h4>
                                 <p>
@@ -310,26 +372,28 @@
                                     I've wrestled with myself on whether I should start logging about it. 5 months is a weird time to start
                                     a devlog on a project. It's too late into the project to be a true "My Journey" type of devlog, but its not
                                     far enough into the project to be an educational resource. That said, I don't think being 5 months into the 
-                                    project stops me from documenting my journey. I also don't think that just because I don't have 20 years of experience
-                                    building game engines, I cannot provide some edutcational value to those who are earlier in their journey of making game
+                                    project stops me from documenting my journey. I also don't think that the fact that I don't have 20 years of experience
+                                    building game engines implies that I cannot provide some educational value to those who are earlier in their journey of making game
                                     engines.
                                 </p>
+                                <h4>Background</h4>
                                 <p>
-                                    I should also note that this is NOT my first game engine. My first serious attempt at making an engine took place just
+                                    I should also note that this is NOT my first game engine. My first serious attempt at making an engine was just
                                     over a year ago. As is evident from the fact that I am now on my second attempt, the first one did not pan out to be very
-                                    successful. There were a myriad number of reasons for this. The biggest was lack of understanding the scope of the project.
-                                    A few months prior to starting that project, I had completed a college project that involved generating dungeons, and having
-                                    the user be able to explore them. Me and my partner for the project had implemented a few interactive elements to the dungeon,
-                                    including dynamic tile-based lighting. 
+                                    successful. There was a myriad of reasons for this. The biggest was lack of understanding of the scope of the project.
+                                    A few months prior to starting, I had completed a college project that involved generating dungeons, and having
+                                    the user be able to explore them. Me and my partner had implemented a few interactive elements to the dungeon,
+                                    including dynamic tile-based lighting, and I felt a surge of inspiration from being able to program a game-like
+                                    project without an engine.
                                 </p>
                                 <p>
-                                    I had previously programmed a number of tilebased games in commercial engines such as Unity, and I enjoyed working on that 
-                                    school project immensely. This is, likely, where my drive to start working on games at a lower level began. I enjoyed having
+                                    This is, likely, where my drive to start working on games at a lower level began. I enjoyed having
                                     more nuanced control over how the final version behaved. The API that we used for the project allowed us to draw tiles to the
-                                    screen in a similar way Unity's Tilemap lets the user create tile-based level, but the API allowed pixel perfect placement, such 
-                                    the screen felt more like a canvas that we got to draw onto, rather than an abstract idea with which one could ony interact 
-                                    indirectly (that's how Unity feels).
+                                    screen in a similar way Unity's Tilemap lets the user create tile-based level, but the API allowed pixel perfect placement. This
+                                    made the screen feel more like a canvas that we got to draw onto, rather than an abstract idea with which one could ony interact 
+                                    indirectly.
                                 </p>
+                                <h4>How we got here</h4>
                                 <p>
                                     Unfortunately, I quickly realized that creating a full game engine from scratch (even with the help of a library to do most
                                     heavy platform code for me) was a much deeper commitment than my college education led me to believe. And so, as I added more and
@@ -342,8 +406,11 @@
                                     writing the engine. I abandoned most things that made my first attempt unweildy (such as inheritence heirarchies) and focused on writing
                                     more simple and elegant code. The resulting project was easier to get started on, and maintain.
                                 </p>
+                                <h4>What now?</h4>
                                 <p>
-                                    I have learned alot while working on the second iteration of my engine, and I believe I can share some of the things I learned. When I was
+                                    Today, the engine I am working on is called <b>SkyEngine</b>. This name is temporary, and I don't quite remember how I came onto it, but
+                                    it <b>sounds cool</b> so I'm keeping it. I have learned alot while working on the SkyEngine, 
+                                    and I believe I can share some of the things I learned. When I was
                                     first learning, I found that the resources I found were scarcely useful, either delving into advanced topics too fast, leaving me lost, or
                                     staying in the shallow end of the information pool. With this and future posts, I hope to be able to provide a more structured approach to
                                     people who were like me, who had no idea where to start, and were starved for good resources. In the meantime, if you would like to look
@@ -351,7 +418,7 @@
                                     get beginners to this field started.
                                 </p>
                                 <div class="delim"></div>
-                                <h4><a href="https://guide.handmadehero.org/">1. The Handmade Hero Series</a>:</h4>
+                                <h4><a href="https://guide.handmadehero.org/">1. The Handmade Hero Series by Casey Muratori</a>:</h4>
                                 <p>
                                     A very good resource to get started. I followed the series
                                     until about Day 15, and ended up with a working, stable platform layer in the Win32 API. I later rewrote it in SDL, as I do most of 
@@ -360,6 +427,43 @@
                                     Watching episodes out of order to learn about specific topics is how I use it nowdays. (for example this excellent episode on 
                                     <a href="https://guide.handmadehero.org/code/day122/">multithreading</a>).
                                 </p>
+                                <h4><a href="https://www.gameenginebook.com/">2. Game Engine Architecture by Jason Gregory</a>:</h4>
+                                <p>
+                                    A good resource that I treat as a sort of "reference manual". If you need a primer on a certain topic in game engine programming, 
+                                    there is a good chance that this book will have a chapter on it. I particularly recommend it's section on 3D math 
+                                    (Chapter 4), rendering (Chapter 10), and physics (Chapter 12). Chapter 15 also recommends other resources on topics that
+                                    were not coverd, such as audio and networking.
+                                </p>
+                                <h4><a href="https://fabiensanglard.net/b/gebbdoom.pdf">3. Game Engine Black Book: Doom by Fabien Sanglard</a>:</h4>
+                                <p>
+                                    This one in no so much a resource you reference, but more of a book you read (or scan) through in it's (almost)
+                                    complete entirety. It provides a detailed look into the source code of id software's original Doom game. It provides
+                                    a good insight into how an objectively good programming team approached game and engine design. You likely won't be able to
+                                    apply the things you learn here 1:1 in your own work, but since the general problems in engine programming have not changed
+                                    fundamentally, the approaches to problems will still be useful to you. For the impatient, I suggest starting at Chapter 5, 
+                                    as this is where the author starts talking about the source code.
+                                </p>
+                                <div class="delim-dark"></div>
+                                <div class="post-buttons">
+                                    <a href="#post-1" class="post-link">
+                                        <header class="post-footer">
+                                            <img src="images/R_c.jfif"></img>
+                                            <h4>Previous Post</h4>
+                                        </header>
+                                    </a>
+                                    <a href="#devlogs" class="post-link">
+                                        <header class="post-footer">
+                                            <img src="images/wp1_c.jpg"></img>
+                                            <h4>All Posts</h4>
+                                        </header>
+                                    </a>
+                                    <a href="#post-3" class="post-link">
+                                        <header class="post-footer">
+                                            <img src="images/wp1_c.jpg"></img>
+                                            <h4>Next Post</h4>
+                                        </header>
+                                    </a>
+                                </div>
                             </article>
 
                             <article id="post-1" class="panel">
