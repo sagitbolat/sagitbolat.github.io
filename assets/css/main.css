@@ -2391,7 +2391,8 @@ input, select, textarea {
 	0% {opacity: 0; transform: translate(0%, 30%);}
 	100% {opacity: 1; transform: translate(0%, 0%);}
 }
-#main #home p {
+#main #home .home-link {
+	display: inline-block;
 	animation: anim_button;
 	opacity: 0;
 	animation-duration: 0.5s;
@@ -2403,16 +2404,20 @@ input, select, textarea {
 	100% {opacity: 1; transform: translate(0%, 0%);}
 }
 
-
-#main #home header p a {
+#main #home header .home-link a {
+	display: block;
 	color: var(--background_color_dark);
-	-moz-transition: color .25s ease-in-out;
-	-webkit-transition: color .25s ease-in-out;
-	-ms-transition: color .25s ease-in-out;
-	transition: color .25s ease-in-out;
+	font-size: 1.5em;
+	transform: translate(0px, 0px);
+	filter: drop-shadow(-3px -3px 0px var(--accent_color_1));
+	-moz-transition: transform  .1s ease-in-out, filter .1s ease-in-out;
+	-webkit-transition: transform  .1s ease-in-out, filter .1s ease-in-out;
+	-ms-transition: transform  .1s ease-in-out, filter .1s ease-in-out;
+	transition: transform  .1s ease-in-out, filter .1s ease-in-out;
 }
-#main #home header p a:hover{
-	color: var(--accent_color_1);
+#main #home header .home-link a:hover{
+	filter: drop-shadow(0px  0px 0px var(--background_color_dark));
+	transform: translate(-3px, -3px);
 }
 
 .typewriter-name {
