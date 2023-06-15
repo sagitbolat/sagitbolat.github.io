@@ -1,0 +1,42 @@
+
+<header class="banner">
+    <img src="images/posts/3.jpg"/>
+    <h2>Writing a Game Engine Part II: Platform Layer</h2>
+</header>
+<p class="blog-date">Posted on Nov 10, 2022</p>
+<div class="delim"></div>
+<p>
+    As I mentioned in the <a href="#post-2">previous post</a>, I used <a href="https://guide.handmadehero.org/">Handmade Hero</a> as a starting point
+    for writing the platform layer for my engine. It is a really great resource that I cannot recommend more highly.
+    That said, I did have some problems with implementation in the series. I wasn't the biggest fan of using the Win32 API, because I wanted
+    to be able to work on Linux, and that meant writing two Platform Layers up-front, which is not something I intended on doing (perhaps in the
+    future I will write an optimized platform layer for all three major OS's, but not for a while). My solution was to use the SDL library to
+    do the cross-platform heavy lifting for me. I was able to isolate the SDL code from the rest of my codebase, so if I want to swap out SDL 
+    for Win32, for example, in the future, it will be as easy as writing a Win32 platform layer and replacing the file in the build path.
+</p>
+<p>
+    In this article I will walk through how the platform layer is structured.
+</p>
+<h4>Main</h4>
+
+<div class="delim-dark"></div>
+<div class="post-buttons">
+    <a href="#post-2" class="post-link">
+        <header class="post-footer">
+            <img src="images/posts/2.jpg"></img>
+            <h4>Previous Post</h4>
+        </header>
+    </a>
+    <a href="#devlogs" class="post-link">
+        <header class="post-footer">
+            <img src="images/posts/3.jpg"></img>
+            <h4>All Posts</h4>
+        </header>
+    </a>
+    <a href="#post-4" class="post-link">
+        <header class="post-footer">
+            <img src="images/posts/4.jpg"></img>
+            <h4>Next Post</h4>
+        </header>
+    </a>
+</div>

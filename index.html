@@ -318,11 +318,12 @@
 								</section>
 							</article>
 
-                            <article id="post-3" class="panel">
+                            
+                            <article id="post-3" class="panel"></article>
                                 <header class="banner">
-									<img src="images/posts/3.jpg"/>
+                                    <img src="images/posts/3.jpg"/>
                                     <h2>Writing a Game Engine Part II: Platform Layer</h2>
-								</header>
+                                </header>
                                 <p class="blog-date">Posted on Nov 10, 2022</p>
                                 <div class="delim"></div>
                                 <p>
@@ -338,7 +339,7 @@
                                     In this article I will walk through how the platform layer is structured.
                                 </p>
                                 <h4>Main</h4>
-
+                                
                                 <div class="delim-dark"></div>
                                 <div class="post-buttons">
                                     <a href="#post-2" class="post-link">
@@ -359,8 +360,9 @@
                                             <h4>Next Post</h4>
                                         </header>
                                     </a>
-                                </div>
+                                </div> 
                             </article>
+
 
                             <article id="post-2" class="panel">
                                 <header class="banner">
@@ -369,24 +371,14 @@
 								</header>
                                 <p class="blog-date">Posted on Nov 9, 2022</p>
                                 <div class="delim"></div>
-                                <h4>What this is about</h4>
-                                <p>
-                                    I have been working on my engine for about 5 months now, and it is nowhere close to being finished. 
-                                    I've wrestled with myself on whether I should start logging about it. 5 months is a weird time to start
-                                    a devlog on a project. It's too late into the project to be a true "My Journey" type of devlog, but its not
-                                    far enough into the project to be an educational resource. That said, I don't think being 5 months into the 
-                                    project stops me from documenting my journey. I also don't think that the fact that I don't have 20 years of experience
-                                    building game engines implies that I cannot provide some educational value to those who are earlier in their journey of making game
-                                    engines.
-                                </p>
                                 <h4>Background</h4>
                                 <p>
-                                    I should also note that this is NOT my first game engine. My first serious attempt at making an engine was just
+                                    I should first note that this is NOT my first game engine. My first serious attempt at making an engine was just
                                     over a year ago. As is evident from the fact that I am now on my second attempt, the first one did not pan out to be very
                                     successful. There was a myriad of reasons for this. The biggest was lack of understanding of the scope of the project.
                                     A few months prior to starting, I had completed a college project that involved generating dungeons, and having
                                     the user be able to explore them. Me and my partner had implemented a few interactive elements to the dungeon,
-                                    including dynamic tile-based lighting, and I felt a surge of inspiration from being able to program a game-like
+                                    such as dynamic tile-based lighting, and I felt a surge of inspiration from being able to program a game-like
                                     project without an engine.
                                 </p>
                                 <p>
@@ -399,26 +391,27 @@
                                 <h4>How we got here</h4>
                                 <p>
                                     Unfortunately, I quickly realized that creating a full game engine from scratch (even with the help of a library to do most
-                                    heavy platform code for me) was a much deeper commitment than my college education led me to believe. And so, as I added more and
-                                    more to my first engine, the project grew more and more unweildy. Looking back, it was clear that my understading of what a game engine
-                                    is and what it is meant to do was very flawed.
+                                    heavy platform code for me) was a much deeper commitment than my college projects led me to believe. And so, as I added more and
+                                    more to my first engine, the project became harder and harder to work on. Looking back, it was clear that my understading of what a game engine
+                                    is and what it is meant to do was... flawed. It was akin to flayling in the dark, hoping to accidentally bump into the light switch.
                                 </p>
                                 <p>
                                     My second attempt began after a 5 months-long break. In that time, I spent my time researching and trying to figure out what I did
                                     wrong the first time around. Eventually I came back, and started the project over, this time using a more structured approach to 
-                                    writing the engine. I abandoned most things that made my first attempt unweildy (such as inheritence heirarchies) and focused on writing
-                                    more simple and elegant code. The resulting project was easier to get started on, and maintain.
+                                    writing the engine. I abandoned most things that made my first attempt unweildy (such as heavy use of inheritence heirarchies) and focused on writing
+                                    a more simple approach. The resulting project was easier to get started on, and maintain.
                                 </p>
                                 <h4>What now?</h4>
                                 <p>
                                     Today, the engine I am working on is called <b>SkyEngine</b>. This name is temporary, and I don't quite remember how I came onto it, but
                                     it <b>sounds cool</b> so I'm keeping it. I have learned alot while working on the SkyEngine, 
-                                    and I believe I can share some of the things I learned. When I was
-                                    first learning, I found that the resources I found were scarcely useful, either delving into advanced topics too fast, leaving me lost, or
-                                    staying in the shallow end of the information pool. With this and future posts, I hope to be able to provide a more structured approach to
-                                    people who were like me, who had no idea where to start, and were starved for good resources. In the meantime, if you would like to look
-                                    into what I found most helpful when learning to write engines, and the resources I still consult today, below is a list of helpful links to 
-                                    get beginners to this field started.
+                                    and I believe I can share some of the things I learned. When I first started out, 
+                                    I found that most resources out there were scarcely useful, either delving into advanced topics too fast, leaving me lost, or being too general
+                                    and abstract to be practical. With this devlog, I hope to be able to provide a more structured approach to
+                                    people like me, who have no idea where to start. I don't claim to be an expert in engines after only a few months, but I hope you find my approach
+                                    to learning about engines useful to some degree. In the meantime, if you would like to look
+                                    into what I found most helpful when learning,  below is a list of helpful links to 
+                                    some valuable resources.
                                 </p>
                                 <div class="delim"></div>
                                 <h4><a href="https://guide.handmadehero.org/">1. The Handmade Hero Series by Casey Muratori</a>:</h4>
