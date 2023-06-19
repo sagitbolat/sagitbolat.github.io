@@ -69,7 +69,7 @@
 									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 									luctus elit eget interdum.
 								</p-->
-                                <div class="delim"></div>
+                                <div class="delim-dark"></div>
                                 <a href="#project1">
                                     <div class="project-item">
                                         <img src="images/engine.png" alt="">
@@ -96,15 +96,61 @@
                                     <img src="images/engine.png">
                                     <h1><span id="highlighted-span">[C/C++]</span> Game Engine</h1>
 								</header>
-                                <h2 class="project-header">Example Projects:</h2>
+
                                 <div class="delim-empty"></div>
-                                <h3 class="project-header">Galaga-like game</h3>
+                                <h2 class="project-header" id="hl">Project Summary:</h2>
+                                <div class="delim-empty"></div>
                                 <div class="delim"></div>
-                                <p class="project-par"><b id="hl">The following are example projects created in the engine:</b>
-                                
+                                <p class="project-par">
+                                    The engine is meant as a complete tool for general game development. As of June 2023, the engine only 
+                                    supports 2D rendering, but future 3D support is planned. It has a full feature-set that a modern 2D game
+                                    requires. A full input system, an audio system, a UI API, and a set of smaller libraries (such as PRNG, tilemaps, 2D collisions etc.).
+                                    Other features that are in development are: a threaded job system, a full rigid-body physics engine, voxel-based 3D
+                                    rendering, a build system for exporting to the web using WebAssembly, and others.
                                 </p>
-                                <h3 class="project-header">Major Modules:</h3>
+                                <p>
+                                    The goal of the engine is to provide a simple and direct API for developing games with multi-platform 
+                                    support. The engine provides a number of reasonable, but useful abstractions to make the process of creating
+                                    games as painless as possible, without introducing an over-abundance of complexity, and retain low-level control
+                                    for the game programmer. To this digree, simplicity is very important, as it increases maintability and readability
+                                    of the source code, which allows the user to modify the engine for their needs. A welcome side-effect of this is a 
+                                    lean final product, with the game taking miniscule compile times for simple projects (in the order of a few seconds or less).
+                                </p>
+                                <p>
+                                    The rest of the page consists of a section of example projects created using the engine in order
+                                    to explore its capabilities and expand its feature-set, as well as for stress-testing the engine
+                                    and its component.
+                                </p>
+
+                                <h2 class="project-header" id="hl">Example Projects:</h2>
+                                <div class="delim-empty"></div>
                                 <div class="delim"></div>
+                                <p class="project-par">
+                                    <b id="hl">All of the projects are created using no other libraries apart from the engine.</b>
+                                    This page will be updated as new projects are created using the engine. 
+                                </p>
+                                <h3 class="project-header">Galaga-like Arcade Shooter</h3>
+                                <div class="delim-dark"></div>
+                                <p >
+                                    <b id="hl">The project can be found my itch.io page <a href="itch.io">here</a>.</b>
+                                </p>
+                                <p>
+                                    This project makes use of most major components of the engine to create an arcade shooter that plays similar to the 
+                                    classic action shmup "Galaga". The difference is, this shooter allows full 360 rotation of the player ship to shoot in all
+                                    directions. 
+                                </p>
+                                <p>
+                                    The game feaures 3 simple scenes: a main menu, the game, and a game over screen. The game keeps track
+                                    of player score, and the player highscore between game sessions. Highscore is saved in a save file. The game
+                                    also features 3 rotating background music tracks, and game sound effects. A pause menu is built into the game scene.
+                                    There is also a feature that allows for slow motion when the player hits the space key. 
+                                </p>
+                                
+                                <h2 class="project-header" id="hl">Engine Architecture:</h2>
+                                <div class="delim-empty"></div>
+                                <div class="delim"></div>
+                                <h3 class="project-header">Major Modules:</h3>
+                                <div class="delim-dark"></div>
                                 <p class="project-par"><b id="hl">The engine consists of four main modules</b> each of which is a seperate compilation unit.
                                     <ol>
                                         <li class="project-par"><b id="hl">The Main Unit:</b> 
@@ -137,31 +183,31 @@
                                     </ol>
                                 </p>
                                 <h3 class="project-header">Optional Libraries:</h3>
-                                <div class="delim"></div>
+                                <div class="delim-dark"></div>
                                 <p class="project-par"><b id="hl">The engine also includes a number of header-only libraries.</b> These libraries are slotted into the main compilation unit, as they are very lightweight
                                     and do not influence the compile time to a significant degree.
                                     <ol>
-                                        <li class="project-par"><b id = "h1">Collision system</b>
+                                        <li class="project-par"><b id = "hl">Collision system</b>
                                             Allows for collision testing between base shape primitives, including points, circles, axis-aligned and non-aligned boxes.
                                             This integrates with the main unit's transform system, but neither depend on eachother.
                                         </li>
-                                        <li class="project-par"><b id = "h1">Scene management system</b>
+                                        <li class="project-par"><b id = "hl">Scene management system</b>
                                             Scenes are a collection of function pointers. A scene manager is initialized with a set of scenes. The user can switch between scenes by invoking the ID
                                             of the desired scene. The scene manager will then make the neccessary method calls to close the existing scene, and run the init funtions of the new scene. 
                                             This is a way of breaking up your game loop, and initialization code into multiple units.
                                         </li>
-                                        <li class="project-par"><b id = "h1">Tilemap system</b>
+                                        <li class="project-par"><b id = "hl">Tilemap system</b>
                                             The engine has a custom tilemap filetype that stores uncompressed binary data. It also provides a way of reading this tilemap data into a byte array. Tilemap
                                             size is read by the loader automatically, and the user does not need to provide tilemap size.
                                             The engine also includes a GUI tool for editing tilemaps using custom tilesets, and exporting it into the custom file format. The editor itself is written using 
                                             the engine.
                                         </li>
-                                        <li class="project-par"><b id = "h1">Memory allocation</b>
+                                        <li class="project-par"><b id = "hl">Memory allocation</b>
                                             The engine provides a number of custom allocators. These include bump allocators, pool allocators, and a general allocator that uses a free-list.
                                             These are generally faster than built in allocation functions such as malloc and calloc, because they reserve memory upfront, and resign it during 
                                             runtime. This avoids context switching during runtime, and therefore provides a way to allocate memory without running into performance staggers.
                                         </li>
-                                        <li class="project-par"><b id = "h1">PRNG</b>
+                                        <li class="project-par"><b id = "hl">PRNG</b>
                                             A set of PRNG algorithms are available to the user. A simple linear congruential generator is available for fast int and float generation.
                                             Alternatively, a slower but more robust xorshift128+ algorithm is available as well for heavy duty integer and float number generation.
                                             Additionally, 1D and 2D simplex noise is available for brownian generation.
@@ -175,13 +221,13 @@
 									<h2><span id="highlighted-span">[Python]</span> Language Interpreter</h2>
 								</header>
                                 <h3 class="project-header"><b id="hl">Piet</b> - The Programming Language: </h3>
-                                <div class="delim"></div>
+                                <div class="delim-dark"></div>
                                 <p class="project-par">Piet is a <b id="hl">visual programming language</b> 
                                 that is based on the artistic style of a famous Dutch painter - Piet Mondrian. In this language,
                                 color is used for representing instructions and amounts of pixels for representing data. A single stack is used for data storage.
                                 Example Piet programs can be seen <a href="https://www.dangermouse.net/esoteric/piet/samples.html">here</a>.</p>
                                 <h3 class = "project-header">The <b id="hl">sPiet</b> Interpreter:</h3>
-                                <div class="delim"></div>
+                                <div class="delim-dark"></div>
                                 <p class="project-par">The original Piet specification identifies a set of 18 colors to represent instructions. This project is an interpreter
                                 that allows the user to provide a custom color scheme to program with. This color scheme is provided in PNG format, with 18 pixels of different
                                 colors.</p>
@@ -207,7 +253,7 @@
 									<h2><span id="highlighted-span">[C#]</span> Sudoku Generator and Solver</h2>
 								</header>
                                 <h3 class="project-header">The Sudoku Solver: </h3>
-                                <div class="delim"></div>
+                                <div class="delim-dark"></div>
                                 <p class="project-par">The sudoku solver is written using the <b id="hl">.NET WPF</b> GUI framework. The application is a fully functioning GUI desktop application. 
                                 Below are two example screenshots. The one on the left is a fully generated sudoku puzzle. The one on the right is a sudoku puzzle in the process of being solved.</p>								
                                 <img src="images/sudoku_example1.png"> <img src="images/sudoku_example.png">
