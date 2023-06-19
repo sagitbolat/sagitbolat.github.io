@@ -2453,6 +2453,12 @@ input, select, textarea {
     margin-bottom: 35px;
     display: inline-block;
 }
+.delim-small-dark {
+    width: 50%;
+    border-bottom: 3px double var(--background_color_dark);
+    margin-bottom: 5px;
+    display: inline-block;
+}
 
 #devlogs .blog-item a:link {
     text-decoration: none;
