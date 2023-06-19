@@ -46,15 +46,15 @@
 #d3869b
     Aqua:
 #689d6a
-#8ec07c
+#8ec0var(--background_color_dark)
 */
 
 :root {
-    --background_color_dark: #282828;
-    --background_color_light: #504945;
-    --accent_color_1: #fe8019; /* for light background colors */
-    --accent_color_2: #d65d0e; /* for dark background colors */
-	--foreground_color: #fbf1c7;
+    --background_color_dark: #003262 /*#282828*/;
+    --background_color_light: #3b7ea1 /*#504945*/;
+    --accent_color_1: #C4820E /*#fe8019*/; /* for light background colors */
+    --accent_color_2: #C4820E  /*#d65d0e*/; /* for dark background colors */
+	--foreground_color: #DDD5C7/*#fbf1c7*/;
 }
 
 
@@ -1357,7 +1357,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-image: url("images/overlay.png"), url("images/background_gruvbox_solid_dark.png");
+		background-image: url("images/overlay.png"), url("images/berkeley_blue.png");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
@@ -1378,7 +1378,7 @@ input, select, textarea {
 	body, input, textarea, select {
 		font-family: /*'Buero',*/ 'Consolas', 'Source Sans Pro', sans-serif;
 		font-weight: 300;
-		color: #504945;
+		color: var(--background_color_dark);
 		font-size: 20pt;
 		line-height: 1.75em;
 	}
@@ -1520,7 +1520,7 @@ input, select, textarea {
 	form label {
 		display: block;
 		font-weight: 400;
-		color: #504945;
+		color: var(--background_color_dark);
 		margin: 0 0 1em 0;
 	}
 
@@ -1647,7 +1647,7 @@ input, select, textarea {
 		transition: background-color .25s ease-in-out;
 		-webkit-appearance: none;
 		display: inline-block;
-		background-color: #504945;
+		background-color: var(--background_color_dark);
 		color: var(--foreground_color);
 		border: 0;
 		cursor: pointer;
@@ -2151,7 +2151,7 @@ input, select, textarea {
 						margin: 0.25em 0 0 0;
 					}
 					#main > .panel.intro header a {
-						color: #504945;
+						color: var(--background_color_dark);
 						letter-spacing: -0.015em;
 						font-size: 1.25em;
 						margin: 0.25em 0 0 0;
@@ -2252,6 +2252,16 @@ input, select, textarea {
 
 /* Projects */
 
+#project1 h1 {
+	font-size: 40pt;
+}
+#project1 h2 {
+	font-size: 30pt;
+}
+#project1 h3 {
+	font-size: 20pt;
+}
+
 #projects a:link {
     text-decoration: none;
 }
@@ -2345,10 +2355,6 @@ input, select, textarea {
     line-height: 30px;
     font-size: 11pt;
 }
-.project-header {
-	font-size: 24px;
-	line-height: 40px;
-}
 
 /* utils and highlights */
 #highlighted-span {
@@ -2434,6 +2440,11 @@ input, select, textarea {
     width: 100%;
     border-bottom: 4px solid var(--accent_color_1);
     margin-bottom: 35px;
+    display: inline-block;
+}
+.delim-empty {
+    width: 100%;
+    margin-bottom: 5pt;
     display: inline-block;
 }
 .delim-dark {
@@ -2567,9 +2578,6 @@ input, select, textarea {
 }
 #main a:hover {
 	text-decoration: underline;
-}
-#main h4 {
-	font-size: 15pt;
 }
 
 .post-buttons {

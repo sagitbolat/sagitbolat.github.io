@@ -38,15 +38,24 @@
                                     </div-->
                                     <p id="title">Software Developer<span id="highlighted-span"></span></p>
                                     <div class = "home-link">
-                                        <a id="github-link" href="https://github.com/sagitbolat?tab=repositories" 
+                                        <a id="github-link" target="_blank" href="https://github.com/sagitbolat?tab=repositories" 
                                         class="icon brands fa-github">
                                         </a>
-
                                     </div>
+                                    <div class = "home-link">
+                                        <a id="linkedin-link" target="_blank" href="https://www.linkedin.com/in/sagit-bolat/" 
+                                        class="icon brands fa-linkedin">
+                                        </a>
+                                    </div>        
+                                    <div class = "home-link">
+                                        <a id="CV-link" target="_blank" href="Sagit_Bolat_CV.pdf" >
+                                            <i class="fas fa-file"></i>
+                                        </a>
+                                    </div>        
                                 </header>
 								<a href="#projects" class="jumplink pic">
 									<span class="arrow icon solid fa-chevron-right"><span>See projects</span></span>
-									<img src="images/gruvbox_pc.png" alt="" />
+									<img src="images/berkeley_pc.png" alt="" />
 								</a>
 							</article>
 
@@ -85,11 +94,18 @@
 							<article id="project1" class="panel">
 								<header class="banner">
                                     <img src="images/engine.png">
-                                    <h2><span id="highlighted-span">[C/C++]</span> Game Engine</h2>
+                                    <h1><span id="highlighted-span">[C/C++]</span> Game Engine</h1>
 								</header>
+                                <h2 class="project-header">Example Projects:</h2>
+                                <div class="delim-empty"></div>
+                                <h3 class="project-header">Galaga-like game</h3>
+                                <div class="delim"></div>
+                                <p class="project-par"><b id="hl">The following are example projects created in the engine:</b>
+                                
+                                </p>
                                 <h3 class="project-header">Major Modules:</h3>
                                 <div class="delim"></div>
-                                <p class="project-par"><b>The engine consists of four main modules</b> each of which is a seperate compilation unit.
+                                <p class="project-par"><b id="hl">The engine consists of four main modules</b> each of which is a seperate compilation unit.
                                     <ol>
                                         <li class="project-par"><b id="hl">The Main Unit:</b> 
                                             Handles initialization, windowing, input, and deinitialization of the engine. The engine uses a Unity build (a singular compilation unit)
@@ -120,8 +136,9 @@
                                         </li>
                                     </ol>
                                 </p>
+                                <h3 class="project-header">Optional Libraries:</h3>
                                 <div class="delim"></div>
-                                <p class="project-par"><b>The engine also includes a number of header-only libraries.</b> These libraries are slotted into the main compilation unit, as they are very lightweight
+                                <p class="project-par"><b id="hl">The engine also includes a number of header-only libraries.</b> These libraries are slotted into the main compilation unit, as they are very lightweight
                                     and do not influence the compile time to a significant degree.
                                     <ol>
                                         <li class="project-par"><b id = "h1">Collision system</b>
@@ -136,7 +153,8 @@
                                         <li class="project-par"><b id = "h1">Tilemap system</b>
                                             The engine has a custom tilemap filetype that stores uncompressed binary data. It also provides a way of reading this tilemap data into a byte array. Tilemap
                                             size is read by the loader automatically, and the user does not need to provide tilemap size.
-                                            The engine also includes a GUI tool for editing tilemaps using custom tilesets, and exporting it into the custom file format.
+                                            The engine also includes a GUI tool for editing tilemaps using custom tilesets, and exporting it into the custom file format. The editor itself is written using 
+                                            the engine.
                                         </li>
                                         <li class="project-par"><b id = "h1">Memory allocation</b>
                                             The engine provides a number of custom allocators. These include bump allocators, pool allocators, and a general allocator that uses a free-list.
