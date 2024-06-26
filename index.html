@@ -21,7 +21,7 @@
 					<nav id="nav">
 						<a href="#" class="icon solid fa-home"><span>Home</span></a>
 						<a href="#projects" class="icon solid fa-code"><span>Projects</span></a>
-						<a href="#devlogs" class="icon solid fa-archive"><span>Devlogs</span></a>
+						<a href="#devlogs" class="icon solid fa-archive"><span>Blog</span></a>
 						<a href="#contacts" class="icon solid fa-envelope"><span>Contact</span></a>
 					</nav>
 
@@ -70,6 +70,12 @@
 									luctus elit eget interdum.
 								</p-->
                                 <div class="delim-dark"></div>
+                                <a href="ludus_chromatic.html">
+                                    <div class="project-item">
+                                        <img src="images/ludus_chromatic.png" alt="">
+                                        <span class="project-caption">[C/C++] Ludus Chromatic: a Sokoban-style puzzle game</span>
+                                    </div>
+								</a>
                                 <a href="#project1">
                                     <div class="project-item">
                                         <img src="images/engine_background.png" alt="">
@@ -90,6 +96,33 @@
                                 </a>
 							</article>
 
+                            <article id="project-ludus-chromatic" class="panel">
+								<header class="banner">
+                                    <img src="images/ludus_chromatic.png">
+                                    <h1><span id="highlighted-span">[C/C++]</span> Ludus Chromatic</h1>
+								</header>
+                                <div class="delim-dark"></div>
+                                <h2 class="project-header" id="hl">Project Summary:</h2>
+                                <div class="delim-empty"></div>
+                                <p class="project-par">
+                                    Ludus Chromatic is a puzzle game created in my <a href="#project1">custom C/C++ game engine</a>. It is a 
+                                    <a href="https://www.mathsisfun.com/games/sokoban.html">Sokoban</a>-style puzzle game. The original Sokoban
+                                    game inspired countless other Sokoban-likes, including the upcoming game by designer Jonathan Blow. As a
+                                    fan of his work, it was clear what my first major project in the SkyEngine should be.
+                                </p>
+                                <p class="project-par">
+                                    The game is all about color, hence the name. Ludus means game in latin (just as in Ludum Dare), so the title translates to "Chromatic Game". 
+                                    It is not just about mixing and combining colors, even though that is part of it. Different colored objects
+                                    might act differently depending on what color they are (most of the time dependant on their color channels). I will
+                                    not spoil the game here, but rest assured, color plays a major role.
+                                </p>
+                                <p class="project-par">
+                                    Since color is calculated dynamically for many objets in the game, I had to dip into OpenGL shader programming 
+                                    to make the game work. I will be writing a series of blog posts (once the game is complete), documenting 
+                                    the techniques and architectural choices I made during development.
+                                </p>
+                                <p class="project-par">For now, you can find the main page of the game <a href="ludus_chromatic.html">here</a>. And the itch.io page <a href="">here</a></p>
+                            </article>
 
 							<article id="project1" class="panel">
 								<header class="banner">
@@ -127,7 +160,138 @@
                                     <b id="hl">All of the projects are created using no other libraries apart from the engine.</b>
                                     This page will be updated as new projects are created using the engine. 
                                 </p>
-                                <h3 class="project-header"><a style="text-decoration: none; color: #003262" href="https://swagit.itch.io/skyengine-proj1" class="icon brands fa-itch-io"></a> Galaga-like Arcade Shooter:</h3>
+                                <h3 class="project-header"><a style="text-decoration: none; color: #003262" href="https://swagit.itch.io/skyengine-proj1" class="icon brands fa-itch-io">Galaga-like Arcade Shooter</a></h3>
+                                <div class="delim-small-dark" style="width: 50.5%;"></div>
+                                <div class="delim-empty"></div>
+                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_0.PNG"> 
+                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_1.PNG"> 
+                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_2.PNG"> 
+                                <p >
+                                    <b id="hl">The project can be found my itch.io page <a href="https://swagit.itch.io/skyengine-proj1" target="_blank">here</a>.</b>
+                                </p>
+                                <p>
+                                    This project makes use of most major components of the engine to create an arcade shooter that plays similar to the 
+                                    classic action shmup "Galaga". The difference is, this shooter allows full 360 rotation of the player ship to shoot in all
+                                    directions. 
+                                </p>
+                                <p>
+                                    The game feaures 3 simple scenes: a main menu, the game, and a game over screen. The game keeps track
+                                    of player score, and the player highscore between game sessions. Highscore is saved in a save file. The game
+                                    also features 3 rotating background music tracks, and game sound effects. A pause menu is built into the game scene.
+                                    There is also a feature that allows for slow motion when the player hits the space key. 
+                                </p>
+                               
+                                
+                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:block; margin-left: auto; margin-right: auto; width: 99%' src="images/asteroids.gif"> 
+                                <div class="delim-empty"></div>
+                                <div class="delim-dark"></div>
+                                <h2 class="project-header" id="hl">Engine Architecture:</h2>
+                                <div class="delim-empty"></div>
+                                <h3 class="project-header">Major Modules:</h3>
+                                <div class="delim-small-dark" style="width: 50%;"></div>
+                                <p class="project-par"><b id="hl">The engine consists of four main modules</b> each of which is a seperate compilation unit.
+                                    <ol>
+                                        <li class="project-par"><b id="hl">The Main Unit:</b> 
+                                            Handles initialization, windowing, input, and deinitialization of the engine. The engine uses a Unity build (a singular compilation unit)
+                                            for the main module and the user space. This can be changed if desired by customizing the build system directly. Other major modules of the 
+                                            engine have their own compilation units that are built into the build script for either full or incremental compilation. Currently, compilation
+                                            of this main unit takes approximately 0.8 seconds on a ThinkPad Laptop (including gameplay code for a simple arcade game). 
+                                        </li>
+                                        <li class="project-par"><b id='hl'>The Rendering API Unit:</b>
+                                            The rendering API provides a simple 2D rendering front-end to the user. Sprite rendering is based on a transform similar to Unity Engine's transform
+                                            component. The user can load and unload sprites at runtime (typically, for smaller games, at startup and shutdown). A sprite and a transofrm can be 
+                                            passed to the rendering API for rendering. With this system, the user can choose to reuse sprites and transforms for multiple game objects.
+                                            The user is also able to define their own GLSL shaders (although a default is provided in the source code for them), and edit the shaders' uniforms
+                                            using the provided API. The API is built on an OpenGL backend. This is build as a seperate compilation unit to speed up compile times. 
+                                        </li>
+                                        <li class="project-par"><b id = "hl">The Audio API Unit:</b> 
+                                            The audio API provides a way to load and play back ogg files. The system is based on a listener-source model. This is
+                                            similar to how the Unity Engine handles their audio playback. Clips can be loaded and attached to sources. This allows for clip
+                                            reuse, and playback customizability through source parameters rather than having to load multiple clips. Properties like source
+                                            volume, looping, and others can be changed dynamically. The API is built on an OpenAL backend. This is build as a seperate compilation unit.
+                                        </li>
+                                        <li class="project-par"><b id = "hl">The UI API Unit:</b> 
+                                            The UI API allows a way to display simple UI components. UI in the engine is immediate mode (as opposed to retained mode) to allow for user simplicity
+                                            UI is rendered on top of the game world, with a seperate coordinate system that is 
+                                            camera location agnostic. The API also allows for loading of ttf font files. It allows for simple widgets such as buttons, image buttons, images,
+                                            text, text input boxes, and sliders. All of these are customizable with custom styles using a centralized UI_style struct. The API is build on a
+                                            backend made with the Dear ImGui library (used by major studios like Valve, Blizzard, and Ubisoft). An alternative backend is being worked on using 
+                                            the Nuklear library. Similar to the other major Units, this API has its own compilation unit for faster compile times.
+                                        </li>
+                                    </ol>
+                                </p>
+                                <h3 class="project-header">Optional Libraries:</h3>
+                                <div class="delim-small-dark" style="width: 50%;"></div>
+                                <p class="project-par"><b id="hl">The engine also includes a number of header-only libraries.</b> These libraries are slotted into the main compilation unit, as they are very lightweight
+                                    and do not influence the compile time to a significant degree.
+                                    <ol>
+                                        <li class="project-par"><b id = "hl">Collision system</b>
+                                            Allows for collision testing between base shape primitives, including points, circles, axis-aligned and non-aligned boxes.
+                                            This integrates with the main unit's transform system, but neither depend on eachother.
+                                        </li>
+                                        <li class="project-par"><b id = "hl">Scene management system</b>
+                                            Scenes are a collection of function pointers. A scene manager is initialized with a set of scenes. The user can switch between scenes by invoking the ID
+                                            of the desired scene. The scene manager will then make the neccessary method calls to close the existing scene, and run the init funtions of the new scene. 
+                                            This is a way of breaking up your game loop, and initialization code into multiple units.
+                                        </li>
+                                        <li class="project-par"><b id = "hl">Tilemap system</b>
+                                            The engine has a custom tilemap filetype that stores uncompressed binary data. It also provides a way of reading this tilemap data into a byte array. Tilemap
+                                            size is read by the loader automatically, and the user does not need to provide tilemap size.
+                                            The engine also includes a GUI tool for editing tilemaps using custom tilesets, and exporting it into the custom file format. The editor itself is written using 
+                                            the engine.
+                                        </li>
+                                        <li class="project-par"><b id = "hl">Memory allocation</b>
+                                            The engine provides a number of custom allocators. These include bump allocators, pool allocators, and a general allocator that uses a free-list.
+                                            These are generally faster than built in allocation functions such as malloc and calloc, because they reserve memory upfront, and resign it during 
+                                            runtime. This avoids context switching during runtime, and therefore provides a way to allocate memory without running into performance staggers.
+                                        </li>
+                                        <li class="project-par"><b id = "hl">PRNG</b>
+                                            A set of PRNG algorithms are available to the user. A simple linear congruential generator is available for fast int and float generation.
+                                            Alternatively, a slower but more robust xorshift128+ algorithm is available as well for heavy duty integer and float number generation.
+                                            Additionally, 1D and 2D simplex noise is available for brownian generation.
+                                        </li>
+                                    </ol>
+                                </p>
+                                <div class="delim-dark"></div>
+							</article>
+
+							<article id="project1" class="panel">
+								<header class="banner">
+                                    <img src="images/engine_background.png">
+                                    <h1><span id="highlighted-span">[C/C++]</span> Game Engine</h1>
+								</header>
+                                <a style="text-decoration: none; color: #003262; font-size: 20pt;" href="https://github.com/sagitbolat/skyengine_sdl" class="icon brands fa-github"></a>
+                                <div class="delim-dark"></div>
+                                <h2 class="project-header" id="hl">Project Summary:</h2>
+                                <div class="delim-empty"></div>
+                                <p class="project-par">
+                                    The engine is meant as a complete tool for general game development. As of June 2023, the engine only 
+                                    supports 2D rendering, but future 3D support is planned. It has a full feature-set that a modern 2D game
+                                    requires. A full input system, an audio system, a UI API, and a set of smaller libraries (such as PRNG, tilemaps, 2D collisions etc.).
+                                    Other features that are in development are: a threaded job system, a full rigid-body physics engine, voxel-based 3D
+                                    rendering, a build system for exporting to the web using WebAssembly, and others.
+                                </p>
+                                <p>
+                                    The goal of the engine is to provide a simple and direct API for developing games with multi-platform 
+                                    support. The engine provides a number of reasonable, but useful abstractions to make the process of creating
+                                    games as painless as possible, without introducing an over-abundance of complexity, and retain low-level control
+                                    for the game programmer. To this digree, simplicity is very important, as it increases maintability and readability
+                                    of the source code, which allows the user to modify the engine for their needs. A welcome side-effect of this is a 
+                                    lean final product, with the game taking miniscule compile times for simple projects (in the order of a few seconds or less).
+                                </p>
+                                <p>
+                                    The rest of the page consists of a section of example projects created using the engine in order
+                                    to explore its capabilities and expand its feature-set, as well as for stress-testing the engine
+                                    and its component.
+                                </p>
+                                <div class="delim-dark"></div>
+                                <h2 class="project-header" id="hl">Example Projects:</h2>
+                                <div class="delim-empty"></div>
+                                <p class="project-par">
+                                    <b id="hl">All of the projects are created using no other libraries apart from the engine.</b>
+                                    This page will be updated as new projects are created using the engine. 
+                                </p>
+                                <h3 class="project-header"><a style="text-decoration: none; color: #003262" href="https://swagit.itch.io/skyengine-proj1" class="icon brands fa-itch-io">Galaga-like Arcade Shooter</a></h3>
                                 <div class="delim-small-dark" style="width: 50.5%;"></div>
                                 <div class="delim-empty"></div>
                                 <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_0.PNG"> 
@@ -292,11 +456,11 @@
 						<!-- devlogs -->
 							<article id="devlogs" class="panel">
                                 <header>
-                                    <h2><span id="highlighted-span"></span>Posts</h2>
+                                    <h2><span id="highlighted-span"></span>2024</h2>
                                 </header>
-                                <div class="delim"></div>
+                                <div class="delim-dark"></div>
 								<section>
-                                    <div class="blog-item">
+                                    <!--div class="blog-item">
                                         <div class="blog-info">
                                             <a href="#post-3" class="blog-link">
                                                 <header class="blog-banner">
@@ -311,7 +475,6 @@
                                                 That said, I did have some problems... <a href="#post-3"><b id="hl">Read more</b></a>
                                             </p>
                                         </div>
-                                        <!--div class="blog-button"><a href="#">Read more</a></div-->
                                     </div>
                                     <div class="blog-item">
                                         <div class="blog-info">
@@ -331,7 +494,6 @@
                                                 building game engines, I cannot provide some edutcational value... <a href="#post-2"><b id="hl">Read more</b></a>
                                             </p>
                                         </div>
-                                        <!--div class="blog-button"><a href="#">Read more</a></div-->
                                     </div>
                                     <div class="blog-item">
                                         <div class="blog-info">
@@ -348,8 +510,7 @@
                                                 show off whatever project you have been working on at the time. However... <a href="#post-1"><b id="hl">Read more</b></a>
                                             </p>
                                         </div>
-                                        <!--div class="blog-button"><a href="#">Read more</a></div-->
-                                    </div>
+                                    </div-->
 								</section>
 							</article>
 
