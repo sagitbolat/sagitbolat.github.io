@@ -1,3 +1,5 @@
+let snitchIndex = -1;
+let snitchEnabled = true;
 const builtInCategories = [
   {
     title: "Minecraft Mobs",
@@ -174,6 +176,8 @@ let secretWordIndex = -1;
 
 function startGame() {
   numPlayers = parseInt(document.getElementById("playerCount").value);
+  snitchEnabled = document.getElementById("enableSnitch").checked;
+
   if (isNaN(numPlayers) || numPlayers < 3) {
     alert("Please enter at least 3 players.");
     return;
@@ -181,11 +185,30 @@ function startGame() {
 
   const selected = document.getElementById("categorySelect").value;
   if (selected === "random") {
-    selectedCategory = categories[Math.floor(Math.random() * categories.length)];
+    const selected = document.getElementById("categorySelect").value;
+    const allCats = getAllCategories();
+
+    if (selected === "random") {
+      selectedCategory = allCats[Math.floor(Math.random() * allCats.length)];
+    } else {
+      selectedCategory = allCats.find(c => c.title === selected);
+    }
   } else {
     selectedCategory = getAllCategories().find(c => c.title === selected);
   }
+
   chameleonIndex = Math.floor(Math.random() * numPlayers) + 1;
+
+  // Select a snitch who is NOT the chameleon
+  if (snitchEnabled) {
+    do {
+      snitchIndex = Math.floor(Math.random() * numPlayers) + 1;
+    } while (snitchIndex === chameleonIndex);
+  } else {
+    snitchIndex = -1; // No snitch this round
+  }
+
+
   secretWordIndex = Math.floor(Math.random() * 16);
 
   document.getElementById("setup").classList.add("hidden");
@@ -211,6 +234,7 @@ function showInfo() {
       }).join('')}
     </div>
     ${currentPlayer === chameleonIndex ? `<p class="chameleon-msg">You are the CHAMELEON 🦎</p>` : ''}
+    ${currentPlayer === snitchIndex && currentPlayer !== chameleonIndex ? `<p class="snitch-msg" style="color: orange;">You are the SNITCH 🤫. Help the chameleon without being too obvious.</p>` : ''}
   `;
 }
 
