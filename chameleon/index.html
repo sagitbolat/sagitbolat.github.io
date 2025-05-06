@@ -18,6 +18,21 @@
         <select id="categorySelect"></select>
 
         <button onclick="startGame()">Start Game</button>
+
+        <hr />
+        <h3>Add Custom Category</h3>
+        <label for="customTitle">Category Title:</label>
+        <input type="text" id="customTitle" placeholder="e.g. Desserts" />
+        <label for="customWords">16 words (comma-separated):</label>
+        <textarea id="customWords" rows="3" placeholder="e.g. Cake, Pie, Donut, ..."></textarea>
+        <button onclick="addCustomCategory()">Add Category</button>
+
+        <hr />
+        <h3>Delete Custom Category</h3>
+        <label for="deleteSelect">Select a custom category:</label>
+        <select id="deleteSelect"></select>
+        <button onclick="deleteCustomCategory()">Delete Selected</button>
+
     </div>
 
     <div id="game" class="card hidden">
