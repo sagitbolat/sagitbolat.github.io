@@ -96,6 +96,20 @@ const builtInCategories = [
             "Pyke", "Alistar", "Nunu and Willump", "Rengar",
             "Yuumi", "Gankplank", "Lux", "Zac",
             "Nasus", "Fizz", "Yasuo", "Jax"]
+  },
+  {
+    title: "Chameleon Categories",
+    words: ["Cities", "Colors", "Phobias", "Authors",
+            "Movies", "Afflictions", "Hobbies", "Civilizations",
+            "Celebrities", "Geography", "Bands", "Disney",
+            "Food", "Transport", "Games", "Film Genres"]
+  },
+  {
+    title: "Bodily Fluids",
+    words: ["Shid", "Piss", "Cum", "Spinal Fluid",
+            "Blood", "Eye Goo", "Stomach Acid", "Spit",
+            "Pre-cum", "Vaginal Lubrication Fluid", "Earwax", "Pus",
+            "Mucus", "Breast Milk", "Sweat", "Cell Coating"] 
   }
 ];
 
