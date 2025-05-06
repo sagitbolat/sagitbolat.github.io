@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Chameleon - Pass & Play</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>The Chameleon</h1>
+
+    <div id="setup" class="card">
+        <label for="playerCount">Number of players:</label>
+        <input type="number" id="playerCount" min="3" max="10" value="4" />
+
+        <label for="categorySelect">Choose a category:</label>
+        <select id="categorySelect"></select>
+
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="game" class="card hidden">
+      <h2 id="playerLabel">Player 1</h2>
+      <button id="revealBtn" onmousedown="showInfo()" onmouseup="hideInfo()" ontouchstart="showInfo()" ontouchend="hideInfo()">
+        Press to Reveal
+      </button>
+      <div id="revealBox"></div>
+      <button onclick="nextPlayer()">Next Player</button>
+    </div>
+
+   <div id="end" class="card hidden"></div>
+ 
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

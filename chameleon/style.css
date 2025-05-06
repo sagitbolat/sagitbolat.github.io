@@ -1,0 +1,81 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+#revealBtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+#revealBox {
+  margin: 20px 0;
+  min-height: 40px;
+  font-size: 20px;
+  color: #333;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.grid-word {
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+}
+
+.grid-word.highlight {
+  background-color: #ffd700;
+  color: black;
+}
+
+.chameleon-msg {
+  margin-top: 12px;
+  color: #d9534f;
+  font-weight: bold;
+  font-size: 16px;
+}
