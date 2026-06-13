@@ -1,0 +1,757 @@
+/* ============================================================
+   pixel.css  —  Pixel-Art Design System
+   ============================================================
+   Edit the :root block below to retheme the entire site.
+   Every colour, size, and spacing value is a variable.
+   No values are hard-coded outside of :root.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@font-face {
+  font-family: 'Consolas';
+  src: url('Consolas.woff');
+}
+
+/* ── 1. Design Tokens ─────────────────────────────────────── */
+:root {
+
+  /* --- Colours -------------------------------------------- */
+  --c-bg:           #0f1327;   /* page background             */
+  --c-bg-grid:      rgba(154, 124, 167, 0.04); /* subtle grid */
+  --c-panel:        #1c1a35;   /* panel body                  */
+  --c-titlebar:     #484267;   /* panel / header title bars   */
+  --c-border:       #9a7ca7;   /* primary border / accent     */
+  --c-border-faint: rgba(154, 124, 167, 0.25); /* thin separators */
+  --c-shadow:       #040810;   /* hard pixel drop-shadow      */
+
+  /* --- Frame shading (controls the 3D bevel look) --------- */
+  /* Outer dark ring that wraps the accent border             */
+  --c-frame-outer:  #040810;
+  /* Inner bevel: top-left faces catch the light              */
+  --c-frame-hi:     #c5b0d4;
+  /* Inner bevel: bottom-right faces are in shadow            */
+  --c-frame-lo:     #040810;
+  /* Title bar: 3 pixel-stepped shading bands                 */
+  --c-titlebar-hi:  #5c567b;   /* top highlight band          */
+  --c-titlebar-lo:  #342e53;   /* bottom shadow band          */
+  /* Panel body: very faint checkerboard dither texture       */
+  --c-dither:       rgba(197, 176, 212, 0.028);
+  /* Drop shadow layers — derived from --c-shadow (#040810)   */
+  /* Update these if you change --c-shadow to a tinted colour */
+  --c-shadow-mid:   rgba(4, 8, 16, 0.65);
+  --c-shadow-far:   rgba(4, 8, 16, 0.32);
+  --c-text:         #e5dac2;   /* primary text                */
+  --c-text-dim:     #7a7299;   /* secondary / muted text      */
+  --c-accent:       #9a7ca7;   /* highlights                  */
+  --c-accent-hi:    #c5b0d4;   /* brighter accent on hover    */
+  --c-link:         #9a7ca7;   /* hyperlink colour            */
+  --c-link-vis:     #7a6a90;   /* visited link                */
+
+  /* --- Language-tag colours ------------------------------- */
+  --c-tag-cpp:      #e07880;
+  --c-tag-py:       #90b878;
+  --c-tag-cs:       #7ab0c8;
+  --c-tag-js:       #d4a85c;
+  --c-tag-default:  #9a7ca7;
+
+  /* --- Pixel border --------------------------------------- */
+  /* Change --px to scale ALL pixel borders at once          */
+  --px: 3px;
+
+  /* --- Background grid ------------------------------------ */
+  --grid-cell: 24px;           /* dot-grid cell size          */
+
+  /* --- CRT scanline overlay ------------------------------- */
+  --scanline-h:     2px;       /* stripe height               */
+  --scanline-alpha: 0.04;      /* opacity (0 = disabled)      */
+
+  /* --- Typography ----------------------------------------- */
+  --f-pixel: 'Press Start 2P', monospace;
+  --f-body:  'Consolas', 'Courier New', monospace;
+
+  /* Font-size scale */
+  --t-nano:  0.45rem;   /* title-bar labels                   */
+  --t-tiny:  0.55rem;   /* tags, panel headings               */
+  --t-xs:    0.65rem;   /* dates, meta                        */
+  --t-sm:    0.75rem;   /* secondary body copy                */
+  --t-base:  0.875rem;  /* primary body copy                  */
+  --t-md:    1rem;
+  --t-lg:    1.2rem;
+  --t-xl:    1.5rem;    /* article headings                   */
+  --t-2xl:   2rem;      /* site name                          */
+
+  /* --- Spacing -------------------------------------------- */
+  /* All layout spacing is a named multiple of 4 px           */
+  --s1:  4px;
+  --s2:  8px;
+  --s3:  12px;
+  --s4:  16px;
+  --s5:  20px;
+  --s6:  24px;
+  --s8:  32px;
+  --s10: 40px;
+  --s12: 48px;
+
+  /* --- Layout --------------------------------------------- */
+  --max-w:       1440px;      /* max page width               */
+  --page-pad:    var(--s4);   /* left/right page padding      */
+  --header-h:    68px;        /* sticky header height         */
+  --grid-gap:    var(--s4);   /* gap between grid cells       */
+  --col-widgets: 265px;       /* left column fixed width      */
+  --col-blog:    1fr;         /* middle column (flex)         */
+  --col-projects:290px;       /* right column fixed width     */
+  --panel-pad:   var(--s4);   /* panel inner padding          */
+  --titlebar-h:  30px;        /* panel title-bar height       */
+
+  /* --- Component sizes ------------------------------------ */
+  --cat-img-h:      180px;    /* cat-of-the-day image height  */
+  --card-img-h:     105px;    /* project card image height    */
+  --blog-thumb-w:   88px;     /* blog card thumbnail width    */
+  --blog-thumb-h:   66px;     /* blog card thumbnail height   */
+}
+
+/* ── 2. Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 16px; }
+
+img  { max-width: 100%; display: block; }
+
+a {
+  color: var(--c-link);
+  text-decoration: none;
+}
+a:visited { color: var(--c-link-vis); }
+a:hover   { color: var(--c-accent-hi); text-decoration: underline; }
+
+ul, ol { list-style: none; }
+
+button {
+  cursor: pointer;
+  font-family: var(--f-pixel);
+  border: none;
+  background: none;
+}
+
+/* ── 3. Base ──────────────────────────────────────────────── */
+body {
+  font-family: var(--f-body);
+  font-size: var(--t-base);
+  color: var(--c-text);
+  line-height: 1.6;
+  background-color: var(--c-bg);
+  background-image:
+    linear-gradient(var(--c-bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-bg-grid) 1px, transparent 1px);
+  background-size: var(--grid-cell) var(--grid-cell);
+  min-height: 100vh;
+}
+
+/* Scanline overlay — purely cosmetic CRT effect */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent calc(var(--scanline-h) - 1px),
+    rgba(0, 0, 0, var(--scanline-alpha)) calc(var(--scanline-h) - 1px),
+    rgba(0, 0, 0, var(--scanline-alpha)) var(--scanline-h)
+  );
+  pointer-events: none;
+  z-index: 9000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--f-pixel);
+  color: var(--c-text);
+  line-height: 1.4;
+}
+
+p { margin-bottom: var(--s4); }
+p:last-child { margin-bottom: 0; }
+
+/* ── 4. Pixel Panel ───────────────────────────────────────── */
+/*
+  .pixel-panel        outer container with gold border + hard shadow
+  .panel-titlebar     dark-blue title bar (like a retro window chrome)
+  .panel-title        label text inside the title bar
+  .panel-body         padded content area
+*/
+
+.pixel-panel {
+  background: var(--c-panel);
+  position: relative;
+  /* Accent-coloured inner border */
+  border: var(--px) solid var(--c-border);
+  margin-bottom: var(--grid-gap);
+
+  box-shadow:
+    /*
+      Layer 1 — outer dark ring (wraps the accent border,
+                 makes it read as a recessed frame groove)
+    */
+    0 0 0 var(--px) var(--c-frame-outer),
+
+    /*
+      Layer 2 — inner bevel: top and left edges appear lit
+                (inset positive offset = stripe on top + left)
+    */
+    inset var(--px) var(--px) 0 0 var(--c-frame-hi),
+
+    /*
+      Layer 3 — inner bevel: bottom and right edges in shadow
+                (inset negative offset = stripe on bottom + right)
+    */
+    inset calc(-1 * var(--px)) calc(-1 * var(--px)) 0 0 var(--c-frame-lo),
+
+    /*
+      Layers 4-6 — stacked drop shadow (no blur = pixel-crisp),
+                   each step lighter to give a chunky depth effect
+    */
+    calc(var(--px) * 1) calc(var(--px) * 1) 0 0 var(--c-shadow),
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 var(--c-shadow-mid),
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 var(--c-shadow-far);
+}
+.pixel-panel:last-child { margin-bottom: 0; }
+
+.panel-titlebar {
+  height: var(--titlebar-h);
+  /*
+    Hard-stop gradient: 1-pixel-wide highlight band at top,
+    solid mid-tone body, 1-pixel-wide shadow band at bottom.
+    Uses var(--px) band thickness so it scales with the border unit.
+  */
+  background: linear-gradient(
+    to bottom,
+    var(--c-titlebar-hi) 0px,
+    var(--c-titlebar-hi) var(--px),
+    var(--c-titlebar)    var(--px),
+    var(--c-titlebar)    calc(100% - var(--px)),
+    var(--c-titlebar-lo) calc(100% - var(--px)),
+    var(--c-titlebar-lo) 100%
+  );
+  border-bottom: var(--px) solid var(--c-border);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--s4);
+  gap: var(--s3);
+}
+
+/* Three pixel squares in the title bar, like window buttons */
+.panel-titlebar::before {
+  content: '■ ■ ■';
+  font-size: var(--t-nano);
+  color: var(--c-border);
+  letter-spacing: 2px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.panel-title {
+  font-family: var(--f-pixel);
+  font-size: var(--t-nano);
+  color: var(--c-text);
+  letter-spacing: 1px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel-body {
+  padding: var(--panel-pad);
+  /*
+    2×2 checkerboard dither — creates a subtle woven texture on the
+    panel background without affecting readability of content.
+    Increase --c-dither opacity (up to ~0.06) for a more visible grain.
+  */
+  background-image:
+    linear-gradient(45deg,  var(--c-dither) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--c-dither) 25%, transparent 25%),
+    linear-gradient(45deg,  transparent 75%, var(--c-dither) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--c-dither) 75%);
+  background-size: 4px 4px;
+  background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+}
+
+/* ── 5. Pixel Button ──────────────────────────────────────── */
+.px-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s4);
+  font-family: var(--f-pixel);
+  font-size: var(--t-tiny);
+  color: var(--c-text);
+  background: var(--c-titlebar);
+  border: var(--px) solid var(--c-border);
+  box-shadow: var(--px) var(--px) 0 0 var(--c-shadow);
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+}
+.px-btn:hover {
+  background: var(--c-accent);
+  color: var(--c-bg);
+  text-decoration: none;
+}
+.px-btn:active {
+  transform: translate(var(--px), var(--px));
+  box-shadow: none;
+}
+.px-btn:visited { color: var(--c-text); }
+
+/* ── 6. Site Header ───────────────────────────────────────── */
+#site-header {
+  height: var(--header-h);
+  background: var(--c-titlebar);
+  border-bottom: var(--px) solid var(--c-border);
+  box-shadow: 0 var(--px) 0 0 var(--c-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--page-pad);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: var(--s6);
+}
+
+#header-identity { display: flex; flex-direction: column; gap: var(--s1); }
+
+#site-name {
+  font-family: var(--f-pixel);
+  font-size: var(--t-xl);
+  color: var(--c-text);
+  letter-spacing: 2px;
+  white-space: nowrap;
+  line-height: 1;
+}
+#site-name span { color: var(--c-accent); }
+
+#site-subtitle {
+  font-family: var(--f-pixel);
+  font-size: var(--t-nano);
+  color: var(--c-text-dim);
+  letter-spacing: 1px;
+}
+
+#header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  flex-shrink: 0;
+}
+
+.nav-link {
+  font-size: var(--t-md);
+  color: var(--c-text);
+  opacity: 0.65;
+  text-decoration: none;
+  transition: opacity 0.1s, color 0.1s;
+}
+.nav-link:hover {
+  opacity: 1;
+  color: var(--c-accent-hi);
+  text-decoration: none;
+}
+.nav-link:visited { color: var(--c-text); }
+
+/* ── 7. Dashboard Grid ────────────────────────────────────── */
+#dashboard-grid {
+  display: grid;
+  grid-template-columns: var(--col-widgets) var(--col-blog) var(--col-projects);
+  gap: var(--grid-gap);
+  padding: var(--grid-gap) var(--page-pad);
+  max-width: var(--max-w);
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ── 8. Widgets — About ───────────────────────────────────── */
+.bio-text {
+  font-size: var(--t-sm);
+  color: var(--c-text-dim);
+  line-height: 1.75;
+}
+.bio-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-top: var(--s3);
+}
+
+/* ── 9. Widgets — Cat of the Day ──────────────────────────── */
+#cat-img {
+  width: 100%;
+  height: var(--cat-img-h);
+  object-fit: cover;
+  display: block;
+}
+#cat-loading {
+  height: var(--cat-img-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-pixel);
+  font-size: var(--t-tiny);
+  color: var(--c-text-dim);
+}
+
+/* ── 10. Widgets — Song of the Day ───────────────────────── */
+.song-title {
+  font-family: var(--f-pixel);
+  font-size: var(--t-tiny);
+  color: var(--c-accent);
+  line-height: 1.7;
+  margin-bottom: var(--s2);
+}
+.song-artist {
+  font-size: var(--t-xs);
+  color: var(--c-text-dim);
+  margin-bottom: var(--s3);
+}
+.song-note {
+  font-family: var(--f-pixel);
+  font-size: var(--t-nano);
+  color: var(--c-text-dim);
+}
+
+/* ── 11. Widgets — Book Quiz ─────────────────────────────── */
+.quiz-progress {
+  font-family: var(--f-pixel);
+  font-size: var(--t-nano);
+  color: var(--c-text-dim);
+  margin-bottom: var(--s4);
+  letter-spacing: 1px;
+}
+.quiz-question {
+  font-family: var(--f-pixel);
+  font-size: var(--t-tiny);
+  color: var(--c-text);
+  line-height: 1.8;
+  margin-bottom: var(--s4);
+}
+.quiz-answers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+.quiz-ans-btn {
+  width: 100%;
+  text-align: left;
+  padding: var(--s2) var(--s3);
+  background: var(--c-bg);
+  border: var(--px) solid var(--c-border);
+  box-shadow: var(--px) var(--px) 0 var(--c-shadow);
+  font-family: var(--f-body);
+  font-size: var(--t-sm);
+  color: var(--c-text);
+  cursor: pointer;
+  line-height: 1.4;
+}
+.quiz-ans-btn:hover {
+  background: var(--c-accent);
+  color: var(--c-bg);
+}
+.quiz-ans-btn:active {
+  transform: translate(var(--px), var(--px));
+  box-shadow: none;
+}
+
+/* Quiz result */
+.quiz-result { text-align: center; }
+.result-emoji {
+  font-size: var(--t-2xl);
+  margin-bottom: var(--s3);
+  display: block;
+}
+.result-book-title {
+  font-family: var(--f-pixel);
+  font-size: var(--t-tiny);
+  color: var(--c-accent);
+  line-height: 1.8;
+  margin-bottom: var(--s1);
+}
+.result-book-author {
+  font-size: var(--t-xs);
+  color: var(--c-text-dim);
+  margin-bottom: var(--s4);
+}
+.result-book-desc {
+  font-size: var(--t-sm);
+  color: var(--c-text);
+  line-height: 1.65;
+  text-align: left;
+  margin-bottom: var(--s4);
+}
+
+/* ── 12. Blog Column ─────────────────────────────────────── */
+.blog-card {
+  display: flex;
+  gap: var(--s3);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--c-border-faint);
+  cursor: pointer;
+}
+.blog-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.blog-card:first-child { padding-top: 0; }
+.blog-card:hover .blog-card-title { color: var(--c-accent-hi); text-decoration: underline; }
+
+.blog-thumb {
+  flex-shrink: 0;
+  width: var(--blog-thumb-w);
+  height: var(--blog-thumb-h);
+  object-fit: cover;
+  border: var(--px) solid var(--c-border);
+}
+.blog-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  min-width: 0;
+}
+.blog-card-title {
+  font-family: var(--f-pixel);
+  font-size: var(--t-tiny);
+  color: var(--c-text);
+  line-height: 1.7;
+}
+.blog-card-excerpt {
+  font-size: var(--t-xs);
+  color: var(--c-text-dim);
+  line-height: 1.5;
+}
+.blog-card-date {
+  font-size: var(--t-xs);
+  color: var(--c-text-dim);
+  margin-top: auto;
+}
+
+/* ── 13. Projects Column ─────────────────────────────────── */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s3);
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+  background: var(--c-bg);
+  border: var(--px) solid var(--c-border);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 var(--px) var(--c-frame-outer),
+    calc(var(--px) * 1) calc(var(--px) * 1) 0 0 var(--c-shadow),
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 var(--c-shadow-mid),
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 var(--c-shadow-far);
+}
+.project-card:hover {
+  border-color: var(--c-accent-hi);
+  /* "press in" effect: shift into the shadow */
+  box-shadow:
+    0 0 0 var(--px) var(--c-frame-outer);
+  transform: translate(calc(var(--px) * 2), calc(var(--px) * 2));
+  text-decoration: none;
+}
+.project-card-img {
+  width: 100%;
+  height: var(--card-img-h);
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.75);
+}
+.project-card:hover .project-card-img { filter: brightness(0.55); }
+.project-card-info { padding: var(--s2); }
+
+/* Language tag chip */
+.project-tag {
+  display: inline-block;
+  font-family: var(--f-pixel);
+  font-size: var(--t-nano);
+  padding: 2px 4px;
+  border: 1px solid currentColor;
+  margin-bottom: var(--s1);
+  letter-spacing: 0.5px;
+}
+.tag-cpp        { color: var(--c-tag-cpp); }
+.tag-python     { color: var(--c-tag-py); }
+.tag-csharp     { color: var(--c-tag-cs); }
+.tag-javascript { color: var(--c-tag-js); }
+.tag-default    { color: var(--c-tag-default); }
+
+.project-card-title {
+  font-family: var(--f-pixel);
+  font-size: var(--t-tiny);
+  color: var(--c-text);
+  line-height: 1.5;
+  margin-bottom: var(--s1);
+}
+.project-card-desc {
+  font-size: var(--t-xs);
+  color: var(--c-text-dim);
+  line-height: 1.4;
+}
+
+/* ── 14. Article View ────────────────────────────────────── */
+#article-view {
+  display: none;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--grid-gap) var(--page-pad);
+}
+#article-view.active { display: block; }
+
+#article-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  margin-bottom: var(--grid-gap);
+}
+
+#article-inner {
+  background: var(--c-panel);
+  border: var(--px) solid var(--c-border);
+  padding: var(--s8);
+  box-shadow:
+    0 0 0 var(--px) var(--c-frame-outer),
+    inset var(--px) var(--px) 0 0 var(--c-frame-hi),
+    inset calc(-1 * var(--px)) calc(-1 * var(--px)) 0 0 var(--c-frame-lo),
+    calc(var(--px) * 1) calc(var(--px) * 1) 0 0 var(--c-shadow),
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 var(--c-shadow-mid),
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 var(--c-shadow-far);
+}
+
+/* Article typography */
+#article-inner h1,
+#article-inner h2,
+#article-inner h3,
+#article-inner h4 {
+  margin-bottom: var(--s4);
+  margin-top: var(--s8);
+  line-height: 1.5;
+}
+#article-inner h1 { font-size: var(--t-xl); }
+#article-inner h2 { font-size: var(--t-lg); }
+#article-inner h3,
+#article-inner h4 { font-size: var(--t-md); }
+#article-inner *:first-child { margin-top: 0; }
+
+#article-inner p {
+  font-size: var(--t-sm);
+  line-height: 1.8;
+  color: var(--c-text);
+}
+
+#article-inner ol,
+#article-inner ul {
+  list-style: revert;
+  padding-left: var(--s6);
+  margin-bottom: var(--s4);
+}
+#article-inner li {
+  font-size: var(--t-sm);
+  line-height: 1.7;
+  margin-bottom: var(--s2);
+  color: var(--c-text);
+}
+
+#article-inner a       { color: var(--c-link); }
+#article-inner a:hover { color: var(--c-accent-hi); }
+
+#article-inner img {
+  max-width: 100%;
+  border: var(--px) solid var(--c-border);
+  margin: var(--s4) 0;
+}
+
+.article-meta {
+  font-size: var(--t-xs);
+  color: var(--c-text-dim);
+  padding-bottom: var(--s4);
+  margin-bottom: var(--s6);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.hl  { color: var(--c-accent); }
+.hl2 { color: var(--c-accent-hi); font-weight: bold; }
+
+/* ── 15. Site Footer ─────────────────────────────────────── */
+#site-footer {
+  text-align: center;
+  padding: var(--s6) var(--page-pad);
+  font-size: var(--t-xs);
+  color: var(--c-text-dim);
+  border-top: var(--px) solid var(--c-border);
+  margin-top: var(--s4);
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── 16. Article sub-pages (projects/*.html) ─────────────── */
+/*
+  These pages use the same header + a standalone article wrapper.
+  They load this same CSS file.
+*/
+.subpage-article {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--grid-gap) var(--page-pad) var(--s12);
+}
+
+.subpage-article #article-inner {
+  /* already defined above; override padding for sub-pages */
+  padding: var(--s8);
+}
+
+/* ── 17. Responsive ──────────────────────────────────────── */
+@media (max-width: 1100px) {
+  :root {
+    --col-widgets:  240px;
+    --col-projects: 260px;
+  }
+}
+
+@media (max-width: 860px) {
+  #dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack order on mobile: projects → blog → widgets */
+  #col-projects { order: 1; }
+  #col-blog     { order: 2; }
+  #col-widgets  { order: 3; }
+
+  .project-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --page-pad: var(--s3);
+    --header-h: 56px;
+  }
+
+  #site-name    { font-size: var(--t-lg); }
+  #site-subtitle { display: none; }
+
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+
+  #article-inner {
+    padding: var(--s4);
+  }
+}

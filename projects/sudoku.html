@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sudoku Solver — Sagit Bolat</title>
+  <link rel="stylesheet" href="../assets/css/pixel.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+</head>
+<body>
+
+<header id="site-header">
+  <div id="header-identity">
+    <div id="site-name">SAGIT <span>BOLAT</span></div>
+    <div id="site-subtitle">SOFTWARE DEVELOPER</div>
+  </div>
+  <nav id="header-nav">
+    <a href="../index.html" class="px-btn">&#9664; BACK</a>
+  </nav>
+</header>
+
+<div class="subpage-article">
+  <div id="article-inner">
+
+    <h1>Sudoku Generator &amp; Solver <span class="hl">[C#]</span></h1>
+    <div class="article-meta">C# · .NET WPF</div>
+
+    <p>A fully functioning GUI desktop application for generating, solving, and playing Sudoku puzzles,
+    built with the .NET WPF framework. The algorithm execution and the UI run asynchronously, keeping
+    the application fully responsive while generation or solving is in progress.</p>
+
+    <h2>Features</h2>
+    <ol>
+      <li>
+        <strong class="hl">Puzzle Generation</strong> — A backtracking algorithm generates a complete
+        valid number grid. To improve efficiency, every time a number is placed, it is removed from the
+        candidate lists for all cells in the same row, column, and 3×3 box. Numbers are then removed at
+        random until a puzzle of the specified difficulty is reached.
+      </li>
+      <li>
+        <strong class="hl">Guaranteed Single-Solution Puzzles</strong> — After each removal, the solver
+        is run on the resulting puzzle. If more than one solution is found, the removal is reverted and
+        a different cell is chosen. After a configurable number of failed attempts, the generator stops
+        to avoid infinite loops.
+      </li>
+      <li>
+        <strong class="hl">Puzzle Solver</strong> — Uses the same backtracking approach as generation
+        to solve any valid Sudoku puzzle.
+      </li>
+      <li>
+        <strong class="hl">Adjustable Calculation Speed</strong> — The speed at which the algorithms
+        execute can be slowed down, allowing the user to watch the backtracking process step by step
+        in real time.
+      </li>
+      <li>
+        <strong class="hl">Playable UI</strong> — The user can attempt to solve the generated puzzle
+        themselves. Navigation uses WASD or arrow keys; number keys input digits; the 0 key erases.
+        Generated cells cannot be modified.
+      </li>
+      <li>
+        <strong class="hl">Asynchronous Design</strong> — The UI thread and algorithm threads run
+        concurrently, keeping the application responsive at all times. This is what enables live
+        rendering of the generation and solving processes.
+      </li>
+    </ol>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkyEngine — Sagit Bolat</title>
+  <link rel="stylesheet" href="../assets/css/pixel.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+</head>
+<body>
+
+<header id="site-header">
+  <div id="header-identity">
+    <div id="site-name">SAGIT <span>BOLAT</span></div>
+    <div id="site-subtitle">SOFTWARE DEVELOPER</div>
+  </div>
+  <nav id="header-nav">
+    <a href="../index.html" class="px-btn">&#9664; BACK</a>
+  </nav>
+</header>
+
+<div class="subpage-article">
+  <div id="article-inner">
+
+    <h1>SkyEngine <span class="hl">[C/C++]</span></h1>
+    <div class="article-meta">
+      Custom 2D game engine &nbsp;·&nbsp;
+      <a href="https://github.com/sagitbolat/skyengine_sdl" target="_blank" rel="noopener">
+        <i class="fa-brands fa-github"></i> View on GitHub
+      </a>
+    </div>
+
+    <h2>Project Summary</h2>
+    <p>SkyEngine is a custom 2D game engine built as a complete tool for general game development.
+    It supports 2D rendering via an OpenGL backend, a full input system, a spatial audio system, an
+    immediate-mode UI API, and a set of smaller utility libraries (PRNG, tilemaps, 2D collisions, etc.).
+    The goal is a simple, direct API for multi-platform game development with low-level control and
+    minimal compile times.</p>
+
+    <p>Currently planned additions include a threaded job system, a full rigid-body physics engine,
+    voxel-based 3D rendering, and a build system for exporting to the web via WebAssembly.</p>
+
+    <h2>Example Projects</h2>
+    <p><strong class="hl">All of the projects below are created using no libraries apart from SkyEngine itself.</strong></p>
+
+    <h3>
+      <a href="https://swagit.itch.io/skyengine-proj1" target="_blank" rel="noopener">
+        <i class="fa-brands fa-itch-io"></i> Galaga-like Arcade Shooter
+      </a>
+    </h3>
+    <p>This project makes use of most major engine components to create an arcade shooter similar to
+    the classic "Galaga." The key difference: the player ship can rotate a full 360° and shoot in any
+    direction. The game features three scenes (main menu, game, game over), score tracking with a
+    persistent high score, three rotating background music tracks, sound effects, and a slow-motion
+    feature triggered by the spacebar.</p>
+
+    <img src="../images/asteroids_0.PNG" alt="Shooter screenshot 1" style="display:inline; width:32%; margin-right:1%">
+    <img src="../images/asteroids_1.PNG" alt="Shooter screenshot 2" style="display:inline; width:32%; margin-right:1%">
+    <img src="../images/asteroids_2.PNG" alt="Shooter screenshot 3" style="display:inline; width:32%">
+    <img src="../images/asteroids.gif"   alt="Shooter gameplay gif">
+
+    <h2>Engine Architecture</h2>
+
+    <h3>Major Modules</h3>
+    <p>The engine consists of four main compilation units:</p>
+    <ol>
+      <li>
+        <strong class="hl">Main Unit</strong> — Handles initialization, windowing, input, and
+        deinitialization. Uses a Unity build for the main module and user space. Compilation takes
+        approximately 0.8 seconds on a ThinkPad for a simple arcade game.
+      </li>
+      <li>
+        <strong class="hl">Rendering API Unit</strong> — Provides a simple 2D front-end built on
+        OpenGL. Sprite rendering is based on a transform similar to Unity's. Users can define custom
+        GLSL shaders and edit uniforms via the provided API.
+      </li>
+      <li>
+        <strong class="hl">Audio API Unit</strong> — Built on an OpenAL backend using a
+        listener-source model (similar to Unity's audio). Clips can be loaded, attached to sources,
+        and played back with properties like volume and looping adjusted dynamically.
+      </li>
+      <li>
+        <strong class="hl">UI API Unit</strong> — Immediate-mode UI (as opposed to retained-mode)
+        rendered on top of the game world in a camera-agnostic coordinate system. Built on Dear ImGui.
+        Supports buttons, image buttons, images, text, text input, and sliders, all stylable via a
+        centralized <code>UI_style</code> struct.
+      </li>
+    </ol>
+
+    <h3>Optional Libraries</h3>
+    <p>A set of header-only libraries slot into the main compilation unit with negligible compile-time cost:</p>
+    <ol>
+      <li>
+        <strong class="hl">Collision System</strong> — Tests between points, circles, axis-aligned
+        boxes, and non-aligned boxes. Integrates with the transform system but neither depends on
+        the other.
+      </li>
+      <li>
+        <strong class="hl">Scene Management</strong> — Scenes are collections of function pointers.
+        A scene manager is initialized with a set of scenes and can switch between them by invoking
+        the desired scene ID, calling the necessary init and teardown callbacks.
+      </li>
+      <li>
+        <strong class="hl">Tilemap System</strong> — Custom uncompressed binary tilemap filetype with
+        a matching loader. Includes a GUI editor for creating tilemaps with custom tilesets, exported
+        to the custom format. The editor itself is written using SkyEngine.
+      </li>
+      <li>
+        <strong class="hl">Memory Allocators</strong> — Bump allocators, pool allocators, and a
+        free-list general allocator. These reserve memory upfront and reassign it at runtime, avoiding
+        context switches from <code>malloc</code>/<code>calloc</code>.
+      </li>
+      <li>
+        <strong class="hl">PRNG</strong> — A linear congruential generator for fast int/float
+        generation, a slower xorshift128+ for higher-quality randomness, and 1D/2D simplex noise for
+        Brownian generation.
+      </li>
+    </ol>
+
+  </div>
+</div>
+
+</body>
+</html>

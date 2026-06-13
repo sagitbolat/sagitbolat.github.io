@@ -1,817 +1,221 @@
-<!DOCTYPE HTML>
-<!--
-	Astral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Sagit's Website</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sagit Bolat</title>
 
-		<!-- Wrapper-->
-			<div id="wrapper">
+  <!-- Pixel art design system -->
+  <link rel="stylesheet" href="assets/css/pixel.css">
+  <!-- FontAwesome (for nav icons) -->
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+</head>
+<body>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<a href="#" class="icon solid fa-home"><span>Home</span></a>
-						<a href="#projects" class="icon solid fa-code"><span>Projects</span></a>
-						<a href="#devlogs" class="icon solid fa-archive"><span>Blog</span></a>
-						<a href="#contacts" class="icon solid fa-envelope"><span>Contact</span></a>
-					</nav>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Me -->
-							<article id="home" class="panel intro">
-								<header>
-                                    <h1 id="highlighted-span">Sagit Bolat</h1>
-                                    <!--div class="typewriter-name">
-                                        <div id="typedtext-name">
-                                        </div>
-                                    </div-->
-                                    <p id="title">Software Developer<span id="highlighted-span"></span></p>
-                                    <div class = "home-link">
-                                        <a id="github-link" target="_blank" href="https://github.com/sagitbolat?tab=repositories" 
-                                        class="icon brands fa-github">
-                                        </a>
-                                    </div>
-                                    <div class = "home-link">
-                                        <a id="linkedin-link" target="_blank" href="https://www.linkedin.com/in/sagit-bolat/" 
-                                        class="icon brands fa-linkedin">
-                                        </a>
-                                    </div>        
-                                    <div class = "home-link">
-                                        <a id="CV-link" target="_blank" href="Sagit_Bolat_CV.pdf" >
-                                            <i class="fas fa-file"></i>
-                                        </a>
-                                    </div>        
-                                </header>
-								<a href="#projects" class="jumplink pic">
-									<span class="arrow icon solid fa-chevron-right"><span>See projects</span></span>
-									<img src="images/berkeley_pc.png" alt="" />
-								</a>
-							</article>
-
-						<!-- projects -->
-							<article id="projects" class="panel">
-								<header>
-									<h2><span id="highlighted-span"></span>Projects</h2>
-								</header>
-								<!--p>
-									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-									luctus elit eget interdum.
-								</p-->
-                                <div class="delim-dark"></div>
-                                <a href="ludus_chromatic.html">
-                                    <div class="project-item">
-                                        <img src="images/ludus_chromatic.png" alt="">
-                                        <span class="project-caption">[C/C++] Ludus Chromatic: a Sokoban-style puzzle game</span>
-                                    </div>
-								</a>
-                                <a href="#project1">
-                                    <div class="project-item">
-                                        <img src="images/engine_background.png" alt="">
-                                        <span class="project-caption">[C/C++] Game Engine</span>
-                                    </div>
-								</a>
-								<a href="#project2">
-									<div class="project-item">
-                                        <img src="images/piet.jpg" alt="">
-                                        <span class="project-caption">[Python] Programming Language Interpreter</span>
-                                    </div>
-								</a>
-								<a href="#project3">	
-									<div class="project-item">
-                                        <img src="images/robo_sudoku.png" alt="">
-                                        <span class="project-caption">[C#] Automatic Sudoku Solver</span>
-                                    </div>
-                                </a>
-							</article>
-
-                            <article id="project-ludus-chromatic" class="panel">
-								<header class="banner">
-                                    <img src="images/ludus_chromatic.png">
-                                    <h1><span id="highlighted-span">[C/C++]</span> Ludus Chromatic</h1>
-								</header>
-                                <div class="delim-dark"></div>
-                                <h2 class="project-header" id="hl">Project Summary:</h2>
-                                <div class="delim-empty"></div>
-                                <p class="project-par">
-                                    Ludus Chromatic is a puzzle game created in my <a href="#project1">custom C/C++ game engine</a>. It is a 
-                                    <a href="https://www.mathsisfun.com/games/sokoban.html">Sokoban</a>-style puzzle game. The original Sokoban
-                                    game inspired countless other Sokoban-likes, including the upcoming game by designer Jonathan Blow. As a
-                                    fan of his work, it was clear what my first major project in the SkyEngine should be.
-                                </p>
-                                <p class="project-par">
-                                    The game is all about color, hence the name. Ludus means game in latin (just as in Ludum Dare), so the title translates to "Chromatic Game". 
-                                    It is not just about mixing and combining colors, even though that is part of it. Different colored objects
-                                    might act differently depending on what color they are (most of the time dependant on their color channels). I will
-                                    not spoil the game here, but rest assured, color plays a major role.
-                                </p>
-                                <p class="project-par">
-                                    Since color is calculated dynamically for many objets in the game, I had to dip into OpenGL shader programming 
-                                    to make the game work. I will be writing a series of blog posts (once the game is complete), documenting 
-                                    the techniques and architectural choices I made during development.
-                                </p>
-                                <p class="project-par">For now, you can find the main page of the game <a href="ludus_chromatic.html">here</a>. And the itch.io page <a href="">here</a></p>
-                            </article>
-
-							<article id="project1" class="panel">
-								<header class="banner">
-                                    <img src="images/engine_background.png">
-                                    <h1><span id="highlighted-span">[C/C++]</span> Game Engine</h1>
-								</header>
-                                <a style="text-decoration: none; color: #003262; font-size: 20pt;" href="https://github.com/sagitbolat/skyengine_sdl" class="icon brands fa-github"></a>
-                                <div class="delim-dark"></div>
-                                <h2 class="project-header" id="hl">Project Summary:</h2>
-                                <div class="delim-empty"></div>
-                                <p class="project-par">
-                                    The engine is meant as a complete tool for general game development. As of June 2023, the engine only 
-                                    supports 2D rendering, but future 3D support is planned. It has a full feature-set that a modern 2D game
-                                    requires. A full input system, an audio system, a UI API, and a set of smaller libraries (such as PRNG, tilemaps, 2D collisions etc.).
-                                    Other features that are in development are: a threaded job system, a full rigid-body physics engine, voxel-based 3D
-                                    rendering, a build system for exporting to the web using WebAssembly, and others.
-                                </p>
-                                <p>
-                                    The goal of the engine is to provide a simple and direct API for developing games with multi-platform 
-                                    support. The engine provides a number of reasonable, but useful abstractions to make the process of creating
-                                    games as painless as possible, without introducing an over-abundance of complexity, and retain low-level control
-                                    for the game programmer. To this digree, simplicity is very important, as it increases maintability and readability
-                                    of the source code, which allows the user to modify the engine for their needs. A welcome side-effect of this is a 
-                                    lean final product, with the game taking miniscule compile times for simple projects (in the order of a few seconds or less).
-                                </p>
-                                <p>
-                                    The rest of the page consists of a section of example projects created using the engine in order
-                                    to explore its capabilities and expand its feature-set, as well as for stress-testing the engine
-                                    and its component.
-                                </p>
-                                <div class="delim-dark"></div>
-                                <h2 class="project-header" id="hl">Example Projects:</h2>
-                                <div class="delim-empty"></div>
-                                <p class="project-par">
-                                    <b id="hl">All of the projects are created using no other libraries apart from the engine.</b>
-                                    This page will be updated as new projects are created using the engine. 
-                                </p>
-                                <h3 class="project-header"><a style="text-decoration: none; color: #003262" href="https://swagit.itch.io/skyengine-proj1" class="icon brands fa-itch-io">Galaga-like Arcade Shooter</a></h3>
-                                <div class="delim-small-dark" style="width: 50.5%;"></div>
-                                <div class="delim-empty"></div>
-                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_0.PNG"> 
-                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_1.PNG"> 
-                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_2.PNG"> 
-                                <p >
-                                    <b id="hl">The project can be found my itch.io page <a href="https://swagit.itch.io/skyengine-proj1" target="_blank">here</a>.</b>
-                                </p>
-                                <p>
-                                    This project makes use of most major components of the engine to create an arcade shooter that plays similar to the 
-                                    classic action shmup "Galaga". The difference is, this shooter allows full 360 rotation of the player ship to shoot in all
-                                    directions. 
-                                </p>
-                                <p>
-                                    The game feaures 3 simple scenes: a main menu, the game, and a game over screen. The game keeps track
-                                    of player score, and the player highscore between game sessions. Highscore is saved in a save file. The game
-                                    also features 3 rotating background music tracks, and game sound effects. A pause menu is built into the game scene.
-                                    There is also a feature that allows for slow motion when the player hits the space key. 
-                                </p>
-                               
-                                
-                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:block; margin-left: auto; margin-right: auto; width: 99%' src="images/asteroids.gif"> 
-                                <div class="delim-empty"></div>
-                                <div class="delim-dark"></div>
-                                <h2 class="project-header" id="hl">Engine Architecture:</h2>
-                                <div class="delim-empty"></div>
-                                <h3 class="project-header">Major Modules:</h3>
-                                <div class="delim-small-dark" style="width: 50%;"></div>
-                                <p class="project-par"><b id="hl">The engine consists of four main modules</b> each of which is a seperate compilation unit.
-                                    <ol>
-                                        <li class="project-par"><b id="hl">The Main Unit:</b> 
-                                            Handles initialization, windowing, input, and deinitialization of the engine. The engine uses a Unity build (a singular compilation unit)
-                                            for the main module and the user space. This can be changed if desired by customizing the build system directly. Other major modules of the 
-                                            engine have their own compilation units that are built into the build script for either full or incremental compilation. Currently, compilation
-                                            of this main unit takes approximately 0.8 seconds on a ThinkPad Laptop (including gameplay code for a simple arcade game). 
-                                        </li>
-                                        <li class="project-par"><b id='hl'>The Rendering API Unit:</b>
-                                            The rendering API provides a simple 2D rendering front-end to the user. Sprite rendering is based on a transform similar to Unity Engine's transform
-                                            component. The user can load and unload sprites at runtime (typically, for smaller games, at startup and shutdown). A sprite and a transofrm can be 
-                                            passed to the rendering API for rendering. With this system, the user can choose to reuse sprites and transforms for multiple game objects.
-                                            The user is also able to define their own GLSL shaders (although a default is provided in the source code for them), and edit the shaders' uniforms
-                                            using the provided API. The API is built on an OpenGL backend. This is build as a seperate compilation unit to speed up compile times. 
-                                        </li>
-                                        <li class="project-par"><b id = "hl">The Audio API Unit:</b> 
-                                            The audio API provides a way to load and play back ogg files. The system is based on a listener-source model. This is
-                                            similar to how the Unity Engine handles their audio playback. Clips can be loaded and attached to sources. This allows for clip
-                                            reuse, and playback customizability through source parameters rather than having to load multiple clips. Properties like source
-                                            volume, looping, and others can be changed dynamically. The API is built on an OpenAL backend. This is build as a seperate compilation unit.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">The UI API Unit:</b> 
-                                            The UI API allows a way to display simple UI components. UI in the engine is immediate mode (as opposed to retained mode) to allow for user simplicity
-                                            UI is rendered on top of the game world, with a seperate coordinate system that is 
-                                            camera location agnostic. The API also allows for loading of ttf font files. It allows for simple widgets such as buttons, image buttons, images,
-                                            text, text input boxes, and sliders. All of these are customizable with custom styles using a centralized UI_style struct. The API is build on a
-                                            backend made with the Dear ImGui library (used by major studios like Valve, Blizzard, and Ubisoft). An alternative backend is being worked on using 
-                                            the Nuklear library. Similar to the other major Units, this API has its own compilation unit for faster compile times.
-                                        </li>
-                                    </ol>
-                                </p>
-                                <h3 class="project-header">Optional Libraries:</h3>
-                                <div class="delim-small-dark" style="width: 50%;"></div>
-                                <p class="project-par"><b id="hl">The engine also includes a number of header-only libraries.</b> These libraries are slotted into the main compilation unit, as they are very lightweight
-                                    and do not influence the compile time to a significant degree.
-                                    <ol>
-                                        <li class="project-par"><b id = "hl">Collision system</b>
-                                            Allows for collision testing between base shape primitives, including points, circles, axis-aligned and non-aligned boxes.
-                                            This integrates with the main unit's transform system, but neither depend on eachother.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">Scene management system</b>
-                                            Scenes are a collection of function pointers. A scene manager is initialized with a set of scenes. The user can switch between scenes by invoking the ID
-                                            of the desired scene. The scene manager will then make the neccessary method calls to close the existing scene, and run the init funtions of the new scene. 
-                                            This is a way of breaking up your game loop, and initialization code into multiple units.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">Tilemap system</b>
-                                            The engine has a custom tilemap filetype that stores uncompressed binary data. It also provides a way of reading this tilemap data into a byte array. Tilemap
-                                            size is read by the loader automatically, and the user does not need to provide tilemap size.
-                                            The engine also includes a GUI tool for editing tilemaps using custom tilesets, and exporting it into the custom file format. The editor itself is written using 
-                                            the engine.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">Memory allocation</b>
-                                            The engine provides a number of custom allocators. These include bump allocators, pool allocators, and a general allocator that uses a free-list.
-                                            These are generally faster than built in allocation functions such as malloc and calloc, because they reserve memory upfront, and resign it during 
-                                            runtime. This avoids context switching during runtime, and therefore provides a way to allocate memory without running into performance staggers.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">PRNG</b>
-                                            A set of PRNG algorithms are available to the user. A simple linear congruential generator is available for fast int and float generation.
-                                            Alternatively, a slower but more robust xorshift128+ algorithm is available as well for heavy duty integer and float number generation.
-                                            Additionally, 1D and 2D simplex noise is available for brownian generation.
-                                        </li>
-                                    </ol>
-                                </p>
-                                <div class="delim-dark"></div>
-							</article>
-
-							<article id="project1" class="panel">
-								<header class="banner">
-                                    <img src="images/engine_background.png">
-                                    <h1><span id="highlighted-span">[C/C++]</span> Game Engine</h1>
-								</header>
-                                <a style="text-decoration: none; color: #003262; font-size: 20pt;" href="https://github.com/sagitbolat/skyengine_sdl" class="icon brands fa-github"></a>
-                                <div class="delim-dark"></div>
-                                <h2 class="project-header" id="hl">Project Summary:</h2>
-                                <div class="delim-empty"></div>
-                                <p class="project-par">
-                                    The engine is meant as a complete tool for general game development. As of June 2023, the engine only 
-                                    supports 2D rendering, but future 3D support is planned. It has a full feature-set that a modern 2D game
-                                    requires. A full input system, an audio system, a UI API, and a set of smaller libraries (such as PRNG, tilemaps, 2D collisions etc.).
-                                    Other features that are in development are: a threaded job system, a full rigid-body physics engine, voxel-based 3D
-                                    rendering, a build system for exporting to the web using WebAssembly, and others.
-                                </p>
-                                <p>
-                                    The goal of the engine is to provide a simple and direct API for developing games with multi-platform 
-                                    support. The engine provides a number of reasonable, but useful abstractions to make the process of creating
-                                    games as painless as possible, without introducing an over-abundance of complexity, and retain low-level control
-                                    for the game programmer. To this digree, simplicity is very important, as it increases maintability and readability
-                                    of the source code, which allows the user to modify the engine for their needs. A welcome side-effect of this is a 
-                                    lean final product, with the game taking miniscule compile times for simple projects (in the order of a few seconds or less).
-                                </p>
-                                <p>
-                                    The rest of the page consists of a section of example projects created using the engine in order
-                                    to explore its capabilities and expand its feature-set, as well as for stress-testing the engine
-                                    and its component.
-                                </p>
-                                <div class="delim-dark"></div>
-                                <h2 class="project-header" id="hl">Example Projects:</h2>
-                                <div class="delim-empty"></div>
-                                <p class="project-par">
-                                    <b id="hl">All of the projects are created using no other libraries apart from the engine.</b>
-                                    This page will be updated as new projects are created using the engine. 
-                                </p>
-                                <h3 class="project-header"><a style="text-decoration: none; color: #003262" href="https://swagit.itch.io/skyengine-proj1" class="icon brands fa-itch-io">Galaga-like Arcade Shooter</a></h3>
-                                <div class="delim-small-dark" style="width: 50.5%;"></div>
-                                <div class="delim-empty"></div>
-                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_0.PNG"> 
-                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_1.PNG"> 
-                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:inline; width: 32%' src="images/asteroids_2.PNG"> 
-                                <p >
-                                    <b id="hl">The project can be found my itch.io page <a href="https://swagit.itch.io/skyengine-proj1" target="_blank">here</a>.</b>
-                                </p>
-                                <p>
-                                    This project makes use of most major components of the engine to create an arcade shooter that plays similar to the 
-                                    classic action shmup "Galaga". The difference is, this shooter allows full 360 rotation of the player ship to shoot in all
-                                    directions. 
-                                </p>
-                                <p>
-                                    The game feaures 3 simple scenes: a main menu, the game, and a game over screen. The game keeps track
-                                    of player score, and the player highscore between game sessions. Highscore is saved in a save file. The game
-                                    also features 3 rotating background music tracks, and game sound effects. A pause menu is built into the game scene.
-                                    There is also a feature that allows for slow motion when the player hits the space key. 
-                                </p>
-                               
-                                
-                                <img style='border: 2px solid #C4820E; outline-style: solid; outline-width: 3px; outline-color: #003262; display:block; margin-left: auto; margin-right: auto; width: 99%' src="images/asteroids.gif"> 
-                                <div class="delim-empty"></div>
-                                <div class="delim-dark"></div>
-                                <h2 class="project-header" id="hl">Engine Architecture:</h2>
-                                <div class="delim-empty"></div>
-                                <h3 class="project-header">Major Modules:</h3>
-                                <div class="delim-small-dark" style="width: 50%;"></div>
-                                <p class="project-par"><b id="hl">The engine consists of four main modules</b> each of which is a seperate compilation unit.
-                                    <ol>
-                                        <li class="project-par"><b id="hl">The Main Unit:</b> 
-                                            Handles initialization, windowing, input, and deinitialization of the engine. The engine uses a Unity build (a singular compilation unit)
-                                            for the main module and the user space. This can be changed if desired by customizing the build system directly. Other major modules of the 
-                                            engine have their own compilation units that are built into the build script for either full or incremental compilation. Currently, compilation
-                                            of this main unit takes approximately 0.8 seconds on a ThinkPad Laptop (including gameplay code for a simple arcade game). 
-                                        </li>
-                                        <li class="project-par"><b id='hl'>The Rendering API Unit:</b>
-                                            The rendering API provides a simple 2D rendering front-end to the user. Sprite rendering is based on a transform similar to Unity Engine's transform
-                                            component. The user can load and unload sprites at runtime (typically, for smaller games, at startup and shutdown). A sprite and a transofrm can be 
-                                            passed to the rendering API for rendering. With this system, the user can choose to reuse sprites and transforms for multiple game objects.
-                                            The user is also able to define their own GLSL shaders (although a default is provided in the source code for them), and edit the shaders' uniforms
-                                            using the provided API. The API is built on an OpenGL backend. This is build as a seperate compilation unit to speed up compile times. 
-                                        </li>
-                                        <li class="project-par"><b id = "hl">The Audio API Unit:</b> 
-                                            The audio API provides a way to load and play back ogg files. The system is based on a listener-source model. This is
-                                            similar to how the Unity Engine handles their audio playback. Clips can be loaded and attached to sources. This allows for clip
-                                            reuse, and playback customizability through source parameters rather than having to load multiple clips. Properties like source
-                                            volume, looping, and others can be changed dynamically. The API is built on an OpenAL backend. This is build as a seperate compilation unit.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">The UI API Unit:</b> 
-                                            The UI API allows a way to display simple UI components. UI in the engine is immediate mode (as opposed to retained mode) to allow for user simplicity
-                                            UI is rendered on top of the game world, with a seperate coordinate system that is 
-                                            camera location agnostic. The API also allows for loading of ttf font files. It allows for simple widgets such as buttons, image buttons, images,
-                                            text, text input boxes, and sliders. All of these are customizable with custom styles using a centralized UI_style struct. The API is build on a
-                                            backend made with the Dear ImGui library (used by major studios like Valve, Blizzard, and Ubisoft). An alternative backend is being worked on using 
-                                            the Nuklear library. Similar to the other major Units, this API has its own compilation unit for faster compile times.
-                                        </li>
-                                    </ol>
-                                </p>
-                                <h3 class="project-header">Optional Libraries:</h3>
-                                <div class="delim-small-dark" style="width: 50%;"></div>
-                                <p class="project-par"><b id="hl">The engine also includes a number of header-only libraries.</b> These libraries are slotted into the main compilation unit, as they are very lightweight
-                                    and do not influence the compile time to a significant degree.
-                                    <ol>
-                                        <li class="project-par"><b id = "hl">Collision system</b>
-                                            Allows for collision testing between base shape primitives, including points, circles, axis-aligned and non-aligned boxes.
-                                            This integrates with the main unit's transform system, but neither depend on eachother.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">Scene management system</b>
-                                            Scenes are a collection of function pointers. A scene manager is initialized with a set of scenes. The user can switch between scenes by invoking the ID
-                                            of the desired scene. The scene manager will then make the neccessary method calls to close the existing scene, and run the init funtions of the new scene. 
-                                            This is a way of breaking up your game loop, and initialization code into multiple units.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">Tilemap system</b>
-                                            The engine has a custom tilemap filetype that stores uncompressed binary data. It also provides a way of reading this tilemap data into a byte array. Tilemap
-                                            size is read by the loader automatically, and the user does not need to provide tilemap size.
-                                            The engine also includes a GUI tool for editing tilemaps using custom tilesets, and exporting it into the custom file format. The editor itself is written using 
-                                            the engine.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">Memory allocation</b>
-                                            The engine provides a number of custom allocators. These include bump allocators, pool allocators, and a general allocator that uses a free-list.
-                                            These are generally faster than built in allocation functions such as malloc and calloc, because they reserve memory upfront, and resign it during 
-                                            runtime. This avoids context switching during runtime, and therefore provides a way to allocate memory without running into performance staggers.
-                                        </li>
-                                        <li class="project-par"><b id = "hl">PRNG</b>
-                                            A set of PRNG algorithms are available to the user. A simple linear congruential generator is available for fast int and float generation.
-                                            Alternatively, a slower but more robust xorshift128+ algorithm is available as well for heavy duty integer and float number generation.
-                                            Additionally, 1D and 2D simplex noise is available for brownian generation.
-                                        </li>
-                                    </ol>
-                                </p>
-                                <div class="delim-dark"></div>
-							</article>
-							<article id="project2" class="panel">
-								<header class="banner">
-                                    <img src="images/piet.jpg">
-									<h2><span id="highlighted-span">[Python]</span> Language Interpreter</h2>
-								</header>
-                                <h3 class="project-header"><b id="hl">Piet</b> - The Programming Language: </h3>
-                                <div class="delim-dark"></div>
-                                <p class="project-par">Piet is a <b id="hl">visual programming language</b> 
-                                that is based on the artistic style of a famous Dutch painter - Piet Mondrian. In this language,
-                                color is used for representing instructions and amounts of pixels for representing data. A single stack is used for data storage.
-                                Example Piet programs can be seen <a href="https://www.dangermouse.net/esoteric/piet/samples.html">here</a>.</p>
-                                <h3 class = "project-header">The <b id="hl">sPiet</b> Interpreter:</h3>
-                                <div class="delim-dark"></div>
-                                <p class="project-par">The original Piet specification identifies a set of 18 colors to represent instructions. This project is an interpreter
-                                that allows the user to provide a custom color scheme to program with. This color scheme is provided in PNG format, with 18 pixels of different
-                                colors.</p>
-                                <p class="project-par"><b>There are 3 major parts that the project consists of:</b>
-                                    <ol>
-                                        <li class="project-par"><b id="hl">The Tokenizer:</b> The tokenizer parses the image. Adjacent pixels of the same color form a data value
-                                        (the value is equal to the number of adjacent pixels) and stores that value on the stack. The parser then goes to the next adjacent pixel block.
-                                        The color transition determines the operation. These operations are stored as tokens. The tokenizer uses the <b id="hl">OpenCV</b> library
-                                        for reading image files.</li>
-                                        <li class="project-par"><b id='hl'>The Data Stack:</b> The data that is read by the tokenizer is stored in the stack. As instructions are executed
-                                        by the Parser, data is removed from the stack (and sometimes written back in in post-processed form). The stack acts as the primary and only
-                                        type of memory allocation in the language. There is no heap allocation, as all data is numeric. The piet language can only do calculations
-                                        and output those calculations to the console, so all data is stored as chars. Data can be outputted in numeric or string format.</li>
-                                        <li class="project-par"><b id='hl'>The Parser:</b> The parser takes a list of tokens and runs apropriate functions on the data in the stack based on the 
-                                        tokens parsed. Some operations are done on the previously stored value, while others are done on the previously stored
-                                        and the next read value. </li>
-                                    </ol>
-                                </p>
-                            </article>
-							<article id="project3" class="panel">
-								<header class="banner">
-                                    <img src="images/robo_sudoku.png">
-									<h2><span id="highlighted-span">[C#]</span> Sudoku Generator and Solver</h2>
-								</header>
-                                <h3 class="project-header">The Sudoku Solver: </h3>
-                                <div class="delim-dark"></div>
-                                <p class="project-par">The sudoku solver is written using the <b id="hl">.NET WPF</b> GUI framework. The application is a fully functioning GUI desktop application. 
-                                Below are two example screenshots. The one on the left is a fully generated sudoku puzzle. The one on the right is a sudoku puzzle in the process of being solved.</p>								
-                                <img src="images/sudoku_example1.png"> <img src="images/sudoku_example.png">
-                                <p class="project-par">
-                                    <b>The features of the application are as follows:</b>
-                                    <ol>
-                                        <li class="project-par"><b id="hl">Simple Puzzle Generation</b>: The generation algorithm first uses a backtracking approach to generate a full
-                                        number grid that satisfies the sudoku puzzle constraints. In order to improve the backtracking efficiency, every time a number is used, it is
-                                        removed from the possible choices for squares in the same row, column, or 3x3 square. This process is done for every cell in the grid. 
-                                        Once a fully filled grid is generated, numbers are removed at random, until a Sudoku puzzle of a specified difficulty is formed.</li>
-                                        <li class="project-par"><b id="hl">Guaranteed Single-Solution Generation:</b> When a puzzle is generated in the process as described above, it
-                                        is possible for the resulting puzzle to have more than one unique solution. A good sudoku puzzle must have only a single solution, so the player
-                                        can avoid having to guess numbers at random. This generator has the option of guaranteeing a puzzle to have a unique solution. In order to do that,
-                                        every time a number is removed from the grid, the Solver algorithm is applied on the puzzle. If the solver finds more than one solution, the number
-                                        is replaced, and a different number is removed. After a certain number of failed attempts, the generator stops, to avoid infinite loops.</li>
-                                        <li class="project-par"><b id="hl">Sudoku Solver:</b> Much like the generation algorithm uses backtracking in order to solve the puzzle.</li>
-                                        <li class="project-par"><b id="hl">Adjustable Calculation Speed: </b> The speed at which the algorithms execute can be adjusted to be slower. 
-                                        This allows the user to more clearly see the execution step by step.</li>
-                                        <li class="project-par"><b id="hl">User Solution: </b>The user is able to attempt to solve the puzzle themselves. This makes the application an 
-                                        essentially complete Sudoku game client. The user can use the keyboard "WASD" or arrow keys to navigate the grid and use the number keys to input numbers.
-                                        To erase previously inputted numbers, the user can use the "0" number. The user is unable to change or erase the numbers generated by the grid</li>
-                                        <li class="project-par"><b id="hl">Asynchronous Design:</b> The execution of the application's UI and the algorithms described previously run asynchronously
-                                        to eachother. This allows the application to stay fully responsive while the program is executing. This is what allows the generation and solving algorithms 
-                                        to be rendered in real time.</li>
-                                    </ol>
-                                </p>
-							</article>
+<!-- ══════════════════════════════════════════════════════════
+     STICKY HEADER
+     ══════════════════════════════════════════════════════════ -->
+<header id="site-header">
+  <div id="header-identity">
+    <div id="site-name">SAGIT <span>BOLAT</span></div>
+    <div id="site-subtitle">SOFTWARE DEVELOPER</div>
+  </div>
+  <!-- Nav links are injected by widgets.js from SITE.links -->
+  <nav id="header-nav"></nav>
+</header>
 
 
-						<!-- devlogs -->
-							<article id="devlogs" class="panel">
-                                <header>
-                                    <h2><span id="highlighted-span"></span>2024</h2>
-                                </header>
-                                <div class="delim-dark"></div>
-								<section>
-                                    <!--div class="blog-item">
-                                        <div class="blog-info">
-                                            <a href="#post-3" class="blog-link">
-                                                <header class="blog-banner">
-                                                    <img src="images/posts/3.jpg" class="child"></img>
-                                                    <h4 class="child">Writing a Game Engine Part II: Platform Layer</h4>
-                                                </header>
-                                            </a>
-                                            <p class="blog-date">Posted on Nov 10, 2022</p>
-                                            <p class="blog-summary">
-                                                As I mentioned in the <a href="#post-2">previous post</a>, I used <a href="https://guide.handmadehero.org/">Handmade Hero</a> as a starting point
-                                                for writing the platform layer for my engine. It is a really great resource that I cannot recommend more highly.
-                                                That said, I did have some problems... <a href="#post-3"><b id="hl">Read more</b></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="blog-item">
-                                        <div class="blog-info">
-                                            <a href="#post-2" class="blog-link">
-                                                <header class="blog-banner">
-                                                    <img src="images//posts/2.jpg" class="child"></img>
-                                                    <h4 class="child">Writing a Game Engine Part I: Introduction</h4>
-                                                </header>
-                                            </a>
-                                            <p class="blog-date">Posted on Nov 9, 2022</p>
-                                            <p class="blog-summary">
-                                                I have been working on my engine for about 5 months now, and it is nowhere close to being finished. 
-                                                I've wrestled with myself on whether I should start logging about it. 5 months is a weird time to start
-                                                a devlog on a project. It's too late into the project to be a true "My Journey" type of devlog, but its not
-                                                far enough into the project to be an educational resource. That said, I don't think being 5 months into the 
-                                                project stops me from documenting my journey. I also don't think that just because I don't have 20 years of experience
-                                                building game engines, I cannot provide some edutcational value... <a href="#post-2"><b id="hl">Read more</b></a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="blog-item">
-                                        <div class="blog-info">
-                                            <a href="#post-1" class="blog-link">
-                                                <header class="blog-banner">
-                                                    <img src="images/posts/1.jpg"></img>
-                                                    <h4> Kruger vs Impostor: Programming Mindsets</h4>
-                                                </header>
-                                            </a>
-                                            <p class="blog-date">Posted on Nov 8, 2022</p>
-                                            <p class="blog-summary">
-                                                I have long wanted to start some form of a devlog, whether it be in written or video form. 
-                                                At first I thought of video devlogs to be the perfect format. You simply talk into a microphone and 
-                                                show off whatever project you have been working on at the time. However... <a href="#post-1"><b id="hl">Read more</b></a>
-                                            </p>
-                                        </div>
-                                    </div-->
-								</section>
-							</article>
+<!-- ══════════════════════════════════════════════════════════
+     DASHBOARD  (hidden when an article is open)
+     ══════════════════════════════════════════════════════════ -->
+<div id="dashboard">
 
-                            
-                            <article id="post-3" class="panel">
-                                <header class="banner">
-                                    <img src="images/posts/3.jpg"/>
-                                    <h2>Writing a Game Engine Part II: Platform Layer</h2>
-                                </header>
-                                <p class="blog-date">Posted on Nov 10, 2022</p>
-                                <div class="delim"></div>
-                                <p>
-                                    As I mentioned in the <a href="#post-2">previous post</a>, I used <a href="https://guide.handmadehero.org/">Handmade Hero</a> as a starting point
-                                    for writing the platform layer for my engine. It is a really great resource that I cannot recommend more highly.
-                                    That said, I did have some problems with implementation in the series. I wasn't the biggest fan of using the Win32 API, because I wanted
-                                    to be able to work on Linux, and that meant writing two Platform Layers up-front, which is not something I intended on doing (perhaps in the
-                                    future I will write an optimized platform layer for all three major OS's, but not for a while). My solution was to use the SDL library to
-                                    do the cross-platform heavy lifting for me. I was able to isolate the SDL code from the rest of my codebase, so if I want to swap out SDL 
-                                    for Win32, for example, in the future, it will be as easy as writing a Win32 platform layer and replacing the file in the build path.
-                                </p>
-                                <p>
-                                    In this article I will walk through how the platform layer is structured.
-                                </p>
-                                <h4>Main</h4>
-                                
-                                <div class="delim-dark"></div>
-                                <div class="post-buttons">
-                                    <a href="#post-2" class="post-link">
-                                        <header class="post-footer">
-                                            <img src="images/posts/2.jpg"></img>
-                                            <h4>Previous Post</h4>
-                                        </header>
-                                    </a>
-                                    <a href="#devlogs" class="post-link">
-                                        <header class="post-footer">
-                                            <img src="images/posts/3.jpg"></img>
-                                            <h4>All Posts</h4>
-                                        </header>
-                                    </a>
-                                    <a href="#post-4" class="post-link">
-                                        <header class="post-footer">
-                                            <img src="images/posts/3.jpg"></img>
-                                            <h4>Next Post</h4>
-                                        </header>
-                                    </a>
-                                </div> 
-                            </article>
+  <main id="dashboard-grid">
+
+    <!-- LEFT — Widgets (about, cat, song, quiz) -->
+    <!-- Content injected by widgets.js -->
+    <section id="col-widgets"></section>
+
+    <!-- CENTRE — Blog posts list -->
+    <!-- Content injected by widgets.js -->
+    <section id="col-blog"></section>
+
+    <!-- RIGHT — Projects & games grid -->
+    <!-- Content injected by widgets.js -->
+    <section id="col-projects"></section>
+
+  </main>
+
+  <footer id="site-footer">
+    <a href="mailto:sagitbolat@gmail.com">sagitbolat@gmail.com</a>
+    &nbsp;·&nbsp;
+    &copy; Sagit Bolat
+  </footer>
+
+</div><!-- /#dashboard -->
 
 
-                            <article id="post-2" class="panel">
-                                <header class="banner">
-                                    <img src="images//posts/2.jpg"/>
-									<h2>Writing a Game Engine Part I: Introduction</h2>
-								</header>
-                                <p class="blog-date">Posted on Nov 9, 2022</p>
-                                <div class="delim"></div>
-                                <h4>Background</h4>
-                                <p>
-                                    I should first note that this is NOT my first game engine. My first serious attempt at making an engine was just
-                                    over a year ago. As is evident from the fact that I am now on my second attempt, the first one did not pan out to be very
-                                    successful. There was a myriad of reasons for this. The biggest was lack of understanding of the scope of the project.
-                                    A few months prior to starting, I had completed a college project that involved generating dungeons, and having
-                                    the user be able to explore them. Me and my partner had implemented a few interactive elements to the dungeon,
-                                    such as dynamic tile-based lighting, and I felt a surge of inspiration from being able to program a game-like
-                                    project without an engine.
-                                </p>
-                                <p>
-                                    This is, likely, where my drive to start working on games at a lower level began. I enjoyed having
-                                    more nuanced control over how the final version behaved. The API that we used for the project allowed us to draw tiles to the
-                                    screen in a similar way Unity's Tilemap lets the user create tile-based level, but the API allowed pixel perfect placement. This
-                                    made the screen feel more like a canvas that we got to draw onto, rather than an abstract idea with which one could ony interact 
-                                    indirectly.
-                                </p>
-                                <h4>How we got here</h4>
-                                <p>
-                                    Unfortunately, I quickly realized that creating a full game engine from scratch (even with the help of a library to do most
-                                    heavy platform code for me) was a much deeper commitment than my college projects led me to believe. And so, as I added more and
-                                    more to my first engine, the project became harder and harder to work on. Looking back, it was clear that my understading of what a game engine
-                                    is and what it is meant to do was... flawed. It was akin to flayling in the dark, hoping to accidentally bump into the light switch.
-                                </p>
-                                <p>
-                                    My second attempt began after a 5 months-long break. In that time, I spent my time researching and trying to figure out what I did
-                                    wrong the first time around. Eventually I came back, and started the project over, this time using a more structured approach to 
-                                    writing the engine. I abandoned most things that made my first attempt unweildy (such as heavy use of inheritence heirarchies) and focused on writing
-                                    a more simple approach. The resulting project was easier to get started on, and maintain.
-                                </p>
-                                <h4>What now?</h4>
-                                <p>
-                                    Today, the engine I am working on is called <b>SkyEngine</b>. This name is temporary, and I don't quite remember how I came onto it, but
-                                    it <b>sounds cool</b> so I'm keeping it. I have learned alot while working on the SkyEngine, 
-                                    and I believe I can share some of the things I learned. When I first started out, 
-                                    I found that most resources out there were scarcely useful, either delving into advanced topics too fast, leaving me lost, or being too general
-                                    and abstract to be practical. With this devlog, I hope to be able to provide a more structured approach to
-                                    people like me, who have no idea where to start. I don't claim to be an expert in engines after only a few months, but I hope you find my approach
-                                    to learning about engines useful to some degree. In the meantime, if you would like to look
-                                    into what I found most helpful when learning,  below is a list of helpful links to 
-                                    some valuable resources.
-                                </p>
-                                <div class="delim"></div>
-                                <h4><a href="https://guide.handmadehero.org/">1. The Handmade Hero Series by Casey Muratori</a>:</h4>
-                                <p>
-                                    A very good resource to get started. I followed the series
-                                    until about Day 15, and ended up with a working, stable platform layer in the Win32 API. I later rewrote it in SDL, as I do most of 
-                                    my work on Linux, and I would like to have cross-platform capabilities without having to rewrite the platform layer multiple times, but 
-                                    I still have the Win32 API version just in case. What I learned from this series is worth far more than just a Platform Layer, however.
-                                    Watching episodes out of order to learn about specific topics is how I use it nowdays. (for example this excellent episode on 
-                                    <a href="https://guide.handmadehero.org/code/day122/">multithreading</a>).
-                                </p>
-                                <h4><a href="https://www.gameenginebook.com/">2. Game Engine Architecture by Jason Gregory</a>:</h4>
-                                <p>
-                                    A good resource that I treat as a sort of "reference manual". If you need a primer on a certain topic in game engine programming, 
-                                    there is a good chance that this book will have a chapter on it. I particularly recommend it's section on 3D math 
-                                    (Chapter 4), rendering (Chapter 10), and physics (Chapter 12). Chapter 15 also recommends other resources on topics that
-                                    were not coverd, such as audio and networking.
-                                </p>
-                                <h4><a href="https://fabiensanglard.net/b/gebbdoom.pdf">3. Game Engine Black Book: Doom by Fabien Sanglard</a>:</h4>
-                                <p>
-                                    This one in no so much a resource you reference, but more of a book you read (or scan) through in it's (almost)
-                                    complete entirety. It provides a detailed look into the source code of id software's original Doom game. It provides
-                                    a good insight into how an objectively good programming team approached game and engine design. You likely won't be able to
-                                    apply the things you learn here 1:1 in your own work, but since the general problems in engine programming have not changed
-                                    fundamentally, the approaches to problems will still be useful to you. For the impatient, I suggest starting at Chapter 5, 
-                                    as this is where the author starts talking about the source code.
-                                </p>
-                                <div class="delim-dark"></div>
-                                <div class="post-buttons">
-                                    <a href="#post-1" class="post-link">
-                                        <header class="post-footer">
-                                            <img src="images/posts/1.jpg"></img>
-                                            <h4>Previous Post</h4>
-                                        </header>
-                                    </a>
-                                    <a href="#devlogs" class="post-link">
-                                        <header class="post-footer">
-                                            <img src="images/posts/2.jpg"></img>
-                                            <h4>All Posts</h4>
-                                        </header>
-                                    </a>
-                                    <a href="#post-3" class="post-link">
-                                        <header class="post-footer">
-                                            <img src="images/posts/3.jpg"></img>
-                                            <h4>Next Post</h4>
-                                        </header>
-                                    </a>
-                                </div>
-                            </article>
+<!-- ══════════════════════════════════════════════════════════
+     ARTICLE VIEW  (shown when a blog post / project is opened)
+     ══════════════════════════════════════════════════════════ -->
+<div id="article-view">
 
-                            <article id="post-1" class="panel">
-                                <header class="banner">
-                                    <img src="images/posts/1.jpg">
-									<h2>Kruger vs Impostor: Programming Mindsets</h2>
-								</header>
-                                <p class="blog-date">Posted on Nov 8, 2022</p>
-                                <div class="delim"></div>
-                                <h4>1. Intro</h4>
-                                <p>
-                                    I have long wanted to start some form of a devlog, whether it be in written or video form. 
-                                    At first I thought of video devlogs to be the perfect format. You simply talk into a microphone and 
-                                    show off whatever project you have been working on at the time. However, as I quickly found out, videos take a long time
-                                    to prepare the right footage for, edit, and bring a whole slew of complications. This is why I decided to create a devlog in
-                                    written form instead. I had already been working on a personal website to put on my CV, and using the same site to host a
-                                    devlog seems like an efficient use of time. As to why I created this blog, I wanted (and perhaps needed) a medium to express
-                                    my thoughts and keep them organized. I hope that that the thoughts that are about either whatever I am working on at the time, or
-                                    random invasive thoughts I might have that I cannot share with anyone in the real world can find their place in this blog.
-                                </p>
-                                <h4>
-                                    2. So what does the title have to do with anything?
-                                </h4>
-                                <p>
-                                    The other day (and by that I mean last night), I was watching <a href="https://youtu.be/_NmfCLssHuI?t=2331">a Q&A</a> from 
-                                    an event called <a href="https://handmade.network/conferences">Handmade Con</a> which is based on a project by Casey Muratori: 
-                                    <a href="https://handmadehero.org/">Handmade Hero</a>. 
-                                    Those that have attempted to create video games from scratch for the first time in recent years are probably familiar with 
-                                    the project to some degree. In the Q&A, a question was asked about the advice that the panelists would give themselves at the start
-                                    of their careers. Jonathan Blow's (the guy closest to Casey on the panel) answer to that question essetially boils down to "Listen to
-                                    the voice in your head that tells you that you might be doing something wrong."
-                                </p>
-                                <h4>3. Dunning-Kruger Effect vs Impostor Syndrome</h4>
-                                <p>
-                                    At first glance that answer seems to be au contraire to the 
-                                    <a href="https://www.psychologytoday.com/us/blog/childhood-emotional-neglect/202206/self-doubt-is-corrosive-how-address-its-root-cause">
-                                        common notion that self doubt is bad for you
-                                    </a>. However, this got me thinking about the conceptuality of Impostor Syndrome and the 
-                                    Dunning-Kruger Effect and how they relate to the work we do as programmers
-                                    as well as to eachother. These two are very common in the programming industry (as in every industry, probably), and yet people seem to
-                                    treat them as mutually-exclusive (and why wouldn't they be, they are completely opposite of eachother!). However, thinking about these two 
-                                    states of mind as two sided of the same coin seems to complicate the problem. What if one comes to a realization that they are experiencing
-                                    impostor syndrome, and work diligently to correct themselves, while in reality, they <b>think</b> they have impostor syndrome while in reality,
-                                    the work they are doing is as bad as it seems. So by trying to combat their impostor syndrome, they are digging themselves deeper into the 
-                                    Dunning-Kruger hole. Of course, the inverse might also be true.
-                                </p> 
-                                <h4>4. So how do I know which of these I am?</h4>
-                                <p>
-                                    The first obvious solution is to ask for feedback. Clearly, we are not good judges of our own work, and so we must recruit
-                                    and outside observer to tell us if what we are doing is as <b>good</b> or as <b>bad</b> as we think it is.
-                                </p>
-                                <p>
-                                    However, not all feedback is created equal, and it is the job of the one who recieves it to parse it in the appropriate manner.
-                                    Some feedback might not be inherintely useful by itself, but instead give you a push to arrive at a conclusion you might have otherwise
-                                    missed entirely. And, by the same logical line, some feedback is completely useless. 
-                                </p>
-                                <p> 
-                                    So, how can we know which feedback is useful, which is insightful, and which is completely garbage? Do we not fall into the same issues 
-                                    as the ones we started with? If we dont know whether the feedback we get is reliable, and we cannot trust ourselves to be objective, how
-                                    then must we determine the quality of our work?
-                                </p>
-                                <h4>5. The Answers</h4>
-                                <p>
-                                    I don't have them. My approach has been to assume I am doing a job of some quality that is somewhere between the extremas of being the 
-                                    greatest thing to have even been created by anyone ever, and being the thing that will eventually cause the collapse of our civilization
-                                    through the shear power of it's own atrociousness. 
-                                </p>
-                                <p> 
-                                    In reality, most things that most people work on land on a much tighter spectrum. Right between "great" and "terrible". Right on the "average".
-                                    Statistically, chances are the quality of your work is not bad, but neither is it good. This might sound depressing, but it opens an opportunity.
-                                    If what you have now is not bad, but is comparable to the vast majority of projects of similar scales that exist in the void of ideas (whether 
-                                    these ideas have been executed on or not), then you have the opportunity to improve on your ideas day after day. If you start with something average,
-                                    and you sculpt it to become better every day, eventually it will become good. Then, you keep working on it, and eventually it might become great.
-                                    Given enough time.
-                                </p>
-                                <h4>6. So, what about the Kruger-Impostor syndrome?</h4>
-                                <p>
-                                    Regardless of whether you think what you are doing is good, or what you are doing is bad, the only real way forward is to iterate on
-                                    what you have now and improve it. There is no downside to improvement regardless of whether you are experiencing the Dunning-Kruger
-                                    Effect or Impostor Syndrome. The only danger comes from letting one of these stifle your progress, either by letting yourself believe that
-                                    you can never fail, or making yourself believe that you will never succeed.
-                                </p>
-                                <div class="delim-dark"></div>
-                                <div class="post-buttons">
-                                    <a href="#devlogs" class="post-link">
-                                        <header class="post-footer">
-                                            <img src="images/posts/1.jpg"></img>
-                                            <h4>All Posts</h4>
-                                        </header>
-                                    </a>
-                                    <a href="#post-2" class="post-link">
-                                        <header class="post-footer">
-                                            <img src="images/posts/2.jpg"></img>
-                                            <h4>Next Post</h4>
-                                        </header>
-                                    </a>
-                                </div>
-                            </article>
+  <div id="article-bar">
+    <button id="btn-back" class="px-btn">&#9664; BACK</button>
+  </div>
+
+  <!-- Article content is cloned here from #article-templates -->
+  <div id="article-inner"></div>
+
+</div><!-- /#article-view -->
 
 
-                        <!-- Contact -->
-							<article id="contacts" class="panel">
-								<header>
-									<h2><span id="highlighted-span">Contact</span> Me</h2>
-								</header>
-								<ul>
-									<li><span id="highlighted-span"">E-mail: </span>sagitbolat@gmail.com</li>
-									<li><span id="highlighted-span"">Linkedin: </span><a 
-                                        href="https://www.linkedin.com/in/sagit-bolat/" 
-                                        class="icon brands fa-linkedin"
-                                        target="_blank"
-                                    ></a></li>
-								</ul>
-								<!--form action="#" method="post">
-									<div>
-										<div class="row">
-											<div class="col-6 col-12-medium">
-												<input type="text" name="name" placeholder="Name" />
-											</div>
-											<div class="col-6 col-12-medium">
-												<input type="text" name="email" placeholder="Email" />
-											</div>
-											<div class="col-12">
-												<input type="text" name
-                                                ="subject" placeholder="Subject" />
-											</div>
-											<div class="col-12">
-												<textarea name="message" placeholder="Message" rows="6"></textarea>
-											</div>
-											<div class="col-12">
-												<input type="submit" value="Send Message" />
-											</div>
-										</div>
-									</div>
-								</form-->
-							</article>
+<!-- ══════════════════════════════════════════════════════════
+     ARTICLE TEMPLATES  (hidden; content pulled by widgets.js)
 
-					</div>
+     Add a new blog post:
+       1.  Add metadata to SITE.posts in site-config.js
+       2.  Add <article id="tpl-post-N"> here with the body text.
 
-				<!-- Footer -->
-					<div id="footer">
-						<ul class="copyright">
-							<li>E-mail: sagitbolat@gmail.com</li><!--li>Phone: (510)345-8706</li-->
-						</ul>
-					</div>
+     ══════════════════════════════════════════════════════════ -->
+<div id="article-templates" hidden>
 
-			</div>
 
-		<!-- Scripts -->
-            <script src="assets/js/typewriter_anim.js"></script>
+  <!-- ── Blog Post 1 ──────────────────────────────────────── -->
+  <article id="tpl-post-1">
+    <h1>Kruger vs Impostor: Programming Mindsets</h1>
+    <div class="article-meta">Posted Nov 8, 2022</div>
 
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <h3>1. Intro</h3>
+    <p>I have long wanted to start some form of a devlog, whether it be in written or video form.
+    At first I thought of video devlogs to be the perfect format — you simply talk into a microphone and
+    show off whatever project you have been working on at the time. However, videos take a long time
+    to prepare footage for, edit, and bring a whole slew of complications. This is why I decided to
+    create a devlog in written form instead. I had already been working on a personal website to put on
+    my CV, and using the same site to host a devlog seems like an efficient use of time.</p>
 
-	</body>
+    <h3>2. So what does the title have to do with anything?</h3>
+    <p>The other day I was watching
+    <a href="https://youtu.be/_NmfCLssHuI?t=2331" target="_blank">a Q&amp;A</a> from
+    <a href="https://handmade.network/conferences" target="_blank">Handmade Con</a>.
+    In the Q&amp;A, a question was asked about advice the panelists would give themselves at the start
+    of their careers. Jonathan Blow's answer essentially boils down to:
+    <strong class="hl">"Listen to the voice in your head that tells you that you might be doing something wrong."</strong></p>
+
+    <h3>3. Dunning-Kruger Effect vs Impostor Syndrome</h3>
+    <p>At first glance that answer seems contrary to the common notion that self-doubt is bad for you.
+    This got me thinking about Impostor Syndrome and the Dunning-Kruger Effect and how they relate to
+    programming. These two are very common in the industry, and yet people seem to treat them as
+    mutually exclusive. But what if one comes to the realization they are experiencing Impostor Syndrome,
+    and works to correct it — while in reality the work they're doing <em>is</em> as bad as it seems?
+    So by trying to combat Impostor Syndrome, they're digging deeper into the Dunning-Kruger hole.
+    Of course, the inverse might also be true.</p>
+
+    <h3>4. So how do I know which of these I am?</h3>
+    <p>The first obvious solution is to ask for feedback. Clearly we are not good judges of our own work,
+    so we must recruit an outside observer to tell us if what we're doing is as good or as bad as we
+    think it is. However, not all feedback is created equal, and it is the job of the receiver to parse
+    it appropriately. Some feedback might not be useful by itself but gives you a push toward a
+    conclusion you'd have otherwise missed. And some feedback is completely useless.</p>
+
+    <h3>5. The Answers</h3>
+    <p>I don't have them. My approach has been to assume I'm doing a job of some quality somewhere
+    between "greatest thing ever created" and "collapse of civilization." In reality, most things most
+    people work on land on a much tighter spectrum — right between "great" and "terrible," right on
+    "average." This might sound depressing, but it opens an opportunity. If what you have now is not
+    bad but comparable to the vast majority of similar projects, you have the opportunity to improve
+    on it day after day. Start with average, sculpt it better every day, and eventually it becomes
+    good — then great. Given enough time.</p>
+
+    <h3>6. So, what about the Kruger-Impostor syndrome?</h3>
+    <p>Regardless of whether you think what you are doing is good or bad, the only real way forward is
+    to iterate and improve. There is no downside to improvement regardless of whether you're experiencing
+    the Dunning-Kruger Effect or Impostor Syndrome. The only danger comes from letting one of them
+    stifle your progress — either by believing you can never fail, or making yourself believe you
+    will never succeed.</p>
+  </article>
+
+
+  <!-- ── Blog Post 2 ──────────────────────────────────────── -->
+  <article id="tpl-post-2">
+    <h1>Writing a Game Engine Part I: Introduction</h1>
+    <div class="article-meta">Posted Nov 9, 2022</div>
+
+    <h3>Background</h3>
+    <p>I should first note that this is NOT my first game engine. My first serious attempt was just
+    over a year ago. As is evident from the fact that I am now on my second attempt, the first one did
+    not pan out very successfully. The biggest reason was a lack of understanding of the scope of the
+    project. A few months prior to starting, I had completed a college project that involved generating
+    dungeons and having the user explore them. My partner and I implemented dynamic tile-based lighting,
+    and I felt a surge of inspiration from being able to program a game-like project without an engine.</p>
+
+    <p>This is likely where my drive to start working on games at a lower level began. I enjoyed having
+    nuanced control over how the final product behaved. The API we used felt more like a canvas to draw
+    onto rather than an abstract system to interact with indirectly.</p>
+
+    <h3>How we got here</h3>
+    <p>Unfortunately, I quickly realized that creating a full game engine from scratch — even with a
+    library to handle most of the platform code — was a much deeper commitment than my college projects
+    led me to believe. As I added more and more to my first engine, the project became harder and harder
+    to work on. Looking back, it was clear that my understanding of what a game engine is and what it is
+    meant to do was flawed. It was akin to flailing in the dark, hoping to accidentally bump into the
+    light switch.</p>
+
+    <p>My second attempt began after a 5-month break spent researching and figuring out what I did wrong
+    the first time. I abandoned heavy inheritance hierarchies and focused on writing a simpler approach.
+    The resulting project was easier to get started on and to maintain.</p>
+
+    <h3>What now?</h3>
+    <p>Today, the engine I am working on is called <strong class="hl">SkyEngine</strong>. I have
+    learned a lot while working on it, and I believe I can share some of what I've learned. When I
+    first started out, most resources were either too advanced or too general to be practical. With this
+    devlog, I hope to provide a more structured approach for people like me who had no idea where to
+    start.</p>
+
+    <h4>Helpful Resources</h4>
+    <p><a href="https://guide.handmadehero.org/" target="_blank">1. The Handmade Hero Series by Casey Muratori</a> —
+    A great resource to get started. I followed the series until about Day 15 and ended up with a working
+    platform layer. What I learned is worth far more than just the platform layer code.</p>
+
+    <p><a href="https://www.gameenginebook.com/" target="_blank">2. Game Engine Architecture by Jason Gregory</a> —
+    A good reference manual. If you need a primer on a certain topic in engine programming, there is a
+    good chance this book has a chapter on it. I particularly recommend the sections on 3D math
+    (Chapter 4), rendering (Chapter 10), and physics (Chapter 12).</p>
+
+    <p><a href="https://fabiensanglard.net/b/gebbdoom.pdf" target="_blank">3. Game Engine Black Book: Doom by Fabien Sanglard</a> —
+    More of a book you read through than a reference. It provides a detailed look into the Doom source
+    code and gives good insight into how an objectively good programming team approached game and engine
+    design.</p>
+  </article>
+
+
+  <!-- ── Blog Post 3 ──────────────────────────────────────── -->
+  <article id="tpl-post-3">
+    <h1>Writing a Game Engine Part II: Platform Layer</h1>
+    <div class="article-meta">Posted Nov 10, 2022</div>
+
+    <p>As I mentioned in the
+    <a href="#" onclick="openArticle('tpl-post-2','Part I'); return false;">previous post</a>,
+    I used <a href="https://guide.handmadehero.org/" target="_blank">Handmade Hero</a> as a starting
+    point for writing the platform layer. It is a great resource I cannot recommend highly enough.</p>
+
+    <p>That said, I wasn't the biggest fan of using the Win32 API directly, because I wanted to be able
+    to work on Linux. My solution was to use the SDL library to do the cross-platform heavy lifting.
+    I was able to isolate the SDL code from the rest of my codebase so that if I want to swap SDL for
+    Win32 in the future, it will be as easy as writing a new platform layer and replacing the file in
+    the build path.</p>
+
+    <p>In this article I will walk through how the platform layer is structured. (Full write-up coming
+    soon — this post is still a work in progress.)</p>
+  </article>
+
+
+</div><!-- /#article-templates -->
+
+
+<!-- Scripts — order matters: config must load before widgets -->
+<script src="assets/js/site-config.js"></script>
+<script src="assets/js/widgets.js"></script>
+
+</body>
 </html>

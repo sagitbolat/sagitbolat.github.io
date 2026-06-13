@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sPiet Interpreter — Sagit Bolat</title>
+  <link rel="stylesheet" href="../assets/css/pixel.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+</head>
+<body>
+
+<header id="site-header">
+  <div id="header-identity">
+    <div id="site-name">SAGIT <span>BOLAT</span></div>
+    <div id="site-subtitle">SOFTWARE DEVELOPER</div>
+  </div>
+  <nav id="header-nav">
+    <a href="../index.html" class="px-btn">&#9664; BACK</a>
+  </nav>
+</header>
+
+<div class="subpage-article">
+  <div id="article-inner">
+
+    <h1>sPiet Interpreter <span class="hl">[Python]</span></h1>
+    <div class="article-meta">Python · OpenCV</div>
+
+    <h2>Piet — The Programming Language</h2>
+    <p>Piet is a <strong class="hl">visual programming language</strong> based on the artistic style
+    of the Dutch painter Piet Mondrian. In this language, colour represents instructions and pixel
+    count encodes data values. A single stack is used for all data storage.
+    <a href="https://www.dangermouse.net/esoteric/piet/samples.html" target="_blank" rel="noopener">
+    Example Piet programs</a> look like abstract pixel art.</p>
+
+    <img src="../images/piet.jpg" alt="Piet language example">
+
+    <p>The original Piet specification identifies 18 colours to represent instructions. This project
+    — <strong class="hl">sPiet</strong> — is an interpreter that goes one step further: it allows
+    the user to supply a <em>custom colour scheme</em> provided as a PNG with 18 pixels of different
+    colours. The same program logic can be written in any palette the user defines.</p>
+
+    <img src="../images/piet_example.png" alt="sPiet example program">
+
+    <h2>Architecture</h2>
+    <p>The interpreter consists of three main components:</p>
+
+    <ol>
+      <li>
+        <strong class="hl">Tokenizer</strong> — Parses the image using <strong>OpenCV</strong>.
+        Adjacent pixels of the same colour form a code block; its size (pixel count) becomes the
+        data value pushed onto the stack. The colour transition between adjacent blocks encodes the
+        operation. These operations are stored as a list of tokens.
+      </li>
+      <li>
+        <strong class="hl">Data Stack</strong> — The only memory in the Piet language. The
+        tokenizer writes values to the stack. As the parser executes instructions, data is consumed
+        from (and sometimes written back to) the stack. All data is numeric; output can be in
+        integer or character format.
+      </li>
+      <li>
+        <strong class="hl">Parser</strong> — Takes the token list and dispatches the corresponding
+        stack operations. Some operations act on the top value; others act on the top two values.
+        The parser walks the token list from start to finish.
+      </li>
+    </ol>
+
+  </div>
+</div>
+
+</body>
+</html>
