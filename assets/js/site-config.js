@@ -11,7 +11,7 @@ const SITE = {
   /* ── Personal Info ──────────────────────────────────────── */
   name:     "Sagit Bolat",
   subtitle: "Software Developer",
-  bio:      "CS student and hobbyist game developer. I like writing things from scratch — engines, interpreters, solvers. Mainly C/C++.",
+  bio:      "Professional game developer, writing personal solo projects in my spare time.",
 
   email:   "sagitbolat@gmail.com",
   links: {
