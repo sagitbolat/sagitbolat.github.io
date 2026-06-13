@@ -12,12 +12,15 @@
 </head>
 <body>
 
+<!-- Background animation canvas (fixed, z-index: -1, full viewport) -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
 <!-- ══════════════════════════════════════════════════════════
      STICKY HEADER
      ══════════════════════════════════════════════════════════ -->
 <header id="site-header">
   <div id="header-identity">
-    <div id="site-name">SAGIT <span>BOLAT</span></div>
+    <div id="site-name">SAGIT</div>
     <div id="site-subtitle">SOFTWARE DEVELOPER</div>
   </div>
   <!-- Nav links are injected by widgets.js from SITE.links -->
@@ -79,65 +82,8 @@
 
      ══════════════════════════════════════════════════════════ -->
 <div id="article-templates" hidden>
-
-
   <!-- ── Blog Post 1 ──────────────────────────────────────── -->
   <article id="tpl-post-1">
-    <h1>Kruger vs Impostor: Programming Mindsets</h1>
-    <div class="article-meta">Posted Nov 8, 2022</div>
-
-    <h3>1. Intro</h3>
-    <p>I have long wanted to start some form of a devlog, whether it be in written or video form.
-    At first I thought of video devlogs to be the perfect format — you simply talk into a microphone and
-    show off whatever project you have been working on at the time. However, videos take a long time
-    to prepare footage for, edit, and bring a whole slew of complications. This is why I decided to
-    create a devlog in written form instead. I had already been working on a personal website to put on
-    my CV, and using the same site to host a devlog seems like an efficient use of time.</p>
-
-    <h3>2. So what does the title have to do with anything?</h3>
-    <p>The other day I was watching
-    <a href="https://youtu.be/_NmfCLssHuI?t=2331" target="_blank">a Q&amp;A</a> from
-    <a href="https://handmade.network/conferences" target="_blank">Handmade Con</a>.
-    In the Q&amp;A, a question was asked about advice the panelists would give themselves at the start
-    of their careers. Jonathan Blow's answer essentially boils down to:
-    <strong class="hl">"Listen to the voice in your head that tells you that you might be doing something wrong."</strong></p>
-
-    <h3>3. Dunning-Kruger Effect vs Impostor Syndrome</h3>
-    <p>At first glance that answer seems contrary to the common notion that self-doubt is bad for you.
-    This got me thinking about Impostor Syndrome and the Dunning-Kruger Effect and how they relate to
-    programming. These two are very common in the industry, and yet people seem to treat them as
-    mutually exclusive. But what if one comes to the realization they are experiencing Impostor Syndrome,
-    and works to correct it — while in reality the work they're doing <em>is</em> as bad as it seems?
-    So by trying to combat Impostor Syndrome, they're digging deeper into the Dunning-Kruger hole.
-    Of course, the inverse might also be true.</p>
-
-    <h3>4. So how do I know which of these I am?</h3>
-    <p>The first obvious solution is to ask for feedback. Clearly we are not good judges of our own work,
-    so we must recruit an outside observer to tell us if what we're doing is as good or as bad as we
-    think it is. However, not all feedback is created equal, and it is the job of the receiver to parse
-    it appropriately. Some feedback might not be useful by itself but gives you a push toward a
-    conclusion you'd have otherwise missed. And some feedback is completely useless.</p>
-
-    <h3>5. The Answers</h3>
-    <p>I don't have them. My approach has been to assume I'm doing a job of some quality somewhere
-    between "greatest thing ever created" and "collapse of civilization." In reality, most things most
-    people work on land on a much tighter spectrum — right between "great" and "terrible," right on
-    "average." This might sound depressing, but it opens an opportunity. If what you have now is not
-    bad but comparable to the vast majority of similar projects, you have the opportunity to improve
-    on it day after day. Start with average, sculpt it better every day, and eventually it becomes
-    good — then great. Given enough time.</p>
-
-    <h3>6. So, what about the Kruger-Impostor syndrome?</h3>
-    <p>Regardless of whether you think what you are doing is good or bad, the only real way forward is
-    to iterate and improve. There is no downside to improvement regardless of whether you're experiencing
-    the Dunning-Kruger Effect or Impostor Syndrome. The only danger comes from letting one of them
-    stifle your progress — either by believing you can never fail, or making yourself believe you
-    will never succeed.</p>
-  </article>
-
-
-  <!-- ── Blog Post 2 ──────────────────────────────────────── -->
-  <article id="tpl-post-2">
     <h1>Writing a Game Engine Part I: Introduction</h1>
     <div class="article-meta">Posted Nov 9, 2022</div>
 
@@ -189,8 +135,8 @@
   </article>
 
 
-  <!-- ── Blog Post 3 ──────────────────────────────────────── -->
-  <article id="tpl-post-3">
+  <!-- ── Blog Post 2 ──────────────────────────────────────── -->
+  <article id="tpl-post-2">
     <h1>Writing a Game Engine Part II: Platform Layer</h1>
     <div class="article-meta">Posted Nov 10, 2022</div>
 
@@ -213,8 +159,9 @@
 </div><!-- /#article-templates -->
 
 
-<!-- Scripts — order matters: config must load before widgets -->
+<!-- Scripts — order matters: config → animations → widgets -->
 <script src="assets/js/site-config.js"></script>
+<script src="assets/js/bg-animations.js"></script>
 <script src="assets/js/widgets.js"></script>
 
 </body>

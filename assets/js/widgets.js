@@ -7,6 +7,7 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  BG_ANIM.init();
   renderHeader();
   renderWidgetsColumn();
   renderBlogColumn();
@@ -52,27 +53,18 @@ function renderHeader() {
   const nav = document.getElementById('header-nav');
   if (!nav) return;
 
-  const { github, linkedin, cv, itchio } = SITE.links;
+  /* Animation cycle button */
+  const btn = el('button', 'px-btn anim-cycle-btn');
+  const indicator = el('span', 'anim-label', BG_ANIM.currentLabel());
+  btn.appendChild(el('span', '', '◈ '));
+  btn.appendChild(indicator);
 
-  const defs = [
-    { href: github,   icon: 'fa-brands fa-github',   label: 'GitHub'   },
-    { href: linkedin, icon: 'fa-brands fa-linkedin',  label: 'LinkedIn' },
-    { href: itchio,   icon: 'fa-brands fa-itch-io',   label: 'itch.io'  },
-    { href: cv,       icon: 'fa-solid fa-file',        label: 'CV'       },
-    { href: `mailto:${SITE.email}`,
-                      icon: 'fa-solid fa-envelope',    label: 'Email'    },
-  ];
-
-  defs.forEach(({ href, icon, label }) => {
-    if (!href) return;
-    const a = el('a');
-    a.href   = href;
-    a.title  = label;
-    a.className = `nav-link ${icon}`;
-    a.setAttribute('target', '_blank');
-    a.setAttribute('rel', 'noopener');
-    nav.appendChild(a);
+  btn.addEventListener('click', () => {
+    const label = BG_ANIM.cycle();
+    indicator.textContent = label;
   });
+
+  nav.appendChild(btn);
 }
 
 

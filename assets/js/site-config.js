@@ -158,25 +158,18 @@ const SITE = {
   */
   posts: [
     {
-      title:     "Kruger vs Impostor: Programming Mindsets",
-      date:      "Nov 8, 2022",
-      thumb:     "images/posts/1.jpg",
-      excerpt:   "On Dunning-Kruger, Impostor Syndrome, and how to keep moving regardless of which one you're experiencing.",
-      articleId: "tpl-post-1",
-    },
-    {
       title:     "Writing a Game Engine Part I: Introduction",
       date:      "Nov 9, 2022",
       thumb:     "images/posts/2.jpg",
       excerpt:   "Background on my second serious attempt at a game engine and what I'm doing differently this time.",
-      articleId: "tpl-post-2",
+      articleId: "tpl-post-1",
     },
     {
       title:     "Writing a Game Engine Part II: Platform Layer",
       date:      "Nov 10, 2022",
       thumb:     "images/posts/3.jpg",
       excerpt:   "How the platform layer is structured and why I chose SDL over Win32 for cross-platform support.",
-      articleId: "tpl-post-3",
+      articleId: "tpl-post-2",
     },
   ],
 
