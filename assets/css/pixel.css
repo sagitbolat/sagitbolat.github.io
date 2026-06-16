@@ -447,13 +447,6 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ── 11. Widgets — Book Quiz ─────────────────────────────── */
-.quiz-progress {
-  font-family: var(--f-pixel);
-  font-size: var(--t-nano);
-  color: var(--c-text-dim);
-  margin-bottom: var(--s4);
-  letter-spacing: 1px;
-}
 .quiz-question {
   font-family: var(--f-pixel);
   font-size: var(--t-tiny);
@@ -461,6 +454,19 @@ p:last-child { margin-bottom: 0; }
   line-height: 1.8;
   margin-bottom: var(--s4);
 }
+.quiz-back-btn {
+  font-family: var(--f-pixel);
+  font-size: var(--t-nano);
+  color: var(--c-text-dim);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: var(--s3);
+  letter-spacing: 1px;
+}
+.quiz-back-btn:hover { color: var(--c-accent-hi); }
+
 .quiz-answers {
   display: flex;
   flex-direction: column;
@@ -490,11 +496,6 @@ p:last-child { margin-bottom: 0; }
 
 /* Quiz result */
 .quiz-result { text-align: center; }
-.result-emoji {
-  font-size: var(--t-2xl);
-  margin-bottom: var(--s3);
-  display: block;
-}
 .result-book-title {
   font-family: var(--f-pixel);
   font-size: var(--t-tiny);
@@ -507,12 +508,10 @@ p:last-child { margin-bottom: 0; }
   color: var(--c-text-dim);
   margin-bottom: var(--s4);
 }
-.result-book-desc {
-  font-size: var(--t-sm);
-  color: var(--c-text);
-  line-height: 1.65;
-  text-align: left;
-  margin-bottom: var(--s4);
+.quiz-result-btns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
 }
 
 /* ── 12. Blog Column ─────────────────────────────────────── */

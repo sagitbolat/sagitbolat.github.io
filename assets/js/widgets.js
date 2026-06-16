@@ -76,7 +76,7 @@ function renderWidgetsColumn() {
 
   col.appendChild(buildAboutWidget());
   col.appendChild(buildCatWidget());
-  col.appendChild(buildSongWidget());
+  // col.appendChild(buildSongWidget());
   col.appendChild(buildQuizWidget());
 }
 
@@ -111,64 +111,20 @@ function buildAboutWidget() {
   return panel;
 }
 
-/* --- Cat of the Day --- */
+/* --- Dymka Picture --- */
 function buildCatWidget() {
-  const panel    = buildPanel('CAT OF THE DAY');
-  const body     = panel.querySelector('.panel-body');
-  body.style.padding = '0';            /* image goes edge-to-edge */
+  const panel = buildPanel('PICTURE OF DYMKA');
+  const body  = panel.querySelector('.panel-body');
+  body.style.padding = '0';
 
-  const loading  = el('div', '', '');
-  loading.id = 'cat-loading';
-  loading.textContent = 'LOADING...';
-  loading.style.cssText = `
-    height: var(--cat-img-h);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--f-pixel); font-size: var(--t-tiny);
-    color: var(--c-text-dim);
-  `;
-  body.appendChild(loading);
+  const url = SITE.dymka[Math.floor(Math.random() * SITE.dymka.length)];
+  const img = el('img');
+  img.id  = 'cat-img';
+  img.src = url;
+  img.alt = 'Dymka';
+  body.appendChild(img);
 
-  loadCatOfDay(panel);
   return panel;
-}
-
-async function loadCatOfDay(panel) {
-  const body = panel.querySelector('.panel-body');
-
-  /* Cache in localStorage so the same cat shows all day */
-  const today  = new Date().toDateString();
-  const cached = localStorage.getItem('catUrl');
-  const cachedDate = localStorage.getItem('catDate');
-
-  let url = (cachedDate === today && cached) ? cached : null;
-
-  if (!url) {
-    try {
-      const resp = await fetch('https://api.thecatapi.com/v1/images/search?limit=1');
-      const data = await resp.json();
-      url = data[0]?.url;
-      if (url) {
-        localStorage.setItem('catUrl', url);
-        localStorage.setItem('catDate', today);
-      }
-    } catch (_) { /* silent fail — no cat today */ }
-  }
-
-  body.innerHTML = '';    /* remove loading indicator */
-
-  if (url) {
-    const img = el('img');
-    img.id  = 'cat-img';
-    img.src = url;
-    img.alt = 'Cat of the day';
-    body.appendChild(img);
-  } else {
-    body.style.padding = 'var(--panel-pad)';
-    body.textContent = '🐱 No cat today. Check back later.';
-    body.style.fontFamily = 'var(--f-pixel)';
-    body.style.fontSize   = 'var(--t-tiny)';
-    body.style.color      = 'var(--c-text-dim)';
-  }
 }
 
 /* --- Song of the Day --- */
@@ -204,70 +160,52 @@ function buildQuizWidget() {
   const panel = buildPanel('BOOK RECOMMENDER');
   const body  = panel.querySelector('.panel-body');
 
-  const state = { q: 0, tags: {} };
+  const history = []; /* stack for back navigation */
+  let node = SITE.quiz.tree;
 
-  function showQuestion() {
+  function render() {
     body.innerHTML = '';
 
-    const q = SITE.quiz.questions[state.q];
-    const total = SITE.quiz.questions.length;
+    if (node.book) {
+      /* ── Result ── */
+      const result = el('div', 'quiz-result');
+      result.appendChild(el('div', 'result-book-title', node.book));
+      result.appendChild(el('div', 'result-book-author', `by ${node.author}`));
 
-    const prog = el('div', 'quiz-progress', `Q ${state.q + 1} / ${total}`);
-    const text = el('div', 'quiz-question', q.text);
-    const list = el('div', 'quiz-answers');
+      const btns = el('div', 'quiz-result-btns');
 
-    q.answers.forEach(ans => {
-      const btn = el('button', 'quiz-ans-btn', ans.text);
-      btn.addEventListener('click', () => {
-        ans.tags.forEach(t => { state.tags[t] = (state.tags[t] || 0) + 1; });
-        state.q++;
-        if (state.q < SITE.quiz.questions.length) {
-          showQuestion();
-        } else {
-          showResult();
-        }
+      const back = el('button', 'quiz-ans-btn', '◀ BACK');
+      back.addEventListener('click', () => { node = history.pop(); render(); });
+
+      const restart = el('button', 'quiz-ans-btn', '↺ START OVER');
+      restart.addEventListener('click', () => { history.length = 0; node = SITE.quiz.tree; render(); });
+
+      btns.appendChild(back);
+      btns.appendChild(restart);
+      result.appendChild(btns);
+      body.appendChild(result);
+
+    } else {
+      /* ── Question ── */
+      if (history.length > 0) {
+        const back = el('button', 'quiz-back-btn', '◀ BACK');
+        back.addEventListener('click', () => { node = history.pop(); render(); });
+        body.appendChild(back);
+      }
+
+      body.appendChild(el('div', 'quiz-question', node.q));
+
+      const list = el('div', 'quiz-answers');
+      node.answers.forEach(ans => {
+        const btn = el('button', 'quiz-ans-btn', ans.text);
+        btn.addEventListener('click', () => { history.push(node); node = ans.next; render(); });
+        list.appendChild(btn);
       });
-      list.appendChild(btn);
-    });
-
-    body.appendChild(prog);
-    body.appendChild(text);
-    body.appendChild(list);
+      body.appendChild(list);
+    }
   }
 
-  function showResult() {
-    body.innerHTML = '';
-
-    /* Score each book by summing how often its tags were chosen */
-    const scored = SITE.quiz.books.map(book => ({
-      book,
-      score: book.tags.reduce((sum, t) => sum + (state.tags[t] || 0), 0),
-    }));
-    scored.sort((a, b) => b.score - a.score);
-    const winner = scored[0].book;
-
-    const result  = el('div', 'quiz-result');
-    const emoji   = el('span', 'result-emoji',      winner.emoji);
-    const title   = el('div',  'result-book-title', winner.title);
-    const author  = el('div',  'result-book-author', `by ${winner.author}`);
-    const desc    = el('div',  'result-book-desc',   winner.description);
-    const retry   = el('button', 'px-btn', '↺ TRY AGAIN');
-
-    retry.addEventListener('click', () => {
-      state.q    = 0;
-      state.tags = {};
-      showQuestion();
-    });
-
-    result.appendChild(emoji);
-    result.appendChild(title);
-    result.appendChild(author);
-    result.appendChild(desc);
-    result.appendChild(retry);
-    body.appendChild(result);
-  }
-
-  showQuestion();
+  render();
   return panel;
 }
 

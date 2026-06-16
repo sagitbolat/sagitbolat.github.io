@@ -13,6 +13,24 @@ const SITE = {
   subtitle: "Software Developer",
   bio:      "Professional game developer, writing personal solo projects in my spare time.",
 
+  /* ── Dymka Photos ──────────────────────────────────────────── */
+  dymka: [
+    "dymka_images/dymka (1).jpg",
+    "dymka_images/dymka (2).jpg",
+    "dymka_images/dymka (3).jpg",
+    "dymka_images/dymka (4).jpg",
+    "dymka_images/dymka (5).jpg",
+    "dymka_images/dymka (6).jpg",
+    "dymka_images/dymka (7).jpg",
+    "dymka_images/dymka (8).jpg",
+    "dymka_images/dymka (9).jpg",
+    "dymka_images/dymka (10).jpg",
+    "dymka_images/dymka (11).jpg",
+    "dymka_images/dymka (12).jpg",
+    "dymka_images/dymka (13).jpg",
+    "dymka_images/dymka (14).webp",
+  ],
+
   email:   "sagitbolat@gmail.com",
   links: {
     github:   "https://github.com/sagitbolat?tab=repositories",
@@ -50,97 +68,93 @@ const SITE = {
 
   /* ── Book Recommender Quiz ──────────────────────────────── */
   /*
-    quiz.questions — each question has:
-      text:    the question shown to the user
-      answers: array of { text, tags }
-                 tags are matched against book tags to score recommendations
-
-    quiz.books — each book has:
-      title, author, description  — displayed in the result
-      tags                        — array of strings matched against answer tags
-      emoji                       — displayed large in the result card
+    Decision tree: each node is either a question or a leaf.
+      Question: { q: "...", answers: [ { text: "...", next: node }, ... ] }
+      Leaf:     { book: "...", author: "..." }
   */
-  quiz: {
-    questions: [
-      {
-        text: "What kind of programmer are you?",
-        answers: [
-          { text: "Close to the metal, low-level",          tags: ["lowlevel", "systems"]      },
-          { text: "Algorithms and elegant abstractions",     tags: ["theory", "algorithms"]     },
-          { text: "Ship great products, good habits",        tags: ["craft", "pragmatic"]       },
-          { text: "Big-picture system design",               tags: ["architecture", "craft"]    },
-        ],
-      },
-      {
-        text: "What excites you most?",
-        answers: [
-          { text: "Making a game from scratch",              tags: ["lowlevel", "gamedev"]      },
-          { text: "A beautifully optimal data structure",    tags: ["theory", "algorithms"]     },
-          { text: "A codebase I'm proud to show anyone",     tags: ["craft", "pragmatic"]       },
-          { text: "Designing a system that scales",          tags: ["architecture", "systems"]  },
-        ],
-      },
-      {
-        text: "Pick a weekend side project:",
-        answers: [
-          { text: "Write a software renderer in C",          tags: ["lowlevel", "gamedev"]      },
-          { text: "Implement a sorting algorithm library",   tags: ["theory", "algorithms"]     },
-          { text: "Refactor and document an old codebase",   tags: ["craft", "pragmatic"]       },
-          { text: "Prototype a distributed cache",           tags: ["architecture", "systems"]  },
-        ],
-      },
-    ],
-    books: [
-      {
-        title:       "Game Engine Black Book: Doom",
-        author:      "Fabien Sanglard",
-        description: "A deep dive into the id Software Doom source code. Essential for anyone fascinated by how classic games were built from the ground up.",
-        tags:        ["lowlevel", "gamedev"],
-        emoji:       "👾",
-      },
-      {
-        title:       "Game Engine Architecture",
-        author:      "Jason Gregory",
-        description: "Thorough reference on modern game engine design — rendering, audio, physics, input. Great chapter on 3D math.",
-        tags:        ["gamedev", "architecture"],
-        emoji:       "🎮",
-      },
-      {
-        title:       "Computer Systems: A Programmer's Perspective",
-        author:      "Bryant & O'Hallaron",
-        description: "Bridges the gap between software and hardware. Covers assembly, memory hierarchy, processes, and system-level I/O.",
-        tags:        ["systems", "lowlevel"],
-        emoji:       "💻",
-      },
-      {
-        title:       "Structure and Interpretation of Computer Programs",
-        author:      "Abelson & Sussman",
-        description: "The legendary MIT textbook. Teaches programming through Scheme and builds rock-solid intuition for computation itself.",
-        tags:        ["theory", "algorithms"],
-        emoji:       "🧠",
-      },
-      {
-        title:       "The Algorithm Design Manual",
-        author:      "Steven Skiena",
-        description: "Practical guide to algorithm design with an excellent problem catalog. Less formal than CLRS, more actionable.",
-        tags:        ["algorithms", "pragmatic"],
-        emoji:       "📐",
-      },
-      {
-        title:       "The Pragmatic Programmer",
-        author:      "Hunt & Thomas",
-        description: "Timeless advice on being a better software developer. More about mindset and habits than any specific technology.",
-        tags:        ["craft", "pragmatic"],
-        emoji:       "🔧",
-      },
-      {
-        title:       "Clean Architecture",
-        author:      "Robert C. Martin",
-        description: "Opinionated take on structuring large software systems. Useful for understanding dependency rules and architectural boundaries.",
-        tags:        ["architecture", "craft"],
-        emoji:       "🏗️",
-      },
-    ],
+  quiz: { tree:
+    { q: "Fantasy or Contemporary?", answers: [
+      { text: "Fantasy", next:
+        { q: "How dark do you want the setting to be?", answers: [
+          { text: "Cozy", next:
+            { q: "Set in our world or a fictional one?", answers: [
+              { text: "Our world",
+                next: { book: "A Very Secret Society of Irregular Witches", author: "Sangu Mandanna" } },
+              { text: "Fictional world", next:
+                { q: "Romance or no romance?", answers: [
+                  { text: "Romance", next:
+                    { q: "Do you prefer Coffee or Tea?", answers: [
+                      { text: "Coffee", next: { book: "Legends and Lattes",  author: "Travis Baldree"    } },
+                      { text: "Tea",    next: { book: "The Spellshop",        author: "Sarah Beth Durst"  } },
+                    ] } },
+                  { text: "No Romance",
+                    next: { book: "The Girl Who Drank The Moon", author: "Kelly Barnhill" } },
+                ] } },
+            ] } },
+          { text: "Grimdark", next:
+            { q: "High Magic or Low Magic?", answers: [
+              { text: "High", next:
+                { q: "Eastern or western culture inspired?", answers: [
+                  { text: "Eastern", next: { book: "The Poppy War",            author: "R.F. Kuang"      } },
+                  { text: "Western", next: { book: "The Book of the Ancestor", author: "Mark Lawrence"   } },
+                ] } },
+              { text: "Low",
+                next: { book: "The First Law Trilogy", author: "Joe Abercrombie" } },
+            ] } },
+          { text: "Somewhere in between", next:
+            { q: "Low Magic or High Magic settings?", answers: [
+              { text: "Low Magic", next:
+                { q: "Epic Battles or Gritty Skirmishes?", answers: [
+                  { text: "Epic Battles",
+                    next: { book: "The Faithful and the Fallen", author: "John Gwynne" } },
+                  { text: "Gritty Skirmishes", next:
+                    { q: "Series or standalones?", answers: [
+                      { text: "Series",      next: { book: "Bloodborne Saga",                    author: "John Gwynne"     } },
+                      { text: "Standalones", next: { book: "Kings of the Wyld and Bloody Rose",  author: "Nicholas Eames"  } },
+                    ] } },
+                ] } },
+              { text: "High Magic", next:
+                { q: "Hard magic system or soft magic system?", answers: [
+                  { text: "Hard System", next:
+                    { q: "Do you enjoy long Shonen anime?", answers: [
+                      { text: "Yes", next: { book: "Cradle", author: "Will Wight" } },
+                      { text: "No",  next:
+                        { q: "Do you like heist stories? (Think Ocean's Eleven)", answers: [
+                          { text: "Yes", next: { book: "Mistborn Era 1 Trilogy", author: "Brandon Sanderson" } },
+                          { text: "No",  next:
+                            { q: "Combat or non-combat oriented magic system?", answers: [
+                              { text: "Combat",     next: { book: "Rise of Kyoshi and Shadow of Kyoshi", author: "F.C. Yee"           } },
+                              { text: "Non-combat", next: { book: "Elantris",                             author: "Brandon Sanderson" } },
+                            ] } },
+                        ] } },
+                    ] } },
+                  { text: "Soft System", next:
+                    { q: "Complex narrative or beginner friendly?", answers: [
+                      { text: "Beginner friendly", next: { book: "The Lord of the Rings",       author: "J.R.R. Tolkien"  } },
+                      { text: "Complex",           next: { book: "Malazan Book of the Fallen",  author: "Steve Erikson"   } },
+                    ] } },
+                ] } },
+            ] } },
+        ] } },
+      { text: "Contemporary", next:
+        { q: "Romance or Literary?", answers: [
+          { text: "Romance", next:
+            { q: "Historic or modern setting?", answers: [
+              { text: "Historic",
+                next: { book: "Last Night at the Telegraph Club", author: "Malinda Lo" } },
+              { text: "Modern", next:
+                { q: "Tragic or comforting?", answers: [
+                  { text: "Tragic",     next: { book: "Looking for Alaska", author: "John Green"    } },
+                  { text: "Comforting", next: { book: "Loveless",           author: "Alice Oseman"  } },
+                ] } },
+            ] } },
+          { text: "Literary", next:
+            { q: "Heartwarming or Eerie?", answers: [
+              { text: "Heartwarming", next: { book: "A Man Called Ove", author: "Frederik Backman" } },
+              { text: "Eerie",        next: { book: "Beartown",         author: "Frederik Backman" } },
+            ] } },
+        ] } },
+    ] },
   },
 
 
